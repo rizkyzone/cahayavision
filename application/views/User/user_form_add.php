@@ -16,7 +16,7 @@
                     <div class="row justify-content-md-center">
                     <div class="ol col-lg-6">
                         
-                   `   <form action="" method="post">
+                   <form action="" method="post">
                             <div class="form-group">
                                 <label>Name *</label>
                                 <input type="text" name="fullname" value="<?=set_value('fullname')?>" class="form-control <?=form_error('fullname')? 'is-invalid' : null?>">

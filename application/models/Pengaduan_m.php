@@ -125,6 +125,7 @@ class Pengaduan_m extends CI_Model {
         }
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pengaduan.pelanggan_id' , 'left');
         $this->db->join('teknisi' , 'teknisi.teknisi_id=pengaduan.teknisi_id' , 'left');
+        $this->db->order_by('pengaduan.tanggal_pengaduan','desc');
         $query = $this->db->get();
        // echo $this->db->last_query();die();
         return $query;

@@ -16,7 +16,7 @@
                     <div class="row justify-content-md-center">
                     <div class="ol col-lg-6">
                         
-                   `   <form action="<?php echo site_url('pelanggandata/process_pemutusan')?>" method="post">
+                   <form action="<?php echo site_url('pelanggandata/process_pemutusan')?>" method="post">
                    <div class="form-group">
                                 <label for="disabledTextInput">Nama Pelanggan</label>
                                 <input type="hidden" name="pemutusan_id" value="<?php echo $row->pemutusan_id?>">

@@ -21,7 +21,7 @@
 
 </head>
 
-<body class="bg-gradient-danger">
+<body class="bg-gradient-success">
 
   <div class="container">
 
@@ -47,7 +47,7 @@
                     <div class="form-group">
                       <input type="password" name="password" class="form-control form-control-user" placeholder="Password">
                     </div>
-                    <button type="submit" name=login class="btn btn-danger btn-user btn-block">Sign In</button>
+                    <button type="submit" name=login class="btn btn-success btn-user btn-block">Sign In</button>
                     <hr>
                   </form>
                  

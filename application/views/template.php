@@ -64,7 +64,7 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
+          <i class="fas fa-fw fa-database"></i>
           <span>Data Master Pelanggan</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -78,7 +78,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <i class="fas fa-fw fa-cog"></i>
+          <i class="fas fa-bell"></i>
           <span>Pengaduan</span>
         </a>
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
@@ -92,7 +92,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?=site_url('teknisi')?>">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-fw fa-tools"></i>
           <span>Teknisi</span></a>
       </li>
 

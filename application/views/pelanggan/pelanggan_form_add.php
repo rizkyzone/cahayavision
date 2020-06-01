@@ -16,7 +16,7 @@
                     <div class="row justify-content-md-center">
                     <div class="ol col-lg-6">
                         
-                   `   <form action="" method="post">
+                   <form action="" method="post">
                             <div class="form-group">
                                 <label>NIK *</label>
                                 <input type="text" name="nik" value="<?=set_value('nik')?>" class="form-control <?=form_error('nik')? 'is-invalid' : null?>">

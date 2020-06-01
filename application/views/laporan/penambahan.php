@@ -16,7 +16,7 @@
                     <div class="row justify-content-md-center">
                     <div class="ol col-lg-6">
                         
-                   `   <form action="<?=base_url('laporan/laporanpenambahan');?>" method="post">
+                   <form action="<?=base_url('laporan/laporanpenambahan');?>" method="post">
                             
                             <div class="form-group">
                             <label class="control-label"><small>Kelurahan : </small></label>

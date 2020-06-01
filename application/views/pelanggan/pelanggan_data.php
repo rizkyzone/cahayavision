@@ -7,7 +7,7 @@
             </div>
                  <div class="card-body">
                  <div class="my-2">
-                    <a href="<?php echo site_url('pelanggan/add') ?>" class="btn btn-primary btn-icon-split">
+                    <a href="<?php echo site_url('pelanggan/add') ?>" class="btn btn-primary btn-icon-split disabled">
                     <span class="icon text-white-50">
                     <i class="fas fa-user-plus"></i>
                     </span>

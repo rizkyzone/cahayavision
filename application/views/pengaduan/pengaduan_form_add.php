@@ -16,7 +16,7 @@
                     <div class="row justify-content-md-center">
                     <div class="ol col-lg-6">
                         
-                   `   <form action="<?php echo site_url('pengaduan/process')?>" method="post">
+                   <form action="<?php echo site_url('pengaduan/process')?>" method="post">
                             <div class="form-group">
                             <label class="control-label"><small>Nama Pelanggan : </small></label>
                             <input type="hidden" name="pemasangan_id" value="<?php echo $row->pengaduan_id?>">
