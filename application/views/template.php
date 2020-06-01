@@ -33,7 +33,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -113,9 +113,9 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="<?=site_url('laporan/pelanggan')?>">Laporan Data Pelanggan</a>
-            <a class="collapse-item" href="<?=site_url('laporan/pemasangan')?>">Laporan Jumlah Pemasangan</a>
-            <a class="collapse-item" href="<?=site_url('laporan/pembayaran')?>">Laporan Pembayaran</a>
+            <a class="collapse-item" href="<?=site_url('laporan/pelanggan')?>">Data Pelanggan</a>
+            <a class="collapse-item" href="<?=site_url('laporan/pemasangan')?>">Jumlah Pemasangan</a>
+            <a class="collapse-item" href="<?=site_url('laporan/pembayaran')?>">Pembayaran</a>
         </div>
       </li>
 
@@ -158,7 +158,7 @@
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-danger" type="button">
+                <button class="btn btn-success" type="button">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>

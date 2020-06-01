@@ -91,9 +91,9 @@ class Pelanggan extends CI_Controller {
 			$post = $this->input->post(null, TRUE);
 			$this->pelanggan_m->edit($post);
 			if($this->db->affected_rows() > 0) {
-				echo "<script> alert('Data berhasil disimpan');</script>";
+				$this->session->set_flashdata('success', 'Data Berhasil Disimpan');
 			}
-				echo "<script>window.location='".site_url('pelanggan')."';</script>";
+			redirect('pelanggan');
 		}
 	}
 	public function username_check(){

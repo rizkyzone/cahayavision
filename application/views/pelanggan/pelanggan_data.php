@@ -1,3 +1,4 @@
+<?php $this->view('message') ?>
     <!-- Page Heading -->
     <div class="card shadow mb-4">
     <?=$this->session->flashdata('success');?>
