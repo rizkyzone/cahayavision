@@ -12,7 +12,19 @@ class Pengaduan extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "Data pengaduan";
-		$data['row'] = $this->pengaduan_m->get();
+		$data['row'] = $this->pengaduan_m->getstatus();
+		$this->template->load('template', 'pengaduan/pengaduan_data', $data);
+	}
+	public function dalam_pengerjaan()
+	{
+		$data['title'] = "Data pengaduan";
+		$data['row'] = $this->pengaduan_m->getstatus1();
+		$this->template->load('template', 'pengaduan/pengaduan_data', $data);
+	}
+	public function sudah_dikerjakan()
+	{
+		$data['title'] = "Data pengaduan";
+		$data['row'] = $this->pengaduan_m->getstatus2();
 		$this->template->load('template', 'pengaduan/pengaduan_data', $data);
 	}
 	

@@ -16,6 +16,39 @@ class Pengaduan_m extends CI_Model {
         
         return $query;
     }
+    public function getstatus()
+    {
+        $this->db->from('pengaduan');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pengaduan.pelanggan_id' , 'left');
+        $this->db->join('teknisi' , 'teknisi.teknisi_id=pengaduan.teknisi_id' , 'left');
+        $this->db->where('status_pengaduan', 1);
+        $this->db->order_by('pengaduan.tanggal_pengaduan','asc');
+        $query = $this->db->get();
+        
+        return $query;
+    }
+    public function getstatus1()
+    {
+        $this->db->from('pengaduan');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pengaduan.pelanggan_id' , 'left');
+        $this->db->join('teknisi' , 'teknisi.teknisi_id=pengaduan.teknisi_id' , 'left');
+        $this->db->where('status_pengaduan', 2);
+        $this->db->order_by('pengaduan.tanggal_pengaduan','asc');
+        $query = $this->db->get();
+        
+        return $query;
+    }
+    public function getstatus2()
+    {
+        $this->db->from('pengaduan');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pengaduan.pelanggan_id' , 'left');
+        $this->db->join('teknisi' , 'teknisi.teknisi_id=pengaduan.teknisi_id' , 'left');
+        $this->db->where('status_pengaduan', 3);
+        $this->db->order_by('pengaduan.tanggal_pengaduan','asc');
+        $query = $this->db->get();
+        
+        return $query;
+    }
     
     public function ambil_data($tabel)
     {
@@ -47,7 +80,28 @@ class Pengaduan_m extends CI_Model {
 
         $this->db->insert('pengaduan', $params);
     }
+    public function tambah($post)
+    {
+        $params['pelanggan_id'] = $post['pelanggan_id'];
+        $params['tanggal_pengaduan'] = $post['tgl'];
+        $params['keluhan'] = $post['keluhan'];
+        $params['status_pengaduan'] = $post['status_pengaduan'];
+
+        $this->db->insert('pengaduan', $params);
+    }
+    
     public function edit($post)
+    {
+        $params['pelanggan_id'] = $post['pelanggan_id'];
+        $params['tanggal_pengaduan'] = $post['tgl'];
+        $params['keluhan'] = $post['keluhan'];
+        $params['teknisi_id'] = $post['teknisi_id'];
+        $params['status_pengaduan'] = $post['status_pengaduan'];
+
+        $this->db->where('pengaduan_id', $post['pengaduan_id']);
+        $this->db->update('pengaduan', $params);
+    }
+    public function ubah($post)
     {
         $params['pelanggan_id'] = $post['pelanggan_id'];
         $params['tanggal_pengaduan'] = $post['tgl'];

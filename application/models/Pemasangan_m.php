@@ -11,7 +11,8 @@ class Pemasangan_m extends CI_Model {
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
         $this->db->join('kelurahan' , 'kelurahan.kelurahan_id=pelanggan.kelurahan_id' , 'left');
         $this->db->join('teknisi' , 'teknisi.teknisi_id=pemasangan.teknisi_id' , 'left');
-        $this->db->order_by('pemasangan.pemasangan_id','desc');
+        $this->db->order_by('pemasangan.status','asc');
+        $this->db->order_by('pemasangan.tanggal_pemasangan','asc');
         $query = $this->db->get();
         return $query;
     }

@@ -11,6 +11,7 @@ class Pelanggandata extends CI_Controller {
 		$this->load->model('pemasangan_m');
 		$this->load->model('pembayaran_m');
 		$this->load->model('pengaduan_m');
+		$this->load->model('pemutusan_m');
 		$this->load->library('form_validation');	
     }
     public function index()
@@ -34,6 +35,40 @@ class Pelanggandata extends CI_Controller {
 	   	$data['pelanggan'] = $this->pembayaran_m->ambil_data('pelanggan');
 		$this->template->load('template4', 'pembayaran/pembayaran_pelanggan', $data);
 	}
+	public function tambah() #function edit dan add
+	{
+		$pengaduan = new stdClass();
+		$pengaduan->pengaduan_id = null;
+		$pengaduan->nama = null;
+		$pengaduan->nama_karyawan = null;
+		$pengaduan->tanggal_pengaduan = null;
+		$pengaduan->status = null;
+		$data = array(
+			'page' => 'tambah',
+			'title' => 'Data pengaduan',
+			'row' => $pengaduan
+        );
+		$data['pelanggan'] = $this->pengaduan_m->ambil_data('pelanggan');
+		$data['teknisi'] = $this->pengaduan_m->ambil_data('teknisi');
+       // print_r($data);die();
+		$this->template->load('template4', 'pengaduan/pengaduan_pelanggan_add', $data);
+		
+	}
+	public function tambah_pemutusan() #function edit dan add
+	{
+		$pemutusan = new stdClass();
+		$pemutusan->pemutusan_id = null;
+		$pemutusan->alasan_pemutusan = null;
+		$data = array(
+			'page' => 'tambah_pemutusan',
+			'title' => 'Data Pemutusan',
+			'row' => $pemutusan
+        );
+		$data['pelanggan'] = $this->pemutusan_m->ambil_data('pelanggan');
+       // print_r($data);die();
+		$this->template->load('template4', 'pemutusan/pemutusan_form_add', $data);
+		
+    }
 	public function process()
 	{
 			$config['upload_path']          = './uploads/';
@@ -100,7 +135,35 @@ class Pelanggandata extends CI_Controller {
             	}
 		}
 		
-    }
+	}
+	public function process2()
+	{
+		$post = $this->input->post(null, TRUE);
+		if(isset($_POST['tambah'])){
+			$this->pengaduan_m->tambah($post);
+		}else if(isset($_POST['ubah'])){
+			$this->pengaduan_m->ubah($post);
+			
+		}
+		if($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata('success', 'Data Berhasil Disimpan');
+		}
+		redirect('pelanggandata/pengaduan/'.$post['pelanggan_id']);
+	}
+	public function process_pemutusan()
+	{
+		$post = $this->input->post(null, TRUE);
+		if(isset($_POST['tambah_pemutusan'])){
+			$this->pemutusan_m->tambah_pemutusan($post);
+		}else if(isset($_POST['ubah'])){
+			$this->pemutusan_m->ubah($post);
+			
+		}
+		if($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata('success', 'Data Berhasil Disimpan');
+		}
+		redirect('pelanggandata/pemutusan/'.$post['pelanggan_id']);
+	}
     public function edit($id)
 	{
 		$query = $this->pembayaran_m->get_pembayaran_only($id);
@@ -131,8 +194,9 @@ class Pelanggandata extends CI_Controller {
 				'title' => 'Data pembayaran',
 				'row' => $pelanggan
 			);
-            $data['pelanggan'] = $this->pengaduan_m->ambil_data('pelanggan');
-			$this->template->load('template4','pengaduan/pengaduan_pelanggan',$data);
+			$data['pelanggan'] = $this->pengaduan_m->ambil_data('pelanggan');
+			$data['teknisi'] = $this->pengaduan_m->ambil_data('teknisi');
+			$this->template->load('template4','pengaduan/pengaduan_pelanggan_edit',$data);
 		
 		}else{
 				echo "<script> alert('Data tidak ditemukan');";
@@ -170,6 +234,15 @@ class Pelanggandata extends CI_Controller {
 		$data['pengaduan'] = $this->pelanggan_m->ambil_data('pengaduan');
         $data['teknisi'] = $this->pelanggan_m->ambil_data('teknisi');
 		$this->template->load('template4', 'pengaduan/data_pengaduan', $data);
+			
+	}
+	public function pemutusan($id)
+	{
+		$query = $this->pemutusan_m->get_pemutusan($id);
+			
+		$data['row'] = $query->result();
+		$data['pelanggan'] = $this->pelanggan_m->ambil_data('pelanggan');
+		$this->template->load('template4', 'pemutusan/data_pemutusan', $data);
 			
 	}
 

@@ -77,7 +77,7 @@
           <span>Pengaduan</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?php echo site_url('pelanggandata/pemutusan/'.$this->fungsi->user_login2()->pelanggan_id)?>">
           <i class="fas fa-fw fa-comments"></i>
           <span>Permohonan Pemutusan</span></a>
       </li>

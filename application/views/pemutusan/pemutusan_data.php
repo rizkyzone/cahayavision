@@ -2,11 +2,11 @@
     <?php $this->view('message') ?>
     <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Data Pengaduan</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Data Permintaan Pemutusan</h6>
             </div>
                  <div class="card-body">
                  <div class="my-2">
-                    <a href="<?php echo site_url('pengaduan/add') ?>" class="btn btn-primary btn-icon-split">
+                    <a href="<?php echo site_url('pemutusan/add') ?>" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                     <i class="fas fa-user-plus"></i>
                     </span>
@@ -19,10 +19,9 @@
                          <tr>
                                 <th>NO</th>
                                 <th>Nama</th>
-                                <th>Keluhan</th>
-                                <th>Telepon</th>
-                                <th>Tanggal Pengaduan</th>
-                                <th>Teknisi</th>
+                                <th>Alasan Pemutusan</th>
+                                <th>No Telp</th>
+                                <th>Tanggal Pemutusan</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                          </tr>
@@ -33,30 +32,28 @@
                     <tr>
                         <td><?php echo $no++?>.</td>
                         <td><?php echo $data->nama?></td>
-                        <td><?php echo $data->keluhan?></td>
+                        <td><?php echo $data->alasan_pemutusan?></td>
                         <td><?php echo $data->no_telp?></td>
-                        <td><?php echo $data->tanggal_pengaduan?></td>
-                        
-                        <td><?php echo $data->nama_teknisi?></td>
+                        <td><?php echo $data->tanggal_pemutusan?></td>
                         <td>
-                        <?php if($data->status_pengaduan == 1) {
+                        <?php if($data->status_pemutusan == 1) {
 				                echo "Menunggu Validasi";
-                        }elseif($data->status_pengaduan == 2) {
-                        echo "Dalam Pengerjaan";
-                        }elseif($data->status_pengaduan == 3) {
-                        echo "Sudah Dikerjakan";
+                        }elseif($data->status_pemutusan == 2) {
+                        echo "Putus";
+                       
 				        }?>
+                     
 
                         </td>
 
                         
                         <td class="text-center" width="160px">
-                            <form action="<?php echo site_url('pengaduan/del')?>"method="post">
-                                <a href="<?php echo site_url('pengaduan/edit/'.$data->pengaduan_id) ?>" class="btn btn-primary btn-circle btn-sm">
+                            <form action="<?php echo site_url('pemutusan/del')?>"method="post">
+                                <a href="<?php echo site_url('pemutusan/edit/'.$data->pemutusan_id) ?>" class="btn btn-primary btn-circle btn-sm">
                                 <i class="fas fa-edit"></i> 
                                 </a>
                             
-                                <a href="<?php echo site_url('pengaduan/del/'.$data->pengaduan_id)?>" onclick="return confirm('Yakin hapus data?')" class="btn btn-danger btn-circle btn-sm">
+                                <a href="<?php echo site_url('pemutusan/del/'.$data->pemutusan_id)?>" onclick="return confirm('Yakin hapus data?')" class="btn btn-danger btn-circle btn-sm">
                                 <i class="fas fa-trash"></i>
                                 </a>
                             </form>

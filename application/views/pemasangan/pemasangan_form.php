@@ -24,9 +24,9 @@
                             <select name="pelanggan_id" id="pelanggan_id" class="form-control selectpicker show-tick" data-live-search="true">
                             <?php foreach ($pelanggan as $d){ ?>
                                <?php if($d['pelanggan_id'] == ( $this->input->post('pelanggan_id') ?? $row->pelanggan_id)){ ?>
-                               <option value="<?php echo $d['pelanggan_id'] ?>" selected ><?php echo $d['nama'] ?></option>
+                               <option value="<?php echo $d['pelanggan_id'] ?>" selected ><?php echo $d['nama'] ?> - <?php echo $d['no_telp'] ?></option>
                                <?php }else{ ?>
-                            <option value="<?php echo $d['pelanggan_id'] ?>"><?php echo $d['nama'] ?></option>
+                            <option value="<?php echo $d['pelanggan_id'] ?>"><?php echo $d['nama'] ?> - <?php echo $d['no_telp'] ?></option>
                             <?php }} ?>
                             </select>
                             </div>

@@ -5,14 +5,14 @@
 	<base href="<?php echo base_url() ?>">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css">
 </head>
 <body onload="print()">
 	<center>
 		<table>
 			<tr>
 				<td>
-					<img src="<?php echo base_url('assets/dist') ?>/img/logo-mu.png" style="width: 100px; height: 100px;">
+					<img src="<?php echo base_url('assets/') ?>/img/logo-mu.png" style="width: 100px; height: 100px;">
 				</td>
 				<td>
 					<center>

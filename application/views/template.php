@@ -73,7 +73,20 @@
             <a class="collapse-item" href="<?=site_url('pelanggan')?>">Pelanggan</a>
             <a class="collapse-item" href="<?=site_url('pemasangan')?>">Pemasangan</a>
             <a class="collapse-item" href="<?=site_url('pembayaran')?>">Pembayaran</a>
-            <a class="collapse-item" href="<?=site_url('pengaduan')?>">Pengaduan</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Pengaduan</span>
+        </a>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Pengaduan Pelanggan:</h6>
+            <a class="collapse-item" href="<?=site_url('pengaduan')?>">Menunggu Validasi</a>
+            <a class="collapse-item" href="<?=site_url('pengaduan/dalam_pengerjaan')?>">Dalam Pengerjaan</a>
+            <a class="collapse-item" href="<?=site_url('pengaduan/sudah_dikerjakan')?>">Sudah Dikerjakan</a>
           </div>
         </div>
       </li>
