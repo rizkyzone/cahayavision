@@ -196,6 +196,7 @@ class Pelanggandata extends CI_Controller
 	}
 	public function status_pemasangan($id)
 	{
+		$this->db->join('pemasangan', 'pemasangan.pelanggan_id=pelanggan.pelanggan_id', 'left');
 		$query = $this->pelanggan_m->get($id);
 
 		$data['row'] = $query->row();
