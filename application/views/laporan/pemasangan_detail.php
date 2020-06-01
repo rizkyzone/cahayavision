@@ -22,7 +22,8 @@
 				</td>
 			</tr>
 		</table>
-		<h4>LAPORAN DATA Penambahan Pelanggan</h4>
+        <?php $tahun = $this->input->post('tahun');?>
+		<h4>LAPORAN DATA PENAMBAHAN PELANGGAN TAHUN <?php echo $tahun?></h4>
 	</center>
     <table class="table table-bordered">
                 <thead>
