@@ -24,7 +24,6 @@
                                 <th>Telepon</th>
                                 <th>Alasan Pemutusan</th>
                                 <th>Tanggal Pemutusan</th>
-                                <th>Status</th>
                                 
                          </tr>
                     </thead>

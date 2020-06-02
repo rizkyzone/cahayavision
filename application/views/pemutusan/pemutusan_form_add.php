@@ -5,7 +5,7 @@
             </div>
                  <div class="card-body">
                  <div class="my-2">
-                    <a href="<?php echo site_url('pengaduan/') ?>" class="btn btn-warning btn-icon-split">
+                    <a href="<?php echo site_url('pelanggandata/pemutusan/'.$this->fungsi->user_login2()->pelanggan_id) ?>" class="btn btn-warning btn-icon-split">
                     <span class="icon text-white-50">
                     <i class="fas fa-undo"></i>
                     </span>
