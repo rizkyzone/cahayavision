@@ -117,8 +117,9 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Laporan :</h6>
             <a class="collapse-item" href="<?= site_url('laporan/pelanggan') ?>">Data Pelanggan</a>
-            <a class="collapse-item" href="<?= site_url('laporan/pemasangan') ?>">Jumlah Pemasangan</a>
-            <a class="collapse-item" href="<?= site_url('laporan/pembayaran') ?>">Pembayaran</a>
+            <a class="collapse-item" href="<?= site_url('laporan/pemasangan') ?>">Data Pemasangan</a>
+            <a class="collapse-item" href="<?= site_url('laporan/pembayaran') ?>">Data Pembayaran</a>
+            <a class="collapse-item" href="<?= site_url('laporan/penambahan') ?>">Data Penambahan</a>
           </div>
       </li>
 

@@ -18,8 +18,13 @@ class Laporan extends CI_Controller
 
     $this->template->load('template', 'laporan/pembayaran');
   }
-
   public function pemasangan()
+  {
+
+    $this->template->load('template', 'laporan/pemasangan');
+  }
+
+  public function penambahan()
   {
 
     $this->template->load('template', 'laporan/penambahan');
@@ -30,6 +35,13 @@ class Laporan extends CI_Controller
     $tgl_akhir = $this->input->post('tgl_akhir');
     $data['p'] = $this->pembayaran_m->getByDate($tgl_awal, $tgl_akhir);
     $this->load->view('laporan/pembayaran_detail', $data);
+  }
+  public function laporanpemasangan()
+  {
+    $tgl_awal = $this->input->post('tgl_awal');
+    $tgl_akhir = $this->input->post('tgl_akhir');
+    $data['p'] = $this->pemasangan_m->getByDate($tgl_awal, $tgl_akhir);
+    $this->load->view('laporan/pemasangan_detail', $data);
   }
   public function pelanggan()
   {
@@ -54,6 +66,6 @@ class Laporan extends CI_Controller
   {
     $pemasangan = $this->input->post('pemasangan_id');
     $data['p'] = $this->pemasangan_m->getpenambahan($pemasangan);
-    $this->load->view('laporan/pemasangan_detail', $data);
+    $this->load->view('laporan/penambahan_detail', $data);
   }
 }

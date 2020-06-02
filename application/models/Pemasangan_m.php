@@ -102,5 +102,26 @@ class Pemasangan_m extends CI_Model {
         return $q;
         
     }
+    public function getByDate($tgl_awal, $tgl_akhir)
+    {
+        $kondisi = "";
+        $this->db->select('');
+        $this->db->from('pemasangan');
+        $this->db->join('pelanggan','pelanggan.pelanggan_id=pemasangan.pelanggan_id','left');
+        $this->db->order_by('pemasangan.status','asc');
+        $this->db->order_by('pemasangan.tanggal_pemasangan','asc');
+        if ($tgl_awal != "" && $tgl_akhir==""){
+            $this->db->where('tanggal_pemasangan >=',$tgl_awal);
+        } else if ($tgl_awal == "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pemasangan <=',$tgl_akhir);
+        } else  if ($tgl_awal != "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pemasangan >=',$tgl_awal);
+            $this->db->where('tanggal_pemasangan <=',$tgl_akhir);
+        }
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+        return $q;
+        
+    }
 
 }
