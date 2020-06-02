@@ -106,6 +106,21 @@ class Pembayaran_m extends CI_Model {
         return $q;
         
     }
+    public function getpelanggan()
+    {
+        $kondisi = "";
+        $this->db->select('');
+        $this->db->from('pelanggan');
+        $this->db->order_by('status', 'desc');
+        $this->db->join('kelurahan','kelurahan.kelurahan_id=pelanggan.kelurahan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $q = $this->db->get();
+        $q = $q->result_array();
+        //echo $this->db->last_query();
+        //print_r($q);
+        return $q;
+        
+    }
     
     public function get_pembayaran($id= null)
     {

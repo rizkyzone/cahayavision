@@ -1,7 +1,7 @@
     <!-- Page Heading -->
     <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Laporan Data Pelanggan PerKelurahan</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Laporan Data Penambahan Pelanggan</h6>
             </div>
                  <div class="card-body">
                  <div class="my-2">
@@ -19,7 +19,7 @@
                    <form action="<?=base_url('laporan/laporanpenambahan');?>" method="post" target="_blank">
                             
                             <div class="form-group">
-                            <label class="control-label"><small>Kelurahan : </small></label>
+                            <label class="control-label"><small>Tahun : </small></label>
                             <select name="tahun" class="form-control selectpicker show-tick" data-live-search="true">
                            
                             <option value="2019">2019</option>

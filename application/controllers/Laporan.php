@@ -9,6 +9,7 @@ class Laporan extends CI_Controller
 
     parent::__construct();
     check_not_login();
+    $this->load->model('pelanggan_m');
     $this->load->model('pembayaran_m');
     $this->load->model('pemasangan_m');
   }
@@ -40,6 +41,11 @@ class Laporan extends CI_Controller
   {
     $kelurahan = $this->input->post('kelurahan_id');
     $data['p'] = $this->pembayaran_m->getkelurahan($kelurahan);
+    $this->load->view('laporan/pelanggan_detail', $data);
+  }
+  public function laporanpelanggan()
+  {
+    $data['p'] = $this->pembayaran_m->getpelanggan();
     $this->load->view('laporan/pelanggan_detail', $data);
   }
   public function laporanpenambahan()

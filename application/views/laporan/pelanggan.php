@@ -19,6 +19,7 @@
                       <form action="<?=base_url('laporan/laporankelurahan');?>" method="post" target="_blank">
                             
                             <div class="form-group">
+                            
                             <label class="control-label"><small>Kelurahan : </small></label>
                             <select name="kelurahan_id" id="kelurahan_id" class="form-control selectpicker show-tick" data-live-search="true">
                             <?php foreach ($kelurahan as $d){ ?>
@@ -30,10 +31,18 @@
                             
                             <div class="form-group">
                             <button type="submit" class="btn btn-success btn-flat">
-                            <i class="fa fa-paper-plane"></i> Proses
+                            <i class="fa fa-paper-plane"></i> Perkelurahan
                             </button>
+                           
+                            <a href="<?php echo site_url('laporan/laporanpelanggan') ?>" class="btn btn-danger btn-icon-split" target="_blank">
+                             <span class="icon text-white-50">
+                            <i class="fas fa-print"></i>
+                            </span>
+                            <span class="text">Print all</span>
+                            </a>
                             
                             </div>
+                            
                         </form>
                     </div>
                 </div>
