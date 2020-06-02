@@ -4,11 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Pemutusan_m extends CI_Model {
     public function get($id= null)
     {
-        $this->db->from('Pemutusan');
+        $this->db->from('pemutusan');
         if($id != null){
             $this->db->where('pemutusan_id', $id);
         }
-        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=Pemutusan.pelanggan_id' , 'left');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemutusan.pelanggan_id' , 'left');
+        $this->db->join('pemasangan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
         $query = $this->db->get();
         
         return $query;

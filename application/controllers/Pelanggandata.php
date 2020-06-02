@@ -241,7 +241,7 @@ class Pelanggandata extends CI_Controller {
 		$query = $this->pemutusan_m->get_pemutusan($id);
 			
 		$data['row'] = $query->result();
-		$data['pelanggan'] = $this->pelanggan_m->ambil_data('pelanggan');
+		$data['pemasangan'] = $this->pemutusan_m->ambil_data('pemasangan');
 		$this->template->load('template4', 'pemutusan/data_pemutusan', $data);
 			
 	}

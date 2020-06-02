@@ -11,6 +11,7 @@
                     <i class="fas fa-user-plus"></i>
                     </span>
                     <span class="text">Ajukan Pemutusan</span>
+                   
                     </a>
                  <div class="card-body">
                  
@@ -24,6 +25,7 @@
                                 <th>Alasan Pemutusan</th>
                                 <th>Tanggal Pemutusan</th>
                                 <th>Status</th>
+                                
                          </tr>
                     </thead>
                     <tbody>
@@ -35,16 +37,6 @@
                         <td><?php echo  $key->no_telp?></td>
                         <td><?php echo  $key->alasan_pemutusan?></td>
                         <td><?php echo  $key->tanggal_pemutusan?></td>
-                        
-                        <td>
-                        <?php if($key->status_pemutusan == 1) {
-				                echo "Menunggu Validasi ";
-                        }elseif($key->status_pemutusan == 2) {
-                        echo "Putus";
-				        }?>
-
-                        </td>
-                        
                         
                        
                     </tr>
