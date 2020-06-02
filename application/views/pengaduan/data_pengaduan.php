@@ -6,7 +6,11 @@
       </div>
       <div class="card-body">
         <div class="my-2">
-          <a href="<?php echo site_url('pelanggandata/tambah') ?>" class="btn btn-primary btn-icon-split">
+          <a href="<?php echo site_url('pelanggandata/tambah') ?>" class="btn btn-primary btn-icon-split
+          <?php if($rower->status != 2) {
+				                echo "disabled";  }?>
+          
+          ">
             <span class="icon text-white-50">
               <i class="fas fa-user-plus"></i>
             </span>

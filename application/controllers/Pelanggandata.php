@@ -222,13 +222,19 @@ class Pelanggandata extends CI_Controller
 		$data['row'] = $query->result();
 		$data['pengaduan'] = $this->pelanggan_m->ambil_data('pengaduan');
 		$data['teknisi'] = $this->pelanggan_m->ambil_data('teknisi');
+		$query = $this->pemutusan_m->get_status($id);
+		$data['rower'] = $query->row();
+		$data['pemasangan'] = $this->pemutusan_m->ambil_data('pemasangan');
 		$this->template->load('template4', 'pengaduan/data_pengaduan', $data);
 	}
 	public function pemutusan($id)
 	{
 		$query = $this->pemutusan_m->get_pemutusan($id);
-
+		
 		$data['row'] = $query->result();
+		$data['pemasangan'] = $this->pemutusan_m->ambil_data('pemasangan');
+		$query = $this->pemutusan_m->get_status($id);
+		$data['rower'] = $query->row();
 		$data['pemasangan'] = $this->pemutusan_m->ambil_data('pemasangan');
 		$this->template->load('template4', 'pemutusan/data_pemutusan', $data);
 	}

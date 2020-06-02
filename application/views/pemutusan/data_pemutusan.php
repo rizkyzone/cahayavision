@@ -6,18 +6,23 @@
             </div>
             <div class="card-body">
                  <div class="my-2">
-                    <a href="<?php echo site_url('pelanggandata/tambah_pemutusan') ?>" class="btn btn-primary btn-icon-split">
+                    <a href="<?php echo site_url('pelanggandata/tambah_pemutusan') ?>" class="btn btn-primary btn-icon-split 
+                    <?php if($rower->status != 2) {
+				                echo "disabled";  }?>
+                    ">
                     <span class="icon text-white-50">
+                    
                     <i class="fas fa-user-plus"></i>
                     </span>
                     <span class="text">Ajukan Pemutusan</span>
-                   
+                    
                     </a>
                  <div class="card-body">
                  
                     <div class="table-responsive">
                     <table class="table table-bordered" id="table1" width="100%" cellspacing="0">
                          <thead>
+                         
                          <tr>
                                 <th>NO</th>
                                 <th>Nama</th>
@@ -36,7 +41,6 @@
                         <td><?php echo  $key->no_telp?></td>
                         <td><?php echo  $key->alasan_pemutusan?></td>
                         <td><?php echo  $key->tanggal_pemutusan?></td>
-                        
                        
                     </tr>
                   <?php

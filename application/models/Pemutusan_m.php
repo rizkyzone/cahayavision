@@ -88,7 +88,19 @@ class Pemutusan_m extends CI_Model {
         if($id != null){
             $this->db->where('pemutusan.pelanggan_id', $id);
         }
+        $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pemutusan.pelanggan_id' , 'left');
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemutusan.pelanggan_id' , 'left');
+        $query = $this->db->get();
+       // echo $this->db->last_query();die();
+        return $query;
+    }
+    public function get_status($id= null)
+    {
+        $this->db->from('pemasangan');
+        if($id != null){
+            $this->db->where('pemasangan.pelanggan_id', $id);
+        }
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
         $query = $this->db->get();
        // echo $this->db->last_query();die();
         return $query;
