@@ -12,12 +12,16 @@
 
   <title>PT. Cahaya MU Vision</title>
 
-  <!-- Custom fonts for this template-->
-  <link href="<?=base_url()?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="<?= base_url() ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
+  <!-- Bootstrap Core CSS -->
+  <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="<?=base_url()?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+  <!-- Custom styles for this page -->
+  <link href="<?= base_url() ?>assets/vendor/datatables/datatables.min.css" rel="stylesheet">
 
 </head>
 
@@ -27,7 +31,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -66,7 +70,7 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
+            <h6 class="collapse-header">Laporan :</h6>
             <a class="collapse-item" href="<?= site_url('laporan/pelanggan') ?>">Data Pelanggan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pemasangan') ?>">Jumlah Pemasangan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pembayaran') ?>">Pembayaran</a>
@@ -319,14 +323,14 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="<?=base_url()?>assets/vendor/jquery/jquery.min.js"></script>
-  <script src="<?=base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="<?=base_url()?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="<?=base_url()?>assets/js/sb-admin-2.min.js"></script>
+  <script src="<?= base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/datatables/datatables.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap-select.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="<?= base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="<?= base_url() ?>assets/js/sb-admin-2.min.js"></script>
 
 </body>
 
