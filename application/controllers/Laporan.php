@@ -40,11 +40,13 @@ class Laporan extends CI_Controller
   public function laporankelurahan()
   {
     $kelurahan = $this->input->post('kelurahan_id');
+    $data['title'] = "Laporan Data Pelanggan Perkelurahan";
     $data['p'] = $this->pembayaran_m->getkelurahan($kelurahan);
     $this->load->view('laporan/pelanggan_detail', $data);
   }
   public function laporanpelanggan()
   {
+    $data['title'] = "Laporan Data Pelanggan";
     $data['p'] = $this->pembayaran_m->getpelanggan();
     $this->load->view('laporan/pelanggan_detail', $data);
   }
