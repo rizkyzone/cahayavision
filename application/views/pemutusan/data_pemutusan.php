@@ -40,12 +40,14 @@
                         
                        
                     </tr>
-                    <?php
-                    } ?>
-                  </tbody>
-                </table>
-              </div>
+                  <?php
+                  } ?>
+                </tbody>
+              </table>
             </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-<!-- /.container-fluid -->
+    </div>
+    <!-- /.container-fluid -->
