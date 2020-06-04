@@ -27,6 +27,26 @@ class Pemasangan_m extends CI_Model {
         $query = $this->db->get();
         return $query;
     }
+    public function getpending($id= null)
+    {
+        $this->db->from('pemasangan');
+        if($id != null){
+            $this->db->where('pemasangan_id', $id);
+        }
+        $this->db->where('status', 1);
+        $query = $this->db->get();
+        return $query;
+    }
+    public function getaktif($id= null)
+    {
+        $this->db->from('pemasangan');
+        if($id != null){
+            $this->db->where('pemasangan_id', $id);
+        }
+        $this->db->where('status', 2);
+        $query = $this->db->get();
+        return $query;
+    }
     
     public function ambil_data($tabel)
     {

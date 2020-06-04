@@ -204,14 +204,7 @@
 
 
 
-            <li class="nav-item no-arrow mx-1">
             
-              <a class="nav-link" href="#" id="alertsDropdown" aria-haspopup="true" aria-expanded="false">
-                
-              <span class=" d-none d-lg-inline text-gray-600"><?php echo date('Y-m-d H:i:s');?></span>
-                
-              </a>
-            </li>
             <div class="topbar-divider d-none d-sm-block"> </div>
 
             <!-- Nav Item - User Information -->
