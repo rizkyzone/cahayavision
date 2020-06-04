@@ -140,5 +140,26 @@ class Pengaduan_m extends CI_Model {
        // echo $this->db->last_query();die();
         return $query;
     }
+    public function getByDate($tgl_awal, $tgl_akhir)
+    {
+        $kondisi = "";
+        $this->db->select('');
+        $this->db->from('pengaduan');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pengaduan.pelanggan_id' , 'left');
+        $this->db->join('teknisi' , 'teknisi.teknisi_id=pengaduan.teknisi_id' , 'left');
+        $this->db->order_by('status_pengaduan');
+        if ($tgl_awal != "" && $tgl_akhir==""){
+            $this->db->where('tanggal_pengaduan >=',$tgl_awal);
+        } else if ($tgl_awal == "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pengaduan <=',$tgl_akhir);
+        } else  if ($tgl_awal != "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pengaduan >=',$tgl_awal);
+            $this->db->where('tanggal_pengaduan <=',$tgl_akhir);
+        }
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+        return $q;
+        
+    }
 
 }
