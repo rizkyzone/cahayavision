@@ -55,7 +55,10 @@
 
                       <td class="text-center" width="160px">
 
-                        <a href="<?php echo site_url('pelanggandata/ubah/' . $key->pengaduan_id) ?>" class="btn btn-danger btn-icon-split btn-sm">
+                        <a href="<?php echo site_url('pelanggandata/proses_status/' . $key->pengaduan_id) ?>" class="btn btn-danger btn-icon-split btn-sm 
+                        <?php if($key->status_pengaduan == 3) {
+				                echo "disabled";  }?>
+                        ">
                           <span class="icon text-white-50">
                             <i class="fas fa-info-circle"></i>
                           </span>

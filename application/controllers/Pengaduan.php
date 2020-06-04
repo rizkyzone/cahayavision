@@ -48,16 +48,7 @@ class Pengaduan extends CI_Controller {
 		$this->template->load('template', 'pengaduan/pengaduan_form_add', $data);
 		
     }
-    public function proses_status($id){
-        $hasil = $this->pengaduan_m->rubah_status($id);
-        if($hasil)
-        {
-            $this->index();
-        } else{
-            echo "<script> alert('Data tidak ditemukan');";
-			echo "window.location='".site_url('pengaduan')."';</script>";
-        }
-    }
+    
 
 	public function edit($id)
 	{

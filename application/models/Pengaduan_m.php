@@ -60,12 +60,10 @@ class Pengaduan_m extends CI_Model {
     public function rubah_status($id){
         $data = $this->get($id);
         $data = $data->result_array();
-        if ($data[0]['status'] == 'Belum'){
-            $params['status'] = 'Sudah';
+        if ($data[0]['status_pengaduan'] == '2'){
+            $params['status_pengaduan'] = '3';
         }
-        if ($data[0]['status'] == 'Sudah'){
-            $params['status'] = 'Belum';
-        }
+        
         $this->db->where('pengaduan_id', $id);
         $this->db->update('pengaduan', $params);
         return true;

@@ -145,6 +145,18 @@ class Pelanggandata extends CI_Controller
 		}
 		redirect('pelanggandata/pengaduan/' . $post['pelanggan_id']);
 	}
+	public function proses_status($id){
+        $hasil = $this->pengaduan_m->rubah_status($id);
+        if($hasil)
+        {
+			$this->session->set_flashdata('success', 'Status Berhasil Diubah');
+		
+		redirect('pelanggandata/pengaduan/'. $this->fungsi->user_login2()->pelanggan_id);
+        } else{
+            echo "<script> alert('Data tidak ditemukan');";
+			echo "window.location='".site_url('pengaduan')."';</script>";
+        }
+    }
 	public function process_pemutusan()
 	{
 		$post = $this->input->post(null, TRUE);
@@ -194,6 +206,7 @@ class Pelanggandata extends CI_Controller
 			echo "window.location='" . site_url('pembayaran') . "';</script>";
 		}
 	}
+	
 	public function status_pemasangan($id)
 	{
 		$this->db->join('pemasangan', 'pemasangan.pelanggan_id=pelanggan.pelanggan_id', 'left');
