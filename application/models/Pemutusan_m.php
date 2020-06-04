@@ -120,5 +120,27 @@ class Pemutusan_m extends CI_Model {
        // echo $this->db->last_query();die();
         return $query;
     }
+    public function getByDate($tgl_awal, $tgl_akhir)
+    {
+        $kondisi = "";
+        $this->db->select('');
+        $this->db->from('pemutusan');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemutusan.pelanggan_id' , 'left');
+        $this->db->join('pemasangan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
+        $this->db->join('teknisi' , 'teknisi.teknisi_id=pemutusan.teknisi_id' , 'left');
+        $this->db->group_by('pemutusan.pelanggan_id');
+        if ($tgl_awal != "" && $tgl_akhir==""){
+            $this->db->where('tanggal_pemutusan >=',$tgl_awal);
+        } else if ($tgl_awal == "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pemutusan <=',$tgl_akhir);
+        } else  if ($tgl_awal != "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pemutusan >=',$tgl_awal);
+            $this->db->where('tanggal_pemutusan <=',$tgl_akhir);
+        }
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+        return $q;
+        
+    }
 
 }

@@ -125,6 +125,7 @@
             <a class="collapse-item" href="<?= site_url('laporan/pembayaran') ?>">Data Pembayaran</a>
             <a class="collapse-item" href="<?= site_url('laporan/penambahan') ?>">Data Penambahan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pengaduan') ?>">Data Pengaduan</a>
+            <a class="collapse-item" href="<?= site_url('laporan/pemutusan') ?>">Data Pemutusan</a>
           </div>
       </li>
 
