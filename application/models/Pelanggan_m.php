@@ -92,4 +92,28 @@ class Pelanggan_m extends CI_Model
         $this->db->where('pelanggan_id', $id);
         $this->db->delete('pelanggan');
     }
+    public function getByDateKelurahan($tgl_awal, $tgl_akhir)
+    {
+        $kondisi = "";
+        $this->db->select('count(pemasangan.pelanggan_id)as num ,kelurahan.nama_kelurahan');
+        $this->db->from('pemasangan');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
+        $this->db->join('kelurahan' , 'kelurahan.kelurahan_id=pelanggan.kelurahan_id' , 'left');
+        $this->db->group_by('kelurahan.nama_kelurahan');
+        $this->db->where('pemasangan.status', 2);
+        if ($tgl_awal != "" && $tgl_akhir==""){
+            $this->db->where('tanggal_pemasangan >=',$tgl_awal);
+        } else if ($tgl_awal == "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pemasangan <=',$tgl_akhir);
+        } else  if ($tgl_awal != "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pemasangan >=',$tgl_awal);
+            $this->db->where('tanggal_pemasangan <=',$tgl_akhir);
+        }
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+       // echo $this->db->last_query();die();
+        //print_r($q);
+        return $q;
+        
+    }
 }

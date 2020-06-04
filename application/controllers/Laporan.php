@@ -43,6 +43,28 @@ class Laporan extends CI_Controller
   {
     $this->template->load('template', 'laporan/rekap_teknisi');
   }
+  public function rekap_kelurahan()
+  {
+    $this->template->load('template', 'laporan/rekap_kelurahan');
+  }
+
+  public function laporanrekapteknisi()
+  {
+    $tgl_awal = $this->input->post('tgl_awal');
+    $tgl_akhir = $this->input->post('tgl_akhir');
+    $data['title'] = "Laporan Data Rekap Teknisi";
+    $data['p'] = $this->pengaduan_m->getByDateTeknisi($tgl_awal, $tgl_akhir);
+    $this->load->view('laporan/rekap_teknisi_detail', $data);
+  }
+  public function laporanrekapkelurahan()
+  {
+    $tgl_awal = $this->input->post('tgl_awal');
+    $tgl_akhir = $this->input->post('tgl_akhir');
+    $data['title'] = "Laporan Data Rekap Kelurahan";
+    $data['p'] = $this->pelanggan_m->getByDateKelurahan($tgl_awal, $tgl_akhir);
+    $this->load->view('laporan/rekap_kelurahan_detail', $data);
+  }
+
   public function laporanpembayaran()
   {
     $tgl_awal = $this->input->post('tgl_awal');

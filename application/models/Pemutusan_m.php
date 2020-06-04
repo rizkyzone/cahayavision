@@ -142,5 +142,6 @@ class Pemutusan_m extends CI_Model {
         return $q;
         
     }
-
+    
+   
 }

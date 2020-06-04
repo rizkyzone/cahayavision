@@ -16,7 +16,7 @@
                     <div class="row justify-content-md-center">
                     <div class="ol col-lg-6">
                         
-                   <form action="<?=base_url('laporan/laporanrekapteknisi');?>" method="post" target="_blank">
+                   <form action="<?=base_url('laporan/laporanrekapkelurahan');?>" method="post" target="_blank">
                             <div class="form-group">
                                 <label>Tanggal Awal</label>
                                 <input type="date" name="tgl_awal" class="form-control">

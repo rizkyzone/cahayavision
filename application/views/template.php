@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  <link rel="icon" href="<?php echo base_url('assets/') ?>/img/favicon.png">
   <title>PT. Cahaya MU Vision</title>
 
   <!-- Custom fonts for this template-->
@@ -126,6 +126,8 @@
             <a class="collapse-item" href="<?= site_url('laporan/penambahan') ?>">Data Penambahan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pengaduan') ?>">Data Pengaduan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pemutusan') ?>">Data Pemutusan</a>
+            <a class="collapse-item" href="<?= site_url('laporan/rekap_teknisi') ?>">Data Rekap Teknisi</a>
+            <a class="collapse-item" href="<?= site_url('laporan/rekap_kelurahan') ?>">Data Rekap Kelurahan</a>
           </div>
       </li>
 
@@ -196,21 +198,30 @@
                   </div>
                 </form>
               </div>
+              
             </li>
 
 
 
 
-
-
-            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item no-arrow mx-1">
+            
+              <a class="nav-link" href="#" id="alertsDropdown" aria-haspopup="true" aria-expanded="false">
+                
+              <span class=" d-none d-lg-inline text-gray-600"><?php echo date('Y-m-d H:i:s');?></span>
+                
+              </a>
+            </li>
+            <div class="topbar-divider d-none d-sm-block"> </div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->fungsi->user_login()->name ?></span>
+               
                 <img class="img-profile rounded-circle" src="<?= base_url() ?>assets/img/avatar5.png">
               </a>
+              
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
