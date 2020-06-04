@@ -98,7 +98,11 @@
           <i class="fas fa-fw fa-laptop"></i>
           <span>Pembayaran</span></a>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('pemutusan') ?>">
+          <i class="fas fa-fw fa-bullhorn"></i>
+          <span>Pengajuan Putus</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -120,6 +124,7 @@
             <a class="collapse-item" href="<?= site_url('laporan/pemasangan') ?>">Data Pemasangan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pembayaran') ?>">Data Pembayaran</a>
             <a class="collapse-item" href="<?= site_url('laporan/penambahan') ?>">Data Penambahan</a>
+            <a class="collapse-item" href="<?= site_url('laporan/pengaduan') ?>">Data Pengaduan</a>
           </div>
       </li>
 

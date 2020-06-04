@@ -29,6 +29,7 @@ class Pemutusan extends CI_Controller {
 			'row' => $pemutusan
         );
 		$data['pelanggan'] = $this->pemutusan_m->ambil_data('pelanggan');
+		$data['teknisi'] = $this->pemutusan_m->ambil_data('teknisi');
        // print_r($data);die();
 		$this->template->load('template', 'pemutusan/pemutusan_form', $data);
 		

@@ -38,11 +38,16 @@
                                 
                             </div>
                             <div class="form-group">
-                            <label>Status</label>
-                            <select name="status_pemutusan" id="status_pemutusan" class="form-control">
-                            <?php $status_pemutusan = $this->input->post('status_pemutusan') ? $this->input->post('status_bayar') : $row->status_bayar ?>
-                            <option value="1"<?=$status_pemutusan == 1 ? 'selected' : null?>>Menunggu Validasi</option>
-                            <option value="2"<?=$status_pemutusan == 2 ? 'selected' : null?>>Putus</option>
+                            <label class="control-label"><small>Nama Teknisi : </small></label>
+                            <select name="teknisi_id" id="teknisi_id" class="form-control show-tick" >
+                            <option value="">- Pilih -</option>
+                            <?php foreach ($teknisi as $d){ ?>
+                               <?php if($d['teknisi_id'] == ( $this->input->post('teknisi_id') ?? $row->teknisi_id)){ ?>
+                                
+                               <option value="<?php echo $d['teknisi_id'] ?>" selected ><?php echo $d['nama_teknisi'] ?></option>
+                               <?php }else{ ?>
+                            <option value="<?php echo $d['teknisi_id'] ?>"><?php echo $d['nama_teknisi'] ?></option>
+                            <?php }} ?>
                             </select>
                             </div>
                            

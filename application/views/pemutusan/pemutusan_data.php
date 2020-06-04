@@ -22,7 +22,8 @@
                                 <th>Alasan Pemutusan</th>
                                 <th>No Telp</th>
                                 <th>Tanggal Pemutusan</th>
-                                <th>Status</th>
+                                <th>Teknisi</th>
+                                <th>Status Pelanggan</th>
                                 <th>Actions</th>
                          </tr>
                     </thead>
@@ -35,18 +36,17 @@
                         <td><?php echo $data->alasan_pemutusan?></td>
                         <td><?php echo $data->no_telp?></td>
                         <td><?php echo $data->tanggal_pemutusan?></td>
+                        <td><?php echo $data->nama_teknisi?></td>
                         <td>
-                        <?php if($data->status_pemutusan == 1) {
-				                echo "Menunggu Validasi";
-                        }elseif($data->status_pemutusan == 2) {
-                        echo "Putus";
-                       
-				        }?>
-                     
+                        <?php if($data->status == 1) {
+				                echo "Tidak Aktif";
+                        }elseif($data->status == 2) {
+                        echo "Aktif";
+                        }elseif($data->status ==3) {
+                        echo "Tidak Terjangkau";
+				                 }?>
 
                         </td>
-
-                        
                         <td class="text-center" width="160px">
                             <form action="<?php echo site_url('pemutusan/del')?>"method="post">
                                 <a href="<?php echo site_url('pemutusan/edit/'.$data->pemutusan_id) ?>" class="btn btn-primary btn-circle btn-sm">

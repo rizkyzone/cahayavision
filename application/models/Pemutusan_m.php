@@ -10,6 +10,7 @@ class Pemutusan_m extends CI_Model {
         }
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemutusan.pelanggan_id' , 'left');
         $this->db->join('pemasangan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
+        $this->db->join('teknisi' , 'teknisi.teknisi_id=pemutusan.teknisi_id' , 'left');
         $query = $this->db->get();
         
         return $query;
@@ -51,7 +52,6 @@ class Pemutusan_m extends CI_Model {
         $params['pelanggan_id'] = $post['pelanggan_id'];
         
         $params['alasan_pemutusan'] = $post['alasan_pemutusan'];
-        $params['status_pemutusan'] = 1;
 
         $this->db->insert('pemutusan', $params);
     }
@@ -61,10 +61,13 @@ class Pemutusan_m extends CI_Model {
         $params['pelanggan_id'] = $post['pelanggan_id'];
         $params['tanggal_pemutusan'] = $post['tgl'];
         $params['alasan_pemutusan'] = $post['alasan_pemutusan'];
-        $params['status_pemutusan'] = $post['status_pemutusan'];
+        $params['teknisi_id'] = $post['teknisi_id'];
 
         $this->db->where('pemutusan_id', $post['pemutusan_id']);
         $this->db->update('pemutusan', $params);
+        $params2['status'] = 1;
+        $this->db->where('pelanggan_id', $post['pelanggan_id']);
+        $this->db->update('pemasangan', $params2);
     }
     public function ubah($post)
     {
