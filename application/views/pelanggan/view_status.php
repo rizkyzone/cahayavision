@@ -39,6 +39,8 @@
                         echo "Terpasang";
                         }elseif($row->status == 3) {
                         echo "Belum Terjangkau";
+                      }elseif($row->status == 4) {
+                        echo "Non Aktif";
 				        }?></td>
                       </tr>
                     </tbody>

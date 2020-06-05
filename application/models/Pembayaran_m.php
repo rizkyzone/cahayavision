@@ -13,6 +13,40 @@ class Pembayaran_m extends CI_Model {
         $query = $this->db->get();
         return $query;
     }
+
+    public function getstatus()
+    {
+        $this->db->from('pembayaran');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->where('status_bayar', 1);
+        $this->db->order_by('pembayaran.tanggal_pembayaran','asc');
+        $query = $this->db->get();
+        
+        return $query;
+    }
+    public function getstatus1()
+    {
+        $this->db->from('pembayaran');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->where('status_bayar', 2);
+        $this->db->order_by('pembayaran.tanggal_pembayaran','asc');
+        $query = $this->db->get();
+        
+        return $query;
+    }
+    public function getstatus2()
+    {
+        $this->db->from('pembayaran');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->where('status_bayar', 3);
+        $this->db->order_by('pembayaran.tanggal_pembayaran','asc');
+        $query = $this->db->get();
+        
+        return $query;
+    }
     
     public function ambil_data($tabel)
     {

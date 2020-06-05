@@ -93,11 +93,22 @@
           <i class="fas fa-fw fa-tools"></i>
           <span>Pemasangan</span></a>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('pembayaran') ?>">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
           <i class="fas fa-fw fa-laptop"></i>
-          <span>Pembayaran</span></a>
+          <span>Pembayaran</span>
+        </a>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Pembayaran Pelanggan:</h6>
+            <a class="collapse-item" href="<?= site_url('pembayaran') ?>">Belum Bayar</a>
+            <a class="collapse-item" href="<?= site_url('pembayaran/validasi') ?>">Menunggu Validasi</a>
+            <a class="collapse-item" href="<?= site_url('pembayaran/lunas') ?>">Lunas</a>
+          </div>
+        </div>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="<?= site_url('pemutusan') ?>">
           <i class="fas fa-fw fa-bullhorn"></i>

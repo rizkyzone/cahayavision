@@ -44,6 +44,8 @@
                         echo "Aktif";
                         }elseif($data->status ==3) {
                         echo "Tidak Terjangkau";
+                      }elseif($data->status ==4) {
+                        echo "Non Aktif";
 				                 }?>
 
                         </td>

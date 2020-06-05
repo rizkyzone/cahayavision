@@ -53,7 +53,7 @@
                             }else if ($x['status'] == 3){
                                 echo "Tidak Terjangkau";
                             }else if ($x['status'] == 4){
-                                echo "Putus";  
+                                echo "Non Aktif";  
                             }?>
                                 
                                 

@@ -51,6 +51,8 @@
                         echo "Terpasang";
                         }elseif($x['status'] == 3) {
                         echo "Tidak Terjangkau";
+                         }elseif($x['status'] == 4) {
+                        echo "Non Aktif";
 				        }?></td>
                     </tr>
                     <?php

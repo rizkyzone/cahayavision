@@ -57,6 +57,8 @@
                           echo "Aktif";
                         } elseif ($x['status'] == 3) {
                           echo "Tidak terjangkau";
+                        } elseif ($x['status'] == 4) {
+                          echo "Non Aktif";
                         } ?>
 
                       </td>

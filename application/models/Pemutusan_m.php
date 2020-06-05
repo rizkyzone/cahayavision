@@ -65,7 +65,7 @@ class Pemutusan_m extends CI_Model {
 
         $this->db->where('pemutusan_id', $post['pemutusan_id']);
         $this->db->update('pemutusan', $params);
-        $params2['status'] = 1;
+        $params2['status'] = 4;
         $this->db->where('pelanggan_id', $post['pelanggan_id']);
         $this->db->update('pemasangan', $params2);
     }

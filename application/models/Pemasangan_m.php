@@ -76,6 +76,7 @@ class Pemasangan_m extends CI_Model {
         $params['teknisi_id'] = $post['teknisi_id'];
         $params['status'] = $post['status'];
         $this->db->insert('pemasangan', $params);
+       
     }
     public function edit($post)
     {
@@ -87,6 +88,14 @@ class Pemasangan_m extends CI_Model {
 
         $this->db->where('pemasangan_id', $post['pemasangan_id']);
         $this->db->update('pemasangan', $params);
+        if ($params['status'] == 2)
+        $this->pembayaran_add($params['pelanggan_id']);
+    }
+    function pembayaran_add($pelanggan_id){
+        
+        $params['pelanggan_id'] = $pelanggan_id;
+        $this->db->insert('pembayaran', $params);
+
     }
     public function del($id)
 	{
