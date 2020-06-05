@@ -133,6 +133,7 @@ class Pembayaran_m extends CI_Model {
         $this->db->join('kelurahan','kelurahan.kelurahan_id=pelanggan.kelurahan_id','left');
         $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
         $this->db->where('pelanggan.kelurahan_id',$kelurahan);
+        $this->db->order_by('status', 'asc');
         $q = $this->db->get_where();
         $q = $q->result_array();
         //echo $this->db->last_query();
