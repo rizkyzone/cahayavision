@@ -22,6 +22,16 @@ class User_m extends CI_Model {
         $query = $this->db->get();
         return $query;
     }
+    public function getpim($id= null)
+    {
+        $this->db->from('user');
+        if($id != null){
+            $this->db->where('user_id', $id);
+        }
+        $this->db->where('level', 3);
+        $query = $this->db->get();
+        return $query;
+    }
     public function add($post)
     {
         $params['name'] = $post['fullname'];

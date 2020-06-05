@@ -35,4 +35,8 @@ Class Fungsi {
         $this->ci->load->model('pemutusan_m');
         return $this->ci->pemutusan_m->get()->num_rows();
     }
+    public function pimpinan(){
+        $this->ci->load->model('user_m');
+        return $this->ci->user_m->getpim()->row();
+    }
 }
