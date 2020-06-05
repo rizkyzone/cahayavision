@@ -76,19 +76,6 @@ class Pemasangan_m extends CI_Model {
         $params['teknisi_id'] = $post['teknisi_id'];
         $params['status'] = $post['status'];
         $this->db->insert('pemasangan', $params);
-        if ($params['status'] == 2)
-        $this->pembayaran_add($params['pelanggan_id'],$params['tanggal_pemasangan']);
-    }
-    function pembayaran_add($pelanggan_id,$tgl){
-        $date = explode('-',$tgl);
-        $date['2']= '5';
-        $tgl_baru = implode('-',$date);
-        $tgl_tempo               = date('Y-m-d', strtotime($tgl_baru.'+ 1 month'));
-        $params['pelanggan_id'] = $pelanggan_id;
-        $params['tanggal_tagihan'] = $tgl;
-        $params['tanggal_jatuh_tempo'] = $tgl_tempo ;
-        $this->db->insert('pembayaran', $params);
-
     }
     public function edit($post)
     {

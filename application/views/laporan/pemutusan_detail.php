@@ -23,6 +23,9 @@
 			</tr>
 		</table>
 		<h4><?php echo strtoupper($title); ?></h4>
+    <?php $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir = $this->input->post('tgl_akhir');?>
+        <p><?php echo date('d-m-Y',strtotime($tgl_awal)); ?> Sampai <?php echo date('d-m-Y',strtotime($tgl_akhir)); ?></p>
 	</center>
     <table class="table table-bordered">
                 <thead>
@@ -62,3 +65,5 @@
                     } ?>
                 </tbody>
     </table>
+    <div class="float-md-right"><strong><p> Pimpinan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></strong></div></br></br></br></br></br></br>
+    <div class="float-md-right"><p>Muhammad Arifin &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></div>

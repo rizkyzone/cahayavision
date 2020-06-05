@@ -168,7 +168,7 @@ class Pengaduan_m extends CI_Model {
         $this->db->select('count(pengaduan_id)as num ,teknisi.nama_teknisi');
         $this->db->from('pengaduan');
         $this->db->group_by('nama_teknisi');
-       
+        $this->db->order_by('num', 'desc');
         $this->db->join('teknisi' , 'teknisi.teknisi_id=pengaduan.teknisi_id' , 'left');
         if ($tgl_awal != "" && $tgl_akhir==""){
             $this->db->where('tanggal_pengaduan >=',$tgl_awal);

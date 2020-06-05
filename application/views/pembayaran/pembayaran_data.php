@@ -20,7 +20,6 @@
                          <tr>
                                 <th>NO</th>
                                 <th>Nama</th>
-                                <th>Bulan</th>
                                 <th>Tanggal Pembayaran</th>
                                 <th>Bukti Pembayaran</th>
                                 <th>Status</th>
@@ -34,7 +33,7 @@
                     <tr>
                         <td><?php echo $no++?>.</td>
                         <td><?php echo  $data->nama?></td>
-                        <td><?php echo  date('M',strtotime($data->tanggal_tagihan))?></td>
+                        
                         <td><?php echo $data->tanggal_pembayaran?></td>
                         <td><img src="<?= base_url('uploads/'.$data->image) ?>"width="64"></td>
                         <td>
