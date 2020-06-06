@@ -23,7 +23,7 @@
 			</tr>
 		</table>
         <?php $tahun = $this->input->post('tahun');?>
-		<h4>LAPORAN JUMLAH PEMASANGAN TAHUN <?php echo $tahun?></h4>
+		<h4><?php echo strtoupper($title); ?> <?php echo $tahun?></h4>
 	</center>
     <table class="table table-bordered">
                 <thead>

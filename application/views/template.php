@@ -139,6 +139,7 @@
             <a class="collapse-item" href="<?= site_url('laporan/pemutusan') ?>">Data Pemutusan</a>
             <a class="collapse-item" href="<?= site_url('laporan/rekap_teknisi') ?>">Data Rekap Teknisi</a>
             <a class="collapse-item" href="<?= site_url('laporan/rekap_kelurahan') ?>">Data Rekap Kelurahan</a>
+            <a class="collapse-item" href="<?= site_url('laporan/rekap_zona_belum_terjangkau') ?>">Zona Belum Terjangkau</a>
           </div>
       </li>
 

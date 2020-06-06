@@ -25,7 +25,14 @@
 		<h4><?php echo strtoupper($title); ?></h4>
         <?php $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');?>
-        <p><?php echo date('d-m-Y',strtotime($tgl_awal)); ?> Sampai <?php echo date('d-m-Y',strtotime($tgl_akhir)); ?></p>
+        <?php $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir = $this->input->post('tgl_akhir');?>
+
+        <p><h6><?php if($tgl_awal == null and $tgl_akhir == null){
+            echo "";
+        }else{
+            echo date('d-m-Y',strtotime($tgl_awal)); ?> Sampai <?php echo date('d-m-Y',strtotime($tgl_akhir)); 
+        }?></h6></p>
 	</center>
     <table class="table table-bordered">
                 <thead>

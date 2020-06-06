@@ -19,6 +19,10 @@ class Laporan extends CI_Controller
   {
     $this->template->load('template', 'laporan/pembayaran');
   }
+  public function rekap_zona_belum_terjangkau()
+  {
+    $this->template->load('template', 'laporan/zona_belum_terjangkau');
+  }
 
   public function pemutusan()
   {
@@ -65,10 +69,20 @@ class Laporan extends CI_Controller
     $this->load->view('laporan/rekap_kelurahan_detail', $data);
   }
 
+  public function laporanrekapzonakelurahan()
+  {
+    $tgl_awal = $this->input->post('tgl_awal');
+    $tgl_akhir = $this->input->post('tgl_akhir');
+    $data['title'] = "Laporan Data Rekap Zona Belum Terjangkau";
+    $data['p'] = $this->pelanggan_m->getByDateRekapBelumTerjangkau($tgl_awal, $tgl_akhir);
+    $this->load->view('laporan/rekap_belum_terjangkau_detail', $data);
+  }
+
   public function laporanpembayaran()
   {
     $tgl_awal = $this->input->post('tgl_awal');
     $tgl_akhir = $this->input->post('tgl_akhir');
+    $data['title'] = "Laporan Data Pembayaran";
     $data['p'] = $this->pembayaran_m->getByDate($tgl_awal, $tgl_akhir);
     $this->load->view('laporan/pembayaran_detail', $data);
   }
@@ -106,6 +120,7 @@ class Laporan extends CI_Controller
   public function laporankelurahan()
   {
     $kelurahan = $this->input->post('kelurahan_id');
+    $data['kelurahan'] = $this->pelanggan_m->ambil_data_kelurahan();
     $data['title'] = "Laporan Data Pelanggan Perkelurahan";
     $data['p'] = $this->pembayaran_m->getkelurahan($kelurahan);
     $this->load->view('laporan/pelanggan_detail', $data);
@@ -118,6 +133,7 @@ class Laporan extends CI_Controller
   }
   public function laporanpenambahan()
   {
+    $data['title'] = "Laporan Data Jumlah Pemasangan Tahun";
     $pemasangan = $this->input->post('pemasangan_id');
     $data['p'] = $this->pemasangan_m->getpenambahan($pemasangan);
     $this->load->view('laporan/penambahan_detail', $data);
