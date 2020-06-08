@@ -38,8 +38,11 @@
                         <th>No</th>
                         <th>Nama Pelanggan</th>
                         <th>Tanggal Pembayaran</th>
-                        <th>Jumlah TV</th>
+                        <th>Total Pembayaran</th>
+                        <th>Metode Pembayaran</th>
+                        <th>Tujuan Transfer</th>
                         <th>Status</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
@@ -49,7 +52,28 @@
                         <td><?php echo $no++?>.</td>
                         <td><?php echo $x['nama']?></td>
                         <td><?php echo $x['tanggal_pembayaran']?></td>
-                        <td><?php echo $x['status']?></td>
+                        <td><?php echo $x['total_pembayaran']?></td>
+                        <td><?php if($x['metode_pembayaran'] == 1) {
+				                echo "Kasir";
+                        }elseif($x['metode_pembayaran'] == 2) {
+                        echo "Transfer";
+				        }?></td>
+                        <td><?php if($x['tujuan_transfer'] == 1) {
+				                echo "BCA";
+                        }elseif($x['tujuan_transfer'] == 2) {
+                        echo "Dana";
+                        }elseif($x['tujuan_transfer'] == 3) {
+                        echo "OVO";
+				        }?></td>
+                        <td><?php if($x['status_bayar'] == 1) {
+				                echo "Belum Bayar";
+                        }elseif($x['status_bayar'] == 2) {
+                        echo "Menunggu Konfirmasi";
+                        }elseif($x['status_bayar'] == 3) {
+                        echo "Lunas";
+				        }?></td>
+                        
+                    </tr>
                     </tr>
                     <?php
                     } ?>

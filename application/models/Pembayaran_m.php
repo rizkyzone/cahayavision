@@ -130,7 +130,7 @@ class Pembayaran_m extends CI_Model {
         $this->db->from('pembayaran');
         $this->db->join('pelanggan','pelanggan.pelanggan_id=pembayaran.pelanggan_id','left');
         $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
-        $this->db->group_by('pelanggan.pelanggan_id');
+        $this->db->order_by('pembayaran.status_bayar','desc');
         if ($tgl_awal != "" && $tgl_akhir==""){
             $this->db->where('tanggal_pembayaran >=',$tgl_awal);
         } else if ($tgl_awal == "" && $tgl_akhir!=""){

@@ -129,7 +129,7 @@ class Laporan extends CI_Controller
   {
     $data['title'] = "Laporan Data Pelanggan";
     $data['p'] = $this->pembayaran_m->getpelanggan();
-    $this->load->view('laporan/pelanggan_detail', $data);
+    $this->load->view('laporan/pelanggan_detail_all', $data);
   }
   public function laporanpenambahan()
   {

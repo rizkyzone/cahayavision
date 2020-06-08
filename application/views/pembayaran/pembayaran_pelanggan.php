@@ -87,11 +87,12 @@
                             <?php echo form_close()?>
                     </div>
                     <div class="col">
-                    <div class="row justify-content-md-center"><h5><p> Silahkan Transfer ke Rekening dibawah ini</p></h5>
-                    <p> Bank BCA 281093812391</br>
+                    <div class="row justify-content-md-center"><h5><p> Silahkan Transfer ke Rekening dibawah ini</p></h5></p>
+                    <img src="<?php echo base_url('assets') ?>/img/list-bank.png"></br>
+                    </div>
+                    </div>
                     
-                    </div>
-                    </div>
+    
                 </div>
                 
               </div>
