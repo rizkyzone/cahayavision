@@ -1,5 +1,5 @@
     <!-- Page Heading -->
-    
+    <?php $this->view('message') ?>
     <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Data Pembayaran</h6>
@@ -15,6 +15,7 @@
                                 <th>Tanggal Pembayaran</th>
                                 <th>Bukti Pembayaran</th>
                                 <th>Status</th>
+                                <th>Total Pembayaran</th>
                                 <th>Actions</th>
                          </tr>
                     </thead>
@@ -36,10 +37,13 @@
 				        }?>
 
                         </td>
-                        
+                        <td><?php echo $key->total_pembayaran?></td>
                         <td class="text-center" width="160px">
                             
-                        <a href="<?php echo site_url('pelanggandata/edit/'.$key->pembayaran_id) ?>" class="btn btn-danger btn-icon-split btn-sm">
+                        <a href="<?php echo site_url('pelanggandata/bayar/'.$key->pembayaran_id) ?>" class="btn btn-danger btn-icon-split btn-sm
+                        <?php if($key->status_bayar == 3) {
+				                echo "disabled";  }?>
+                        ">
                          <span class="icon text-white-50">
                          <i class="fas fa-info-circle"></i>
                          </span>

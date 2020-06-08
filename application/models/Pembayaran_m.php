@@ -80,6 +80,24 @@ class Pembayaran_m extends CI_Model {
     public function edit($post)
     {
         $params['pelanggan_id'] = $post['pelanggan_id'];
+        $params['tanggal_pembayaran'] = date('Y-m-d');
+        $params['status_bayar'] = $post['status_bayar'];
+        if($post['image'] != null) {
+        $params['image'] = $post['image'];
+        }
+        $this->db->where('pembayaran_id', $post['id']);
+        $this->db->update('pembayaran', $params);
+        if ($params['status_bayar'] == 3)
+        $tgl = date('Y-m-d');
+        $tgl_tagihan = date('Y-m-d', strtotime($tgl.'+ 1 month'));
+        $params2['pelanggan_id'] = $post['pelanggan_id'];
+        $params2['tanggal_tagihan'] = $tgl_tagihan;
+        $this->db->insert('pembayaran', $params2);
+    }
+
+    public function bayar($post)
+    {
+        $params['pelanggan_id'] = $post['pelanggan_id'];
         $params['denda'] = $post['denda'];
         $params['total_pembayaran'] = $post['total'];
         $params['metode_pembayaran'] = $post['metode_pembayaran'];
@@ -89,8 +107,6 @@ class Pembayaran_m extends CI_Model {
         if($post['image'] != null) {
         $params['image'] = $post['image'];
         }
-        
-
         $this->db->where('pembayaran_id', $post['id']);
         $this->db->update('pembayaran', $params);
     }

@@ -32,7 +32,10 @@
                                 <label>Tanggal Pembayaran</label>
                                 <input type="date" name="tgl" value="<?=$this->input->post('tgl') ?? $row->tanggal_pembayaran?>" class="form-control">
                             </div>
-                            
+                            <div class="form-group">
+                                <label>Total pembayaran</label>
+                                <input type="text" name="tgl" value="<?=$this->input->post('tgl') ?? $row->total_pembayaran?>" readonly class="form-control">
+                            </div>
                             <div class="form-group">
                             <label>Status</label>
                             <select name="status_bayar" id="status_bayar" class="form-control">

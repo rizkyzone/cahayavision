@@ -61,7 +61,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Bukti Pembayaran</label>
-                                <?php if($page == 'edit'){
+                                <?php if($page == 'bayar'){
                                       if($row->image != null) { ?>
                                     <div style="margin-bottom:4px"><img src="<?= base_url('uploads/'.$row->image) ?>"width="60%">
                                     </div>

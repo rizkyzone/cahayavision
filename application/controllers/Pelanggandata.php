@@ -99,7 +99,7 @@ class Pelanggandata extends CI_Controller
 				}
 				redirect('pembayaran');
 			}
-		} else if (isset($_POST['edit'])) {
+		} else if (isset($_POST['bayar'])) {
 
 			if (@$_FILES['image']['name'] != null) {
 				if ($this->upload->do_upload('image')) {
@@ -112,7 +112,7 @@ class Pelanggandata extends CI_Controller
 
 
 					$post['image'] = $this->upload->data("file_name");
-					$this->pembayaran_m->edit($post);;
+					$this->pembayaran_m->bayar($post);;
 					if ($this->db->affected_rows() > 0) {
 						$this->session->set_flashdata('success', 'Data Berhasil Disimpan');
 					}
@@ -124,7 +124,7 @@ class Pelanggandata extends CI_Controller
 				}
 			} else {
 				$post['image'] = null;
-				$this->pembayaran_m->edit($post);
+				$this->pembayaran_m->bayar($post);
 				if ($this->db->affected_rows() > 0) {
 					$this->session->set_flashdata('success', 'Data Berhasil Disimpan');
 				}
@@ -170,13 +170,13 @@ class Pelanggandata extends CI_Controller
 		}
 		redirect('pelanggandata/pemutusan/' . $post['pelanggan_id']);
 	}
-	public function edit($id)
+	public function bayar($id)
 	{
 		$query = $this->pembayaran_m->get_pembayaran_only($id);
 		if ($query->num_rows() > 0) {
 			$pelanggan = $query->row();
 			$data = array(
-				'page' => 'edit',
+				'page' => 'bayar',
 				'title' => 'Data pembayaran',
 				'row' => $pelanggan
 			);
