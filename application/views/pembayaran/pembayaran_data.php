@@ -23,7 +23,7 @@
                                 <th>Tanggal Pembayaran</th>
                                 <th>Bukti Pembayaran</th>
                                 <th>Status</th>
-                                <th>Jumlah TV</th>
+                                <th>Total bayar</th>
                                 <th>Actions</th>
                          </tr>
                     </thead>
@@ -46,13 +46,7 @@
 				        }?>
 
                         </td>
-                        <td><?php if($data->jumlah_televisi == 1) {
-				                echo "1 TV";
-                        }elseif($data->jumlah_televisi == 2) {
-                        echo "2 TV";
-                        }elseif($data->jumlah_televisi == 3) {
-                        echo "3 TV";
-				        }?></td>
+                        <td><?php echo $data->total_pembayaran?></td>
                         
                         <td class="text-center" width="160px">
                             <form action="<?php echo site_url('pembayaran/del')?>"method="post">

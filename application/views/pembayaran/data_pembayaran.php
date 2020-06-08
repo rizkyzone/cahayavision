@@ -11,12 +11,10 @@
                          <thead>
                          <tr>
                                 <th>NO</th>
-                                <th>Nama</th>
-                                <th>Bulan</th>
+                                <th>Nama</th>                              
                                 <th>Tanggal Pembayaran</th>
                                 <th>Bukti Pembayaran</th>
                                 <th>Status</th>
-                                <th>Jumlah TV</th>
                                 <th>Actions</th>
                          </tr>
                     </thead>
@@ -26,7 +24,6 @@
                     <tr>
                         <td><?php echo $no++?>.</td>
                         <td><?php echo  $key->nama?></td>
-                        <td><?php echo  date('M',strtotime($key->tanggal_tagihan))?></td>
                         <td><?php echo $key->tanggal_pembayaran?></td>
                         <td><img src="<?= base_url('uploads/'.$key->image) ?>"width="64"></td>
                         <td>
@@ -39,13 +36,6 @@
 				        }?>
 
                         </td>
-                        <td><?php if($key->jumlah_televisi == 1) {
-				                echo "1 TV";
-                        }elseif($key->jumlah_televisi == 2) {
-                        echo "2 TV";
-                        }elseif($key->jumlah_televisi == 3) {
-                        echo "3 TV";
-				        }?></td>
                         
                         <td class="text-center" width="160px">
                             
