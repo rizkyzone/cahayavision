@@ -9,7 +9,15 @@
                                 $waktuakhir = date_create(); // waktu sekarang
 
                                 $diff  = date_diff($waktuawal, $waktuakhir);?>
-                                <?php $tagihan = $row->jumlah_televisi * 50000 * $diff->m ;?>
+                                <?php if ($diff->m == 0){
+                                    $tagihan = $row->jumlah_televisi * 50000;
+                                }else{
+                                    $tagihan = $row->jumlah_televisi * 50000 * $diff->m ;
+                                }?>
+
+
+
+                                
                                 <?php $denda = $diff->m * 10000;?>
                                 <?php $total = $row->jumlah_televisi * 50000 + $diff->m * 10000;?>
     <!-- Page Heading -->
