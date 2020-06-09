@@ -20,6 +20,11 @@
                                 
                                 <?php $denda = $diff->m * 10000;?>
                                 <?php $total = $row->jumlah_televisi * 50000 + $diff->m * 10000;?>
+                                <?php if ($diff->m == 0){
+                                    $status_pembayaran = 1;
+                                }else{
+                                    $status_pembayaran = 2;
+                                }?>
     <!-- Page Heading -->
     <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -35,6 +40,7 @@
                                 <label for="disabledTextInput">Nama Pelanggan</label>
                                 <input type="hidden" name="id" value="<?php echo $row->pembayaran_id?>">
                                 <input type="hidden" name="status_bayar" value="2">
+                                <input type="hidden" name="status_pembayaran" value="<?php echo $status_pembayaran?>">
                                 <input type="hidden" name="denda" value="<?php echo $denda?>">
                                 <input type="hidden" name="total" value="<?php echo $total?>">
                                 <input type="hidden" name="metode_pembayaran" value="2">

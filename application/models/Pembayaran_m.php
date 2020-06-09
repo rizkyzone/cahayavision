@@ -101,6 +101,7 @@ class Pembayaran_m extends CI_Model {
         $params['denda'] = $post['denda'];
         $params['total_pembayaran'] = $post['total'];
         $params['metode_pembayaran'] = $post['metode_pembayaran'];
+        $params['status_pembayaran'] = $post['status_pembayaran'];
         $params['tanggal_pembayaran'] = date('Y-m-d');
         $params['status_bayar'] = $post['status_bayar'];
         $params['tujuan_transfer'] = $post['tujuan_transfer'];

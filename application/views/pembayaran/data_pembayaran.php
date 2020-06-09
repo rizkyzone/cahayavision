@@ -37,7 +37,8 @@
 				        }?>
 
                         </td>
-                        <td><?php echo $key->total_pembayaran?></td>
+                        <td><?php echo "Rp. " . number_format($key->total_pembayaran, 0, ".", ".");  ?></td>
+                        
                         <td class="text-center" width="160px">
                             
                         <a href="<?php echo site_url('pelanggandata/bayar/'.$key->pembayaran_id) ?>" class="btn btn-danger btn-icon-split btn-sm
