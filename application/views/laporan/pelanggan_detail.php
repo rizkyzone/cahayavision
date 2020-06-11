@@ -67,7 +67,10 @@
                     } ?>
                 </tbody>
     </table>
-
+    <div class="float-md-left"><p>&nbsp&nbsp&nbsp&nbsp Belum Terpasang : <?php foreach($belum as $p) { ?> <?php echo $p['sum']?> <?php }?>
+    <p>&nbsp&nbsp&nbsp&nbsp Terpasang : <?php foreach($sudah as $p) { ?> <?php echo $p['sum']?> <?php }?>
+    <p>&nbsp&nbsp&nbsp&nbsp Belum Terjangkau : <?php foreach($tidak as $p) { ?> <?php echo $p['sum']?> <?php }?>
+    <p>&nbsp&nbsp&nbsp&nbsp Non Aktif : <?php foreach($non as $p) { ?> <?php echo $p['sum']?> <?php }?></div>
     
     <div class="float-md-right"><strong><p> Pimpinan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></strong></div></br></br></br></br></br></br>
     <div class="float-md-right"><p><?php echo $this->fungsi->pimpinan()->name ?> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></div>

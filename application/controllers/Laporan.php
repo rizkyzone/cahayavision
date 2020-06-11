@@ -19,6 +19,7 @@ class Laporan extends CI_Controller
   {
     $this->template->load('template', 'laporan/pembayaran');
   }
+
   public function rekap_zona_belum_terjangkau()
   {
     $this->template->load('template', 'laporan/zona_belum_terjangkau');
@@ -43,22 +44,47 @@ class Laporan extends CI_Controller
   {
     $this->template->load('template', 'laporan/penambahan');
   }
+
   public function rekap_teknisi()
   {
     $this->template->load('template', 'laporan/rekap_teknisi');
   }
+
   public function rekap_kelurahan()
   {
     $this->template->load('template', 'laporan/rekap_kelurahan');
   }
+
   public function rekap_updown()
   {
     $this->template->load('template', 'laporan/rekap_updown');
   }
+
   public function denda()
   {
     $this->template->load('template', 'laporan/denda');
   }
+
+  public function bermasalah()
+  {
+    $this->template->load('template', 'laporan/bermasalah');
+  }
+
+  public function pelanggan()
+  {
+    $data['kelurahan'] = $this->pelanggan_m->ambil_data_kelurahan();
+    $this->template->load('template', 'laporan/pelanggan', $data);
+  }
+
+  public function laporanbermasalah()
+  {
+    $tgl_awal = $this->input->post('tgl_awal');
+    $tgl_akhir = $this->input->post('tgl_akhir');
+    $data['title'] = "Laporan Data Pelanggan Bermasalah";
+    $data['p'] = $this->pembayaran_m->getByDateBermasalah($tgl_awal, $tgl_akhir);
+    $this->load->view('laporan/bermasalah_detail', $data);
+  }
+
   public function laporandenda()
   {
     $tgl_awal = $this->input->post('tgl_awal');
@@ -82,7 +108,8 @@ class Laporan extends CI_Controller
     $tgl_awal = $this->input->post('tgl_awal');
     $tgl_akhir = $this->input->post('tgl_akhir');
     $data['title'] = "Laporan Data Rekap Kenaikan Dan Penurunan";
-    $data['p'] = $this->pemasangan_m->getByDateUpDown($tgl_awal, $tgl_akhir);
+    $data['p'] = $this->pemasangan_m->getByDateUp($tgl_awal, $tgl_akhir);
+    $data['z'] = $this->pemasangan_m->getByDateDown($tgl_awal, $tgl_akhir);
     $this->load->view('laporan/rekap_updown_detail', $data);
   }
 
@@ -138,11 +165,7 @@ class Laporan extends CI_Controller
     $data['p'] = $this->pengaduan_m->getByDate($tgl_awal, $tgl_akhir);
     $this->load->view('laporan/pengaduan_detail', $data);
   }
-  public function pelanggan()
-  {
-    $data['kelurahan'] = $this->pelanggan_m->ambil_data_kelurahan();
-    $this->template->load('template', 'laporan/pelanggan', $data);
-  }
+  
 
   public function laporankelurahan()
   {
@@ -150,12 +173,20 @@ class Laporan extends CI_Controller
     $data['kelurahan'] = $this->pelanggan_m->ambil_data_kelurahan();
     $data['title'] = "Laporan Data Pelanggan Perkelurahan";
     $data['p'] = $this->pembayaran_m->getkelurahan($kelurahan);
+    $data['belum'] = $this->pelanggan_m->getjumlah1($kelurahan);
+    $data['sudah'] = $this->pelanggan_m->getjumlah2($kelurahan);
+    $data['tidak'] = $this->pelanggan_m->getjumlah3($kelurahan);
+    $data['non'] = $this->pelanggan_m->getjumlah4($kelurahan);
     $this->load->view('laporan/pelanggan_detail', $data);
   }
   public function laporanpelanggan()
   {
     $data['title'] = "Laporan Data Pelanggan";
     $data['p'] = $this->pembayaran_m->getpelanggan();
+    $data['belum'] = $this->pembayaran_m->getjumlah1();
+    $data['sudah'] = $this->pembayaran_m->getjumlah2();
+    $data['tidak'] = $this->pembayaran_m->getjumlah3();
+    $data['non'] = $this->pembayaran_m->getjumlah4();
     $this->load->view('laporan/pelanggan_detail_all', $data);
   }
   public function laporanpenambahan()

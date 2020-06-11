@@ -165,6 +165,28 @@ class Pembayaran_m extends CI_Model {
         $q = $q->result_array();
          //echo $this->db->last_query();
         //print_r($q);
+        return $q;  
+    }
+    public function getByDateBermasalah($tgl_awal, $tgl_akhir)
+    {
+        $kondisi = "";
+        $this->db->select('');
+        $this->db->from('pembayaran');
+        $this->db->join('pelanggan','pelanggan.pelanggan_id=pembayaran.pelanggan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('status_pembayaran',2);
+        if ($tgl_awal != "" && $tgl_akhir==""){
+            $this->db->where('tanggal_pembayaran >=',$tgl_awal);
+        } else if ($tgl_awal == "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pembayaran <=',$tgl_akhir);
+        } else  if ($tgl_awal != "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pembayaran >=',$tgl_awal);
+            $this->db->where('tanggal_pembayaran <=',$tgl_akhir);
+        }
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+         //echo $this->db->last_query();
+        //print_r($q);
         return $q;
         
     }
@@ -200,6 +222,63 @@ class Pembayaran_m extends CI_Model {
         //print_r($q);
         return $q;
         
+    }
+
+    public function getjumlah1()
+    {
+        $kondisi = "";
+        $this->db->select('count(status) as sum');
+        $this->db->from('pelanggan');
+        $this->db->join('kelurahan','kelurahan.kelurahan_id=pelanggan.kelurahan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('pemasangan.status',1);
+        $q = $this->db->get();
+        $q = $q->result_array();
+        //echo $this->db->last_query();
+        
+        return $q;
+    }
+    public function getjumlah2()
+    {
+        $kondisi = "";
+        $this->db->select('count(status) as sum');
+        $this->db->from('pelanggan');
+        $this->db->join('kelurahan','kelurahan.kelurahan_id=pelanggan.kelurahan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('pemasangan.status',2);
+        $q = $this->db->get();
+        $q = $q->result_array();
+        //echo $this->db->last_query();
+        
+        return $q;
+    }
+    public function getjumlah3()
+    {
+        $kondisi = "";
+        $this->db->select('count(status) as sum');
+        $this->db->from('pelanggan');
+        $this->db->join('kelurahan','kelurahan.kelurahan_id=pelanggan.kelurahan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('pemasangan.status',3);
+        $q = $this->db->get();
+        $q = $q->result_array();
+        //echo $this->db->last_query();
+        
+        return $q;
+    }
+    public function getjumlah4()
+    {
+        $kondisi = "";
+        $this->db->select('count(status) as sum');
+        $this->db->from('pelanggan');
+        $this->db->join('kelurahan','kelurahan.kelurahan_id=pelanggan.kelurahan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('pemasangan.status',4);
+        $q = $this->db->get();
+        $q = $q->result_array();
+        //echo $this->db->last_query();
+        
+        return $q;
     }
     
     public function get_pembayaran($id= null)

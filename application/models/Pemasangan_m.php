@@ -140,7 +140,7 @@ class Pemasangan_m extends CI_Model {
         return $q;
         
     }
-    public function getByDateUpDown($tgl_awal, $tgl_akhir)
+    public function getByDateUp($tgl_awal, $tgl_akhir)
     {
         $kondisi = "";
         $this->db->select('*');
@@ -165,6 +165,29 @@ class Pemasangan_m extends CI_Model {
         
         
         
+    }
+    public function getByDateDown($tgl_awal, $tgl_akhir)
+    {
+        $kondisi = "";
+        $this->db->select('*');
+        $this->db->select('count(status) as pengurangan');
+        $this->db->from('pelanggan');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->join('pemutusan','pemutusan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('status',4);
+        if ($tgl_awal != "" && $tgl_akhir==""){
+            $this->db->where('tanggal_pemutusan >=',$tgl_awal);
+        } else if ($tgl_awal == "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pemutusan <=',$tgl_akhir);
+        } else  if ($tgl_awal != "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pemutusan >=',$tgl_awal);
+            $this->db->where('tanggal_pemutusan <=',$tgl_akhir);
+        }
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+        //echo $this->db->last_query();die();
+        //print_r($q);die();
+        return $q;
     }
 
 }

@@ -140,4 +140,65 @@ class Pelanggan_m extends CI_Model
         return $q;
         
     }
+    public function getjumlah1($kelurahan)
+    {
+        $kondisi = "";
+        $this->db->select('count(status) as sum');
+        $this->db->from('pelanggan');
+        $this->db->join('kelurahan','kelurahan.kelurahan_id=pelanggan.kelurahan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('pemasangan.status',1);
+        $this->db->where('pelanggan.kelurahan_id',$kelurahan);
+        $q = $this->db->get();
+        $q = $q->result_array();
+        //echo $this->db->last_query();
+        
+        return $q;
+    }
+    public function getjumlah2($kelurahan)
+    {
+        $kondisi = "";
+        $this->db->select('count(status) as sum');
+        $this->db->from('pelanggan');
+        $this->db->join('kelurahan','kelurahan.kelurahan_id=pelanggan.kelurahan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('pemasangan.status',2);
+        $this->db->where('pelanggan.kelurahan_id',$kelurahan);
+        $q = $this->db->get();
+        $q = $q->result_array();
+        //echo $this->db->last_query();
+        
+        return $q;
+    }
+    public function getjumlah3($kelurahan)
+    {
+        $kondisi = "";
+        $this->db->select('count(status) as sum');
+        $this->db->from('pelanggan');
+        $this->db->join('kelurahan','kelurahan.kelurahan_id=pelanggan.kelurahan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('pemasangan.status',3);
+        $this->db->where('pelanggan.kelurahan_id',$kelurahan);
+        $q = $this->db->get();
+        $q = $q->result_array();
+        //echo $this->db->last_query();
+        
+        return $q;
+    }
+    public function getjumlah4($kelurahan)
+    {
+        $kondisi = "";
+        $this->db->select('count(status) as sum');
+        $this->db->from('pelanggan');
+        $this->db->join('kelurahan','kelurahan.kelurahan_id=pelanggan.kelurahan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('pemasangan.status',4);
+        $this->db->where('pelanggan.kelurahan_id',$kelurahan);
+        $q = $this->db->get();
+        $q = $q->result_array();
+        //echo $this->db->last_query();
+        
+        return $q;
+    }
+   
 }

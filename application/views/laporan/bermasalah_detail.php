@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $title ?></title>
+	<title><?php echo strtoupper($title); ?></title>
 	<base href="<?php echo base_url() ?>">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
@@ -25,8 +25,6 @@
 		<h4><?php echo strtoupper($title); ?></h4>
         <?php $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');?>
-        <?php $tgl_awal = $this->input->post('tgl_awal');
-        $tgl_akhir = $this->input->post('tgl_akhir');?>
 
         <p><h6><?php if($tgl_awal == null and $tgl_akhir == null){
             echo "";
@@ -38,9 +36,10 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Pemasangan</th>
-                        <th>Pemutusan</th>
-                        <th>Penambahan</th>
+                        <th>Nama Pelanggan</th>
+                        <th>Tagihan Bulan</th>
+                        <th>Keterangan</th>
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -48,13 +47,27 @@
                     foreach($p as $x) { ?>
                     <tr>
                         <td><?php echo $no++?>.</td>
-                        <td><?php echo $x['penambahan']?></td> 
-                    <?php foreach($z as $p) { ?>
-                    <td><?php echo $p['pengurangan']?></td> 
-                        <td><?php echo $x['penambahan'] - $p['pengurangan'] ?></td>
+                        <td><?php echo $x['nama']?></td>
+                        <td><?php if($x['tanggal_tagihan'] == null) {
+				                echo  date('M',strtotime($x['tanggal_pemasangan']));
+                        }elseif($x['tanggal_tagihan'] != null) {
+                          echo  date('M',strtotime($x['tanggal_tagihan']));
+                        
+				        }?></td>
+                        <td><?php if($x['denda'] == 10000) {
+				                echo "Terlambat Bayar 1 Bulan";
+                        }elseif($x['denda'] == 20000) {
+                        echo "Terlambat Bayar 2 Bulan";
+                        }elseif($x['status'] == 30000) {
+                        echo "Terlambat Bayar 3 Bulan";
+                         }elseif($x['status'] == 40000) {
+                        echo "Terlambat Bayar 4 Bulan";
+				        }?></td>
+                        
                     </tr>
-                    <?php }?>
-                    <?php } ?>
+                    </tr>
+                    <?php
+                    } ?>
                 </tbody>
     </table>
     <div class="float-md-right"><strong><p> Pimpinan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></strong></div></br></br></br></br></br></br>
