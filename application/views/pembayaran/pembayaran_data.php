@@ -46,7 +46,7 @@
 				        }?>
 
                         </td>
-                        <td><?php echo $data->total_pembayaran?></td>
+                        <td><?php echo "Rp. " . number_format($data->total_pembayaran, 0, ".", ".");  ?></td>
                         
                         <td class="text-center" width="160px">
                             <form action="<?php echo site_url('pembayaran/del')?>"method="post">

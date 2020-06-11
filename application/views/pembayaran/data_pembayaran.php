@@ -11,7 +11,8 @@
                          <thead>
                          <tr>
                                 <th>NO</th>
-                                <th>Nama</th>                              
+                                <th>Nama</th>
+                                <th>Tagihan Bulan</th>                              
                                 <th>Tanggal Pembayaran</th>
                                 <th>Bukti Pembayaran</th>
                                 <th>Status</th>
@@ -25,6 +26,15 @@
                     <tr>
                         <td><?php echo $no++?>.</td>
                         <td><?php echo  $key->nama?></td>
+                        <td><?php if($key->tanggal_tagihan == null) {
+				                echo  date('M',strtotime($key->tanggal_pemasangan));
+                        }elseif($key->tanggal_tagihan != null) {
+                          echo  date('M',strtotime($key->tanggal_tagihan));
+                        
+				        }?></td>
+
+
+                        
                         <td><?php echo $key->tanggal_pembayaran?></td>
                         <td><img src="<?= base_url('uploads/'.$key->image) ?>"width="64"></td>
                         <td>

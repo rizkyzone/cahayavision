@@ -7,6 +7,6 @@ class Dashboard_pimpinan extends CI_Controller {
 	public function index()
 	{
 		check_not_login();
-		$this->template->load('template3', 'dashboard_pimpinan');
+		$this->template->load('template', 'dashboard_pimpinan');
 	}
 }

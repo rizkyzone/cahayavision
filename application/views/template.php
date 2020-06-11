@@ -44,14 +44,14 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
-
+      
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
         <a class="nav-link" href="<?= site_url('dashboard') ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
-
+      <?php if($this->session->userdata('level') == 1){ ?>
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -114,6 +114,7 @@
           <i class="fas fa-fw fa-bullhorn"></i>
           <span>Pengajuan Putus</span></a>
       </li>
+      <?php } ?>
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -147,6 +148,8 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
+      <?php if($this->session->userdata('level') == 1){ ?>
+      
       <div class="sidebar-heading">
         Settings
       </div>
@@ -155,12 +158,20 @@
           <i class="fas fa-fw fa-user"></i>
           <span>User</span></a>
       </li>
+      <?php } ?>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('/auth/logout') ?>">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span></a>
+      </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-
+      
+      
     </ul>
+    
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -229,11 +240,7 @@
               
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <div class="dropdown-divider"></div>
+                
                 <a class="dropdown-item" href="<?= site_url('auth/logout') ?>" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout

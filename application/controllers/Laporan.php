@@ -51,6 +51,22 @@ class Laporan extends CI_Controller
   {
     $this->template->load('template', 'laporan/rekap_kelurahan');
   }
+  public function rekap_updown()
+  {
+    $this->template->load('template', 'laporan/rekap_updown');
+  }
+  public function denda()
+  {
+    $this->template->load('template', 'laporan/denda');
+  }
+  public function laporandenda()
+  {
+    $tgl_awal = $this->input->post('tgl_awal');
+    $tgl_akhir = $this->input->post('tgl_akhir');
+    $data['title'] = "Laporan Data Denda Pelanggan";
+    $data['p'] = $this->pembayaran_m->getByDateDenda($tgl_awal, $tgl_akhir);
+    $this->load->view('laporan/denda_detail', $data);
+  }
 
   public function laporanrekapteknisi()
   {
@@ -60,6 +76,16 @@ class Laporan extends CI_Controller
     $data['p'] = $this->pengaduan_m->getByDateTeknisi($tgl_awal, $tgl_akhir);
     $this->load->view('laporan/rekap_teknisi_detail', $data);
   }
+
+  public function laporanrekapupdown()
+  {
+    $tgl_awal = $this->input->post('tgl_awal');
+    $tgl_akhir = $this->input->post('tgl_akhir');
+    $data['title'] = "Laporan Data Rekap Kenaikan Dan Penurunan";
+    $data['p'] = $this->pemasangan_m->getByDateUpDown($tgl_awal, $tgl_akhir);
+    $this->load->view('laporan/rekap_updown_detail', $data);
+  }
+
   public function laporanrekapkelurahan()
   {
     $tgl_awal = $this->input->post('tgl_awal');
@@ -100,6 +126,7 @@ class Laporan extends CI_Controller
   {
     $tgl_awal = $this->input->post('tgl_awal');
     $tgl_akhir = $this->input->post('tgl_akhir');
+    $data['title'] = "Laporan Data Pemasangan";
     $data['p'] = $this->pemasangan_m->getByDate($tgl_awal, $tgl_akhir);
     $this->load->view('laporan/pemasangan_detail', $data);
   }

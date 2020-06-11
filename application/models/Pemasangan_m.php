@@ -126,6 +126,7 @@ class Pemasangan_m extends CI_Model {
         $this->db->join('pelanggan','pelanggan.pelanggan_id=pemasangan.pelanggan_id','left');
         $this->db->order_by('pemasangan.status','asc');
         $this->db->order_by('pemasangan.tanggal_pemasangan','asc');
+        $this->db->where('status',2);
         if ($tgl_awal != "" && $tgl_akhir==""){
             $this->db->where('tanggal_pemasangan >=',$tgl_awal);
         } else if ($tgl_awal == "" && $tgl_akhir!=""){
@@ -137,6 +138,32 @@ class Pemasangan_m extends CI_Model {
         $q = $this->db->get_where();
         $q = $q->result_array();
         return $q;
+        
+    }
+    public function getByDateUpDown($tgl_awal, $tgl_akhir)
+    {
+        $kondisi = "";
+        $this->db->select('*');
+        $this->db->select('count(status) as penambahan');
+        $this->db->from('pelanggan');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->join('pemutusan','pemutusan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('status',2);
+        if ($tgl_awal != "" && $tgl_akhir==""){
+            $this->db->where('tanggal_pemasangan >=',$tgl_awal);
+        } else if ($tgl_awal == "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pemasangan <=',$tgl_akhir);
+        } else  if ($tgl_awal != "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pemasangan >=',$tgl_awal);
+            $this->db->where('tanggal_pemasangan <=',$tgl_akhir);
+        }
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+        //echo $this->db->last_query();die();
+        //print_r($q);die();
+        return $q;
+        
+        
         
     }
 

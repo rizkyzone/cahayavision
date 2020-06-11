@@ -88,10 +88,10 @@ class Pembayaran_m extends CI_Model {
         $this->db->where('pembayaran_id', $post['id']);
         $this->db->update('pembayaran', $params);
         if ($params['status_bayar'] == 3)
+        
         $tgl = date('Y-m-d');
-        $tgl_tagihan = date('Y-m-d', strtotime($tgl.'+ 1 month'));
         $params2['pelanggan_id'] = $post['pelanggan_id'];
-        $params2['tanggal_tagihan'] = $tgl_tagihan;
+        $params2['tanggal_tagihan'] = $tgl;
         $this->db->insert('pembayaran', $params2);
     }
 
@@ -145,6 +145,31 @@ class Pembayaran_m extends CI_Model {
         return $q;
         
     }
+    public function getByDateDenda($tgl_awal, $tgl_akhir)
+    {
+        $kondisi = "";
+        $this->db->select('');
+        $this->db->from('pembayaran');
+        $this->db->join('pelanggan','pelanggan.pelanggan_id=pembayaran.pelanggan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('status_pembayaran',2);
+        if ($tgl_awal != "" && $tgl_akhir==""){
+            $this->db->where('tanggal_pembayaran >=',$tgl_awal);
+        } else if ($tgl_awal == "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pembayaran <=',$tgl_akhir);
+        } else  if ($tgl_awal != "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pembayaran >=',$tgl_awal);
+            $this->db->where('tanggal_pembayaran <=',$tgl_akhir);
+        }
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+         //echo $this->db->last_query();
+        //print_r($q);
+        return $q;
+        
+    }
+
+
     public function getkelurahan($kelurahan)
     {
         $kondisi = "";

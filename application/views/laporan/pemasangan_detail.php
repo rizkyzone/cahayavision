@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Data Pemasangan</title>
+	<title><?php echo strtoupper($title); ?></title>
 	<base href="<?php echo base_url() ?>">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
@@ -22,7 +22,7 @@
 				</td>
 			</tr>
 		</table>
-		<h4>LAPORAN DATA PEMASANGAN</h4>
+		<h4><?php echo strtoupper($title); ?></h4>
         <?php $tgl_awal = $this->input->post('tgl_awal');
         $tgl_akhir = $this->input->post('tgl_akhir');?>
         

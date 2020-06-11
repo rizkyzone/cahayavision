@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo strtoupper($title); ?></title>
+	<title><?php echo $title ?></title>
 	<base href="<?php echo base_url() ?>">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
-    <link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css">
 </head>
 <body onload="print()">
 	<center>
@@ -22,15 +22,25 @@
 				</td>
 			</tr>
 		</table>
-        <?php $tahun = $this->input->post('tahun');?>
-		<h4><?php echo strtoupper($title); ?> <?php echo $tahun?></h4>
+		<h4><?php echo strtoupper($title); ?></h4>
+        <?php $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir = $this->input->post('tgl_akhir');?>
+        <?php $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir = $this->input->post('tgl_akhir');?>
+
+        <p><h6><?php if($tgl_awal == null and $tgl_akhir == null){
+            echo "";
+        }else{
+            echo date('d-m-Y',strtotime($tgl_awal)); ?> Sampai <?php echo date('d-m-Y',strtotime($tgl_akhir)); 
+        }?></h6></p>
 	</center>
     <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Bulan</th>
-                        <th>Jumlah</th>
+                        <th>Penambahan</th>
+                        <th>Pengurangan</th>
+                        <th>jumlah</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,11 +48,9 @@
                     foreach($p as $x) { ?>
                     <tr>
                         <td><?php echo $no++?>.</td>
-                        <td><?php echo $x['bulan']?></td>
-                        <td><?php echo $x['num']?></td>
-                        
-
-                      
+                        <td><?php echo $x['penambahan']?></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <?php
                     } ?>
