@@ -182,6 +182,7 @@ class Pelanggandata extends CI_Controller
 			);
 			$data['pembayaran'] = $this->pelanggan_m->ambil_data('kelurahan');
 			$data['pemasangan'] = $this->pelanggan_m->ambil_data('pemasangan');
+			$data['harga'] = $this->pelanggan_m->ambil_data('harga');
 			$this->template->load('template4', 'pembayaran/pembayaran_pelanggan', $data);
 		} else {
 			echo "<script> alert('Data tidak ditemukan');";
@@ -225,6 +226,7 @@ class Pelanggandata extends CI_Controller
 		$data['row'] = $query->result();
 		$data['pembayaran'] = $this->pelanggan_m->ambil_data('kelurahan');
 		$data['pemasangan'] = $this->pelanggan_m->ambil_data('pemasangan');
+		$data['harga'] = $this->pelanggan_m->ambil_data('harga');
 		$this->template->load('template4', 'pembayaran/data_pembayaran', $data);
 	}
 

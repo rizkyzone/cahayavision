@@ -10,19 +10,19 @@
 
                                 $diff  = date_diff($waktuawal, $waktuakhir);?>
                                 <?php if ($diff->m == 0){
-                                    $tagihan = $row->jumlah_televisi * 50000;
+                                    $tagihan = $row->jumlah_tv * 50000;
                                 }else{
-                                    $tagihan = $row->jumlah_televisi * 50000 * $diff->m ;
+                                    $tagihan = $row->jumlah_tv * 50000 * $diff->m ;
                                 }?>
 
 
 
                                 
-                                <?php $denda = $diff->m * 10000;?>
+                                <?php $denda = $diff->m * $row->denda;?>
                                 <?php if ($diff->m == 0){
-                                    $total = $row->jumlah_televisi * 50000;
+                                    $total = $row->jumlah_tv * 50000;
                                 }else{
-                                    $total = ($row->jumlah_televisi * 50000 * $diff->m)+( $diff->m * 10000);
+                                    $total = ($row->jumlah_tv * 50000 * $diff->m)+( $diff->m * $row->denda);
                                 }?>
                                 
                                 <?php if ($diff->m == 0){

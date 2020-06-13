@@ -23,7 +23,7 @@
                                 <th>Tanggal Pembayaran</th>
                                 <th>Bukti Pembayaran</th>
                                 <th>Status</th>
-                                <th>Tagihan &nbsp&nbsp&nbsp&nbsp</th>
+                                <th>&nbsp&nbsp Tagihan &nbsp&nbsp&nbsp&nbsp</th>
                                 <th>Actions</th>
                          </tr>
                     </thead>
@@ -58,9 +58,9 @@
 
                                 $diff  = date_diff($waktuawal, $waktuakhir);?>
                                 <?php if ($diff->m == 0){
-                                    $total = $data->jumlah_televisi * 50000;
+                                    $total = $data->jumlah_tv * 50000;
                                 }else{
-                                    $total = ($data->jumlah_televisi * 50000 * $diff->m)+( $diff->m * 10000);
+                                    $total = ($data->jumlah_tv * 50000 * $diff->m)+( $diff->m * $data->denda);
                                 }?>
                         <td>
                         

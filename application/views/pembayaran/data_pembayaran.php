@@ -16,7 +16,7 @@
                                 <th>Tanggal Pembayaran</th>
                                 <th>Bukti Pembayaran</th>
                                 <th>Status</th>
-                                <th>Total Pembayaran</th>
+                                <th>Total Tagihan</th>
                                 <th>Actions</th>
                          </tr>
                     </thead>
@@ -77,13 +77,17 @@
 
                                 $diff  = date_diff($waktuawal, $waktuakhir);?>
                                 <?php if ($diff->m == 0){
-                                    $total = $key->jumlah_televisi * 50000;
+                                    $total = $key->jumlah_tv * 50000;
                                 }else{
-                                    $total = ($key->jumlah_televisi * 50000 * $diff->m)+( $diff->m * 10000);
+                                    $total = ($key->jumlah_tv * 50000 * $diff->m)+( $diff->m * $key->denda);
                                 }?>
                         <td>
                         
-                        <?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>
+                        <?php if($key->status_bayar == 3){
+                            echo "Rp. " . number_format($key->total_pembayaran, 0, ".", ".");
+                        }else{
+                            echo "Rp. " . number_format($total, 0, ".", ".");
+                        }?>
                         </td>
                         <td class="text-center" width="160px">
                             

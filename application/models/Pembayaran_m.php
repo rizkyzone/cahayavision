@@ -10,6 +10,7 @@ class Pembayaran_m extends CI_Model {
         }
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
         $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
         $query = $this->db->get();
         return $query;
     }
@@ -19,6 +20,7 @@ class Pembayaran_m extends CI_Model {
         $this->db->from('pembayaran');
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
         $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
         $this->db->where('status_bayar', 1);
         $this->db->order_by('pembayaran.tanggal_pembayaran','asc');
         $query = $this->db->get();
@@ -30,6 +32,7 @@ class Pembayaran_m extends CI_Model {
         $this->db->from('pembayaran');
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
         $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
         $this->db->where('status_bayar', 2);
         $this->db->order_by('pembayaran.tanggal_pembayaran','asc');
         $query = $this->db->get();
@@ -41,6 +44,7 @@ class Pembayaran_m extends CI_Model {
         $this->db->from('pembayaran');
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
         $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
         $this->db->where('status_bayar', 3);
         $this->db->order_by('pembayaran.tanggal_pembayaran','asc');
         $query = $this->db->get();
@@ -131,7 +135,7 @@ class Pembayaran_m extends CI_Model {
         $this->db->from('pembayaran');
         $this->db->join('pelanggan','pelanggan.pelanggan_id=pembayaran.pelanggan_id','left');
         $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
-        $this->db->order_by('pembayaran.status_bayar','desc');
+        $this->db->where('pembayaran.status_bayar',3);
         if ($tgl_awal != "" && $tgl_akhir==""){
             $this->db->where('tanggal_pembayaran >=',$tgl_awal);
         } else if ($tgl_awal == "" && $tgl_akhir!=""){
@@ -289,6 +293,7 @@ class Pembayaran_m extends CI_Model {
         }
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
         $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
         $query = $this->db->get();
        // echo $this->db->last_query();die();
         return $query;
@@ -301,6 +306,7 @@ class Pembayaran_m extends CI_Model {
         }
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
         $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
         $query = $this->db->get();
        // echo $this->db->last_query();die();
         return $query;

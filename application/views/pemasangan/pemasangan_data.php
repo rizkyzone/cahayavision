@@ -36,13 +36,12 @@
                         <td><?php echo $data->address?></td>
                         <td><?php echo $data->no_telp?></td>
                         <td><?php echo $data->tanggal_pemasangan?></td>
-                        <td><?php if($data->jumlah_televisi == 1) {
-				                echo "1 TV";
-                        }elseif($data->jumlah_televisi == 2) {
-                        echo "2 TV";
-                        }elseif($data->jumlah_televisi ==3) {
-                        echo "3 TV";
-				                 }?></td>
+                        <td><?php if ($data->jumlah_tv != null){
+                          echo $data->jumlah_tv;  echo " TV";
+                          }else{
+                            echo "";
+                          }
+                          ?></td>
                         <td><?php echo $data->nama_teknisi?></td>
                         <td>
                         <?php if($data->status == 1) {
