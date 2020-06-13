@@ -86,6 +86,9 @@ class Pembayaran_m extends CI_Model {
         $params['pelanggan_id'] = $post['pelanggan_id'];
         $params['tanggal_pembayaran'] = date('Y-m-d');
         $params['status_bayar'] = $post['status_bayar'];
+        $params['metode_pembayaran'] = $post['metode_pembayaran'];
+        
+        $params['total_pembayaran'] = $post['total_pembayaran'];
         if($post['image'] != null) {
         $params['image'] = $post['image'];
         }

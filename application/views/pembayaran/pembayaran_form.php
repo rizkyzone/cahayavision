@@ -1,3 +1,35 @@
+<?php
+                                if (empty($row->tanggal_tagihan)){
+                                    $waktuawal  = date_create($row->tanggal_pemasangan);
+                                }else{
+                                   $waktuawal  = date_create($row->tanggal_tagihan);
+                                } 
+
+                                 //waktu di setting
+                                $waktuakhir = date_create(); // waktu sekarang
+
+                                $diff  = date_diff($waktuawal, $waktuakhir);?>
+                                <?php if ($diff->m == 0){
+                                    $tagihan = $row->jumlah_tv * 50000;
+                                }else{
+                                    $tagihan = $row->jumlah_tv * 50000 * $diff->m ;
+                                }?>
+
+
+
+                                
+                                <?php $denda = $diff->m * $row->denda;?>
+                                <?php if ($diff->m == 0){
+                                    $total = $row->jumlah_tv * 50000;
+                                }else{
+                                    $total = ($row->jumlah_tv * 50000 * $diff->m)+( $diff->m * $row->denda);
+                                }?>
+                                
+                                <?php if ($diff->m == 0){
+                                    $status_pembayaran = 1;
+                                }else{
+                                    $status_pembayaran = 2;
+                                }?>
     <!-- Page Heading -->
     <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -19,6 +51,7 @@
                             <div class="form-group">
                             <label class="control-label"><small>Nama Pelanggan : </small></label>
                             <input type="hidden" name="id" value="<?php echo $row->pembayaran_id?>">
+                            <input type="hidden" name="status_pembayaran" value="<?php echo $status_pembayaran?>">
                             <select name="pelanggan_id" id="pelanggan_id" class="form-control selectpicker show-tick" data-live-search="true">
                             <?php foreach ($pelanggan as $d){ ?>
                                <?php if($d['pelanggan_id'] == ( $this->input->post('pelanggan_id') ?? $row->pelanggan_id)){ ?>
@@ -29,12 +62,18 @@
                             </select>
                             </div>
                             <div class="form-group">
-                                <label>Tanggal Pembayaran</label>
-                                <input type="date" name="tgl" value="<?=$this->input->post('tgl') ?? $row->tanggal_pembayaran?>" class="form-control">
+                                <label for="disabledTextInput">Tagihan</label>
+                                <input type="text" id="disabledTextInput" value="<?php echo "Rp. " . number_format($tagihan, 0, ".", ".");  ?>" readonly class="form-control block">
                             </div>
+                            
                             <div class="form-group">
-                                <label>Total pembayaran</label>
-                                <input type="text" name="tgl" value="<?=$this->input->post('tgl') ?? $row->total_pembayaran?>" readonly class="form-control">
+                                <label for="disabledTextInput">Denda</label>
+                                <input type="text" id="disabledTextInput" value="<?php echo "Rp. " . number_format($denda, 0, ".", ".");  ?>" readonly class="form-control block">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="disabledTextInput">Total Tagihan</label>
+                                <input type="text" name="total_pembayaran"id="disabledTextInput" value="" placeholder="<?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>" readonly class="form-control block">
                             </div>
                             <div class="form-group">
                             <label>Status</label>
@@ -43,6 +82,14 @@
                             <option value="1"<?=$status_bayar == 1 ? 'selected' : null?>>Belum Bayar</option>
                             <option value="2"<?=$status_bayar == 2 ? 'selected' : null?>>Belum Diverifikasi</option>
                             <option value="3"<?=$status_bayar == 3 ? 'selected' : null?>>Lunas</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                            <label>Metode Pembayaran</label>
+                            <select name="metode_pembayaran" id="metode_pembayaran" class="form-control">
+                            <?php $metode_pembayaran = $this->input->post('metode_pembayaran') ? $this->input->post('metode_pembayaran') : $row->status_bayar ?>
+                            <option value="1"<?=$metode_pembayaran == 1 ? 'selected' : null?>>Kasir</option>
+                            <option value="2"<?=$metode_pembayaran == 2 ? 'selected' : null?>>Transfer</option>
                             </select>
                             </div>
                             <div class="form-group">

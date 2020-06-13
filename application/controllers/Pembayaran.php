@@ -13,20 +13,23 @@ class Pembayaran extends CI_Controller
 	public function index()
 	{
 		$data['title'] = "Data pembayaran";
+		$data['page'] = "belum";
 		$data['row'] = $this->pembayaran_m->getstatus();
 		$this->template->load('template', 'pembayaran/pembayaran_data', $data);
 	}
 	public function validasi()
 	{
 		$data['title'] = "Data pengaduan";
+		$data['validasi'] = "validasi";
 		$data['row'] = $this->pembayaran_m->getstatus1();
-		$this->template->load('template', 'pembayaran/pembayaran_data', $data);
+		$this->template->load('template', 'pembayaran/pembayaran_data_lunas', $data);
 	}
 	public function lunas()
 	{
 		$data['title'] = "Data pengaduan";
+		$data['lunas'] = "lunas";
 		$data['row'] = $this->pembayaran_m->getstatus2();
-		$this->template->load('template', 'pembayaran/pembayaran_data', $data);
+		$this->template->load('template', 'pembayaran/pembayaran_data_lunas', $data);
 	}
 
 	public function add() #function edit dan add
