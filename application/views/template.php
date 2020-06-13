@@ -71,6 +71,7 @@
             <h6 class="collapse-header">Master:</h6>
             <a class="collapse-item" href="<?= site_url('pelanggan') ?>">Pelanggan</a>
             <a class="collapse-item" href="<?= site_url('teknisi') ?>">Teknisi</a>
+            <a class="collapse-item" href="<?= site_url('jumlahtv') ?>">Harga</a>
           </div>
         </div>
       </li>

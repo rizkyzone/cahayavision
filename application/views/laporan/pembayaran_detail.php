@@ -38,10 +38,10 @@
                         <th>No</th>
                         <th>Nama Pelanggan</th>
                         <th>Tanggal Pembayaran</th>
-                        <th>Total Pembayaran</th>
                         <th>Metode Pembayaran</th>
                         <th>Tujuan Transfer</th>
                         <th>Status</th>
+                        <th>Total Pembayaran</th>
                        
                     </tr>
                 </thead>
@@ -52,7 +52,6 @@
                         <td><?php echo $no++?>.</td>
                         <td><?php echo $x['nama']?></td>
                         <td><?php echo $x['tanggal_pembayaran']?></td>
-                        <td><?php echo $x['total_pembayaran']?></td>
                         <td><?php if($x['metode_pembayaran'] == 1) {
 				                echo "Kasir";
                         }elseif($x['metode_pembayaran'] == 2) {
@@ -73,11 +72,26 @@
                         echo "Lunas";
 				        }?></td>
                         
+                        <td><?php echo "Rp. " . number_format($x['total_pembayaran'], 0, ".", ".");?></td>
+                        
                     </tr>
                     </tr>
+                    
                     <?php
                     } ?>
                 </tbody>
+                <tfoot>
+    <tr>
+      <td colspan="6"><h5><p class="text-center">Jumlah</p></h5></td>
+      <?php $sum = 0;
+
+foreach($p as $x) {
+	$sum += $x['total_pembayaran'];
+}
+       ?>
+      <td> <?php echo "Rp. " . number_format($sum, 0, ".", ".");?></td>
+    </tr>
+  </tfoot>
     </table>
     <div class="float-md-right"><strong><p> Pimpinan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></strong></div></br></br></br></br></br></br>
     <div class="float-md-right"><p><?php echo $this->fungsi->pimpinan()->name ?> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></div>
