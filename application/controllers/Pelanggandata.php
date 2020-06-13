@@ -225,6 +225,8 @@ class Pelanggandata extends CI_Controller
 		$data['row'] = $query->result();
 		$query = $this->pembayaran_m->get_pembayarandua($id);
 		$data['rom'] = $query->result();
+		$query = $this->pembayaran_m->get_lastpembayaran($id);
+		$data['rok'] = $query->result();
 		$data['pembayaran'] = $this->pelanggan_m->ambil_data('kelurahan');
 		$data['pemasangan'] = $this->pelanggan_m->ambil_data('pemasangan');
 		$data['harga'] = $this->pelanggan_m->ambil_data('harga');

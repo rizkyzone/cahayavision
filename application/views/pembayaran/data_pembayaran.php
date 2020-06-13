@@ -21,9 +21,26 @@
                          </tr>
                     </thead>
                     <tbody>
-                        <?php $no = 1;
-                        foreach($row as $key )  { ?>
-                    <tr>
+
+                    <?php foreach($rok as $data )  {
+                                if($data->tanggal_tagihan == null){
+                                $waktu = date('M',strtotime($data->tanggal_pemasangan));
+                                }else{
+                                $waktu = date('M',strtotime($data->tanggal_tagihan));
+                                }
+                                $now = date('M',strtotime('now'));
+                    }?>
+
+
+
+                       
+                        <?php 
+                        $no=0;
+                        $no++;
+                        if($waktu == $now) {
+                            foreach($rom as $key )  { ?>
+                            
+                            <tr>
                         <td><?php echo $no++?>.</td>
                         <td><?php echo  $key->nama?></td>
                         <td><?php if($key->tanggal_tagihan == null) {
@@ -104,8 +121,100 @@
                         
                         </td>
                     </tr>
-                    <?php
-                    } ?>
+                            <?php }?>
+
+
+
+                        <?php
+                        }else {
+                            foreach($row as $mey )  {?>
+                            
+                            <tr>
+                        <td><?php echo $no++?>.</td>
+                        <td><?php echo  $mey->nama?></td>
+                        <td><?php if($mey->tanggal_tagihan == null) {
+				                echo  date('M',strtotime($mey->tanggal_pemasangan));
+                        }elseif($mey->tanggal_tagihan != null) {
+                                
+                
+                              
+                                $waktuawal  = date_create($mey->tanggal_tagihan);
+                                
+
+                                 //waktu di setting
+                                $waktuakhir = date_create(); // waktu sekarang
+
+                                $diff  = date_diff($waktuawal, $waktuakhir);
+                                if ($diff->m == 0){
+                                 echo date('M',strtotime($mey->tanggal_tagihan));
+                              }else{
+                                  $diff = $diff->m ;
+                                  $bs = date('M',strtotime('+'.$diff. ' months' ,strtotime($mey->tanggal_tagihan)));       
+                                  $bt = date('M',strtotime($mey->tanggal_tagihan));
+                          
+                                  echo $bt.'-'.$bs;
+                              }
+                    
+				        }?></td>
+
+
+                        
+                        <td><?php echo $mey->tanggal_pembayaran?></td>
+                        <td><img src="<?= base_url('uploads/'.$mey->image) ?>"width="64"></td>
+                        <td>
+                        <?php if($mey->status_bayar == 1) {
+				                echo "Belum Bayar";
+                        }elseif($mey->status_bayar == 2) {
+                        echo "Menunggu Konfirmasi";
+                        }elseif($mey->status_bayar == 3) {
+                        echo "Lunas";
+				        }?>
+
+                        </td>
+                        <?php
+                                if (empty($mey->tanggal_tagihan)){
+                                    $waktuawal  = date_create($mey->tanggal_pemasangan);
+                                }else{
+                                   $waktuawal  = date_create($mey->tanggal_tagihan);
+                                } 
+
+                                 //waktu di setting
+                                $waktuakhir = date_create(); // waktu sekarang
+
+                                $diff  = date_diff($waktuawal, $waktuakhir);?>
+                                <?php if ($diff->m == 0){
+                                    $total = $mey->jumlah_tv * 50000;
+                                }else{
+                                    $total = ($mey->jumlah_tv * 50000 * $diff->m)+( $diff->m * $mey->denda);
+                                }?>
+                        <td>
+                        
+                        <?php if($mey->status_bayar == 3){
+                            echo "Rp. " . number_format($mey->total_pembayaran, 0, ".", ".");
+                        }else{
+                            echo "Rp. " . number_format($total, 0, ".", ".");
+                        }?>
+                        </td>
+                       
+                        <td class="text-center" width="160px">
+                            
+                        <a href="<?php echo site_url('pelanggandata/bayar/'.$mey->pembayaran_id) ?>" class="btn btn-danger btn-icon-split btn-sm
+                        <?php if($mey->status_bayar == 3) {
+				                echo "disabled";  }?>
+                        ">
+                         <span class="icon text-white-50">
+                         <i class="fas fa-info-circle"></i>
+                         </span>
+                        <span class="text">Bayar Tagihan</span>
+                         </a>
+                               
+                        
+                        </td>
+                    </tr>
+                            <?php}?>
+                          <?php  }
+                        }?>
+                   
                   </tbody>
                 </table>
               </div>
