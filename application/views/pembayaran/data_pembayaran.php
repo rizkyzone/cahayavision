@@ -24,11 +24,11 @@
 
                     <?php foreach($rok as $data )  {
                                 if($data->tanggal_tagihan == null){
-                                $waktu = date('M',strtotime($data->tanggal_pemasangan));
+                                $waktu = date('F',strtotime($data->tanggal_pemasangan));
                                 }else{
-                                $waktu = date('M',strtotime($data->tanggal_tagihan));
+                                $waktu = date('F',strtotime($data->tanggal_tagihan));
                                 }
-                                $now = date('M',strtotime('now'));
+                                $now = date('F',strtotime('now'));
                     }?>
 
 
@@ -44,7 +44,7 @@
                         <td><?php echo $no++?>.</td>
                         <td><?php echo  $key->nama?></td>
                         <td><?php if($key->tanggal_tagihan == null) {
-				                echo  date('M',strtotime($key->tanggal_pemasangan));
+				                echo  date('F',strtotime($key->tanggal_pemasangan));
                         }elseif($key->tanggal_tagihan != null) {
                                 
                 
@@ -57,11 +57,11 @@
 
                                 $diff  = date_diff($waktuawal, $waktuakhir);
                                 if ($diff->m == 0){
-                                 echo date('M',strtotime($key->tanggal_tagihan));
+                                 echo date('F',strtotime($key->tanggal_tagihan));
                               }else{
                                   $diff = $diff->m ;
-                                  $bs = date('M',strtotime('+'.$diff. ' months' ,strtotime($key->tanggal_tagihan)));       
-                                  $bt = date('M',strtotime($key->tanggal_tagihan));
+                                  $bs = date('F',strtotime('+'.$diff. ' months' ,strtotime($key->tanggal_tagihan)));       
+                                  $bt = date('F',strtotime($key->tanggal_tagihan));
                           
                                   echo $bt.'-'.$bs;
                               }
@@ -133,7 +133,7 @@
                         <td><?php echo $no++?>.</td>
                         <td><?php echo  $mey->nama?></td>
                         <td><?php if($mey->tanggal_tagihan == null) {
-				                echo  date('M',strtotime($mey->tanggal_pemasangan));
+				                echo  date('F',strtotime($mey->tanggal_pemasangan));
                         }elseif($mey->tanggal_tagihan != null) {
                                 
                 
@@ -146,11 +146,11 @@
 
                                 $diff  = date_diff($waktuawal, $waktuakhir);
                                 if ($diff->m == 0){
-                                 echo date('M',strtotime($mey->tanggal_tagihan));
+                                 echo date('F',strtotime($mey->tanggal_tagihan));
                               }else{
                                   $diff = $diff->m ;
-                                  $bs = date('M',strtotime('+'.$diff. ' months' ,strtotime($mey->tanggal_tagihan)));       
-                                  $bt = date('M',strtotime($mey->tanggal_tagihan));
+                                  $bs = date('F',strtotime('+'.$diff. ' months' ,strtotime($mey->tanggal_tagihan)));       
+                                  $bt = date('F',strtotime($mey->tanggal_tagihan));
                           
                                   echo $bt.'-'.$bs;
                               }

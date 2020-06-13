@@ -27,7 +27,7 @@
                         <td><?php echo  $data->nama?></td>
                         
                         <td><?php if($data->tanggal_tagihan == null) {
-				                echo  date('M',strtotime($data->tanggal_pemasangan));
+				                echo  date('F',strtotime($data->tanggal_pemasangan));
                         }elseif($data->tanggal_tagihan != null) {
                                 
                 
@@ -40,11 +40,11 @@
 
                                 $diff  = date_diff($waktuawal, $waktuakhir);
                                 if ($diff->m == 0){
-                                 echo date('M',strtotime($data->tanggal_tagihan));
+                                 echo date('F',strtotime($data->tanggal_tagihan));
                               }else{
                                   $diff = $diff->m ;
-                                  $bs = date('M',strtotime('+'.$diff. ' months' ,strtotime($data->tanggal_tagihan)));       
-                                  $bt = date('M',strtotime($data->tanggal_tagihan));
+                                  $bs = date('F',strtotime('+'.$diff. ' months' ,strtotime($data->tanggal_tagihan)));       
+                                  $bt = date('F',strtotime($data->tanggal_tagihan));
                           
                                   echo $bt.'-'.$bs;
                               }

@@ -9,6 +9,7 @@ class Pembayaran extends CI_Controller
 		parent::__construct();
 		check_not_login();
 		$this->load->model('pembayaran_m');
+		date_default_timezone_set("ASIA/JAKARTA");
 	}
 	public function index()
 	{
