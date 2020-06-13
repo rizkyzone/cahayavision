@@ -29,8 +29,26 @@
                         <td><?php if($key->tanggal_tagihan == null) {
 				                echo  date('M',strtotime($key->tanggal_pemasangan));
                         }elseif($key->tanggal_tagihan != null) {
-                          echo  date('M',strtotime($key->tanggal_tagihan));
-                        
+                                
+                
+                              
+                                $waktuawal  = date_create($key->tanggal_tagihan);
+                                
+
+                                 //waktu di setting
+                                $waktuakhir = date_create(); // waktu sekarang
+
+                                $diff  = date_diff($waktuawal, $waktuakhir);
+                                if ($diff->m == 0){
+                                 echo date('M',strtotime($key->tanggal_tagihan));
+                              }else{
+                                  $diff = $diff->m ;
+                                  $bs = date('M',strtotime('+'.$diff. ' months' ,strtotime($key->tanggal_tagihan)));       
+                                  $bt = date('M',strtotime($key->tanggal_tagihan));
+                          
+                                  echo $bt.'-'.$bs;
+                              }
+                    
 				        }?></td>
 
 
@@ -47,8 +65,26 @@
 				        }?>
 
                         </td>
-                        <td><?php echo "Rp. " . number_format($key->total_pembayaran, 0, ".", ".");  ?></td>
+                        <?php
+                                if (empty($key->tanggal_tagihan)){
+                                    $waktuawal  = date_create($key->tanggal_pemasangan);
+                                }else{
+                                   $waktuawal  = date_create($key->tanggal_tagihan);
+                                } 
+
+                                 //waktu di setting
+                                $waktuakhir = date_create(); // waktu sekarang
+
+                                $diff  = date_diff($waktuawal, $waktuakhir);?>
+                                <?php if ($diff->m == 0){
+                                    $total = $key->jumlah_televisi * 50000;
+                                }else{
+                                    $total = ($key->jumlah_televisi * 50000 * $diff->m)+( $diff->m * 10000);
+                                }?>
+                        <td>
                         
+                        <?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>
+                        </td>
                         <td class="text-center" width="160px">
                             
                         <a href="<?php echo site_url('pelanggandata/bayar/'.$key->pembayaran_id) ?>" class="btn btn-danger btn-icon-split btn-sm

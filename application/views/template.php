@@ -138,6 +138,7 @@
             <a class="collapse-item" href="<?= site_url('laporan/penambahan') ?>">Data Penambahan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pengaduan') ?>">Data Pengaduan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pemutusan') ?>">Data Pemutusan</a>
+            <a class="collapse-item" href="<?= site_url('laporan/denda') ?>">Data Denda</a>
             <a class="collapse-item" href="<?= site_url('laporan/bermasalah') ?>">Pelanggan Bermasalah</a>
             <a class="collapse-item" href="<?= site_url('laporan/rekap_teknisi') ?>">Data Rekap Teknisi</a>
             <a class="collapse-item" href="<?= site_url('laporan/rekap_kelurahan') ?>">Data Rekap Kelurahan</a>

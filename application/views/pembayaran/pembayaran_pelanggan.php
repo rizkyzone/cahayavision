@@ -19,7 +19,12 @@
 
                                 
                                 <?php $denda = $diff->m * 10000;?>
-                                <?php $total = $row->jumlah_televisi * 50000 + $diff->m * 10000;?>
+                                <?php if ($diff->m == 0){
+                                    $total = $row->jumlah_televisi * 50000;
+                                }else{
+                                    $total = ($row->jumlah_televisi * 50000 * $diff->m)+( $diff->m * 10000);
+                                }?>
+                                
                                 <?php if ($diff->m == 0){
                                     $status_pembayaran = 1;
                                 }else{
