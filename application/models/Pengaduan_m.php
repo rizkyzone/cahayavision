@@ -57,6 +57,16 @@ class Pengaduan_m extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function ambil_data_pelanggan()
+    {
+        $this->db->from('pelanggan');
+        $this->db->join('pemasangan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
+        $this->db->where('status', 2);
+        $this->db->order_by('nama', 'ASC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function rubah_status($id){
         $data = $this->get($id);
         $data = $data->result_array();

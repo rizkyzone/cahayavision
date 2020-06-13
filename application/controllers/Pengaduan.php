@@ -42,7 +42,7 @@ class Pengaduan extends CI_Controller {
 			'title' => 'Data pengaduan',
 			'row' => $pengaduan
         );
-		$data['pelanggan'] = $this->pengaduan_m->ambil_data('pelanggan');
+		$data['pelanggan'] = $this->pengaduan_m->ambil_data_pelanggan('pelanggan');
 		$data['teknisi'] = $this->pengaduan_m->ambil_data('teknisi');
        // print_r($data);die();
 		$this->template->load('template', 'pengaduan/pengaduan_form_add', $data);

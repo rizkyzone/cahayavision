@@ -24,6 +24,16 @@ class Pemutusan_m extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function ambil_data_pelanggan()
+    {
+        $this->db->from('pelanggan');
+        $this->db->join('pemasangan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
+        $this->db->where('status', 2);
+        $this->db->order_by('nama', 'ASC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function rubah_status($id){
         $data = $this->get($id);
         $data = $data->result_array();
@@ -42,9 +52,12 @@ class Pemutusan_m extends CI_Model {
         $params['pelanggan_id'] = $post['pelanggan_id'];
         $params['tanggal_pemutusan'] = $post['tgl'];
         $params['alasan_pemutusan'] = $post['alasan_pemutusan'];
-        $params['status_pemutusan'] = $post['status_pemutusan'];
+        $params['teknisi_id'] = $post['teknisi_id'];
 
         $this->db->insert('pemutusan', $params);
+        $params2['status'] = 4;
+        $this->db->where('pelanggan_id', $post['pelanggan_id']);
+        $this->db->update('pemasangan', $params2);
     }
     
     public function tambah_pemutusan($post)
