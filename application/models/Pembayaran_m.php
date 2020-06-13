@@ -301,6 +301,20 @@ class Pembayaran_m extends CI_Model {
        // echo $this->db->last_query();die();
         return $query;
     }
+    public function get_pembayarandua($id= null)
+    {
+        $this->db->from('pembayaran');
+        if($id != null){
+            $this->db->where('pembayaran.pelanggan_id', $id);
+        }
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('pemasangan' , 'pemasangan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
+        $this->db->where('status_bayar', 3);
+        $query = $this->db->get();
+        //echo $this->db->last_query();die();
+        return $query;
+    }
     public function get_pembayaran_only($id= null)
     {
         $this->db->from('pembayaran');

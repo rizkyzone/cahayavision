@@ -73,7 +73,7 @@
                             
                             <div class="form-group">
                                 <label for="disabledTextInput">Total Tagihan</label>
-                                <input type="text" name="total_pembayaran"id="disabledTextInput" value="" placeholder="<?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>" readonly class="form-control block">
+                                <input type="text" name="total_pembayaran" id="disabledTextInput" value="<?php echo $total?>" placeholder="<?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>" readonly class="form-control block">
                             </div>
                             <div class="form-group">
                             <label>Status</label>
