@@ -12,7 +12,25 @@ class Pemasangan extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "Data Pemasangan";
-		$data['row'] = $this->pemasangan_m->get();
+		$data['row'] = $this->pemasangan_m->getpending();
+		$this->template->load('template', 'pemasangan/pemasangan_data_pending', $data);
+	}
+	public function terpasang()
+	{
+		$data['title'] = "Data Pemasangan";
+		$data['row'] = $this->pemasangan_m->getterpasang();
+		$this->template->load('template', 'pemasangan/pemasangan_data', $data);
+	}
+	public function tidak_terjangkau()
+	{
+		$data['title'] = "Data Pemasangan";
+		$data['row'] = $this->pemasangan_m->getjangkauan();
+		$this->template->load('template', 'pemasangan/pemasangan_data', $data);
+	}
+	public function non_aktif()
+	{
+		$data['title'] = "Data Pemasangan";
+		$data['row'] = $this->pemasangan_m->getnonaktif();
 		$this->template->load('template', 'pemasangan/pemasangan_data', $data);
 	}
 	public function lap_pemasangan()
@@ -38,6 +56,7 @@ class Pemasangan extends CI_Controller {
         );
 		$data['pelanggan'] = $this->pemasangan_m->ambil_data('pelanggan');
 		$data['teknisi'] = $this->pemasangan_m->ambil_data('teknisi');
+		$data['harga'] = $this->pemasangan_m->ambil_data('harga');
        // print_r($data);die();
 		$this->template->load('template', 'pemasangan/pemasangan_form', $data);
 		
@@ -64,6 +83,7 @@ class Pemasangan extends CI_Controller {
 				'row' => $pemasangan
 			);
 			$data['pelanggan'] = $this->pemasangan_m->ambil_data('pelanggan');
+			$data['harga'] = $this->pemasangan_m->ambil_data('harga');
 			
 		$data['teknisi'] = $this->pemasangan_m->ambil_data('teknisi');
 			$this->template->load('template','pemasangan/pemasangan_form',$data);

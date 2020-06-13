@@ -12,9 +12,7 @@
                                 <th>Nama</th>
                                 <th>Alamat</th>
                                 <th>Kelurahan</th>
-                                <th>Tanggal Pemasangan</th>
-                                <th>Jumlah TV</th>
-                                <th>Teknisi</th>
+                                <th>Telepon</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                          </tr>
@@ -27,14 +25,7 @@
                         <td><?php echo $data->nama?></td>
                         <td><?php echo $data->address?></td>
                         <td><?php echo $data->nama_kelurahan?></td>
-                        <td><?php echo $data->tanggal_pemasangan?></td>
-                        <td><?php if ($data->jumlah_tv != null){
-                          echo $data->jumlah_tv;  echo " TV";
-                          }else{
-                            echo "";
-                          }
-                          ?></td>
-                        <td><?php echo $data->nama_teknisi?></td>
+                        <td><?php echo $data->no_telp?></td>
                         <td>
                         <?php if($data->status == 1) {
 				                echo "Belum Terpasang";

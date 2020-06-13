@@ -34,10 +34,64 @@ class Pemasangan_m extends CI_Model {
         if($id != null){
             $this->db->where('pemasangan_id', $id);
         }
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
+        $this->db->join('kelurahan' , 'kelurahan.kelurahan_id=pelanggan.kelurahan_id' , 'left');
+        $this->db->join('teknisi' , 'teknisi.teknisi_id=pemasangan.teknisi_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
         $this->db->where('status', 1);
         $query = $this->db->get();
         return $query;
     }
+    public function getterpasang($id= null)
+    {
+        $this->db->from('pemasangan');
+        if($id != null){
+            $this->db->where('pemasangan_id', $id);
+        }
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
+        $this->db->join('kelurahan' , 'kelurahan.kelurahan_id=pelanggan.kelurahan_id' , 'left');
+        $this->db->join('teknisi' , 'teknisi.teknisi_id=pemasangan.teknisi_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
+        $this->db->where('status',2);
+        
+        $this->db->order_by('pemasangan.status','asc');
+        $query = $this->db->get();
+         // echo $this->db->last_query();die();
+        return $query;
+    }
+    public function getjangkauan($id= null)
+    {
+        $this->db->from('pemasangan');
+        if($id != null){
+            $this->db->where('pemasangan_id', $id);
+        }
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
+        $this->db->join('kelurahan' , 'kelurahan.kelurahan_id=pelanggan.kelurahan_id' , 'left');
+        $this->db->join('teknisi' , 'teknisi.teknisi_id=pemasangan.teknisi_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
+        $this->db->where('status', 3);
+    
+        $query = $this->db->get();
+         // echo $this->db->last_query();die();
+        return $query;
+    }
+    public function getnonaktif($id= null)
+    {
+        $this->db->from('pemasangan');
+        if($id != null){
+            $this->db->where('pemasangan_id', $id);
+        }
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
+        $this->db->join('kelurahan' , 'kelurahan.kelurahan_id=pelanggan.kelurahan_id' , 'left');
+        $this->db->join('teknisi' , 'teknisi.teknisi_id=pemasangan.teknisi_id' , 'left');
+        $this->db->join('harga' , 'harga.jumlah_id=pemasangan.jumlah_id' , 'left');
+        $this->db->where('status', 4);
+    
+        $query = $this->db->get();
+         // echo $this->db->last_query();die();
+        return $query;
+    }
+
     public function getaktif($id= null)
     {
         $this->db->from('pemasangan');
@@ -72,7 +126,7 @@ class Pemasangan_m extends CI_Model {
     public function add($post)
     {
         $params['pelanggan_id'] = $post['pelanggan_id'];
-        $params['jumlah_televisi'] = $post['jumlah_televisi'];
+        $params['jumlah_id'] = $post['jumlah_id'];
         $params['tanggal_pemasangan'] = $post['tgl'];
         $params['teknisi_id'] = $post['teknisi_id'];
         $params['status'] = $post['status'];
@@ -82,7 +136,7 @@ class Pemasangan_m extends CI_Model {
     public function edit($post)
     {
         $params['pelanggan_id'] = $post['pelanggan_id'];
-        $params['jumlah_televisi'] = $post['jumlah_televisi'];
+        $params['jumlah_id'] = $post['jumlah_id'];
         $params['tanggal_pemasangan'] = $post['tgl'];
         $params['teknisi_id'] = $post['teknisi_id'];
         $params['status'] = $post['status'];

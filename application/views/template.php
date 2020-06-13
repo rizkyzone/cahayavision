@@ -90,11 +90,20 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('pemasangan') ?>">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
           <i class="fas fa-fw fa-tools"></i>
-          <span>Pemasangan</span></a>
+          <span>Pemasangan</span>
+        </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Pemasangan Data:</h6>
+            <a class="collapse-item" href="<?= site_url('pemasangan') ?>">Belum Terpasang</a>
+            <a class="collapse-item" href="<?= site_url('pemasangan/terpasang') ?>">Terpasang</a>
+            <a class="collapse-item" href="<?= site_url('pemasangan/tidak_terjangkau') ?>">Tidak Terjangkau</a>
+            <a class="collapse-item" href="<?= site_url('pemasangan/non_aktif') ?>">Non Aktif</a>
+          </div>
+        </div>
       </li>
-
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
           <i class="fas fa-fw fa-laptop"></i>

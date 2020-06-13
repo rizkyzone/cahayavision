@@ -35,14 +35,16 @@
                                 <input type="date" name="tgl" value="<?=$this->input->post('tgl') ?? $row->tanggal_pemasangan?>" class="form-control">
                             </div>
                             <div class="form-group">
-                            <label>Jumlah Televisi</label>
-                            <select name="jumlah_televisi" id="jumlah_televisi" class="form-control">
-                            <?php $jumlah_televisi = $this->input->post('jumlah_televisi') ? $this->input->post('jumlah_televisi') : $row->jumlah_televisi ?>
+                            <label class="control-label"><small>Jumlah TV : </small></label>
+                            <select name="jumlah_id" id="jumlah_id" class="form-control show-tick" >
                             <option value="">- Pilih -</option>
-                            
-                            <option value="1"<?=$jumlah_televisi == 1 ? 'selected' : null?>>1</option>
-                            <option value="2"<?=$jumlah_televisi == 2 ? 'selected' : null?>>2</option>
-                            <option value="3"<?=$jumlah_televisi == 3 ? 'selected' : null?>>3</option>
+                            <?php foreach ($harga as $d){ ?>
+                               <?php if($d['jumlah_id'] == ( $this->input->post('jumlah_id') ?? $row->jumlah_id)){ ?>
+                                
+                               <option value="<?php echo $d['jumlah_id'] ?>" selected ><?php echo $d['jumlah_tv'] ?></option>
+                               <?php }else{ ?>
+                            <option value="<?php echo $d['jumlah_id'] ?>"><?php echo $d['jumlah_tv'] ?></option>
+                            <?php }} ?>
                             </select>
                             </div>
                             <div class="form-group">
