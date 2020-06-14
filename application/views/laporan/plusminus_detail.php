@@ -5,9 +5,9 @@
 	<base href="<?php echo base_url() ?>">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
-    <link rel="stylesheet" href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body >
+<body onload="print()">
 	<center>
 		<table>
 			<tr>
@@ -22,25 +22,18 @@
 				</td>
 			</tr>
 		</table>
-		<h4><?php echo strtoupper($title); ?></h4>
-        <?php $tgl_awal = $this->input->post('tgl_awal');
-        $tgl_akhir = $this->input->post('tgl_akhir');?>
-        
-
-        <p><h6><?php if($tgl_awal == null and $tgl_akhir == null){
-            echo "";
-        }else{
-            echo date('d-m-Y',strtotime($tgl_awal)); ?> Sampai <?php echo date('d-m-Y',strtotime($tgl_akhir)); 
-        }?></h6></p>
+        <?php $tahun = $this->input->post('tahun');?>
+		<h4><?php echo strtoupper($title); ?> <?php echo $tahun?></h4>
 	</center>
     <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Pelanggan</th>
-                        <th>Alamat</th>
-                        <th>No Telepon</th>
-                        <th>Status</th>
+                        <th>Bulan</th>
+                        <th>Penambahan</th>
+                        <th>Bulan</th>
+                        <th>Pengurangan</th>
+                        <th>Jumlah</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,18 +41,17 @@
                     foreach($p as $x) { ?>
                     <tr>
                         <td><?php echo $no++?>.</td>
-                        <td><?php echo $x['nama']?> - <?php echo $x['no_telp']?></td>
-                        <td><?php echo $x['address']?></td>
-                        <td><?php echo $x['no_telp']?></td>
-                        <td><?php if($x['status'] == 1) {
-				                echo "Belum Terpasang";
-                        }elseif($x['status'] == 2) {
-                        echo "Terpasang";
-                        }elseif($x['status'] == 3) {
-                        echo "Tidak Terjangkau";
-                         }elseif($x['status'] == 4) {
-                        echo "Non Aktif";
-				        }?></td>
+                        <td><?php echo $x['bulan']?></td>
+                        <td><?php echo $x['num']?></td>
+                        <?php foreach($z as $p) { ?>
+                        <td><?php echo $p['month']?></td> 
+                        <td><?php echo $p['sum']?></td> 
+                        <td><?php echo $x['num'] - $p['sum'] ?></td>
+                    </tr>
+                    <?php }?>
+                        
+
+                      
                     </tr>
                     <?php
                     } ?>

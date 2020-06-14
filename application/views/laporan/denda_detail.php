@@ -48,7 +48,7 @@
                     foreach($p as $x) { ?>
                     <tr>
                         <td><?php echo $no++?>.</td>
-                        <td><?php echo $x['nama']?></td>
+                        <td><?php echo $x['nama']?> - <?php echo $x['no_telp']?> </td>
                         <td><?php if($x['tanggal_tagihan'] == null) {
 				                echo  date('M',strtotime($x['tanggal_pemasangan']));
                         }elseif($x['tanggal_tagihan'] != null) {
@@ -64,6 +64,18 @@
                     <?php
                     } ?>
                 </tbody>
+                <tfoot>
+    <tr>
+      <td colspan="4"><h5><p class="text-center">Jumlah</p></h5></td>
+      <?php $sum = 0;
+
+foreach($p as $x) {
+	$sum += $x['denda'];
+}
+       ?>
+      <td> <?php echo "Rp. " . number_format($sum, 0, ".", ".");?></td>
+    </tr>
+  </tfoot>
     </table>
     <div class="float-md-right"><strong><p> Pimpinan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></strong></div></br></br></br></br></br></br>
     <div class="float-md-right"><p><?php echo $this->fungsi->pimpinan()->name ?> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></div>

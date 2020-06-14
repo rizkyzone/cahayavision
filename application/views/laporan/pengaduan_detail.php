@@ -50,7 +50,7 @@
                     foreach($p as $x) { ?>
                     <tr>
                         <td><?php echo $no++?>.</td>
-                        <td><?php echo $x['nama']?></td>
+                        <td><?php echo $x['nama']?> </td>
                         <td><?php echo $x['keluhan']?></td>
                         <td><?php echo $x['no_telp']?></td>
                         <td><?php echo $x['tanggal_pengaduan']?></td>

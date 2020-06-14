@@ -37,8 +37,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Pelanggan</th>
-                        <th>Tagihan Bulan</th>
-                        <th>Keterangan</th>
+                        <th>Terlambat Bayar</th>
                       
                     </tr>
                 </thead>
@@ -48,21 +47,7 @@
                     <tr>
                         <td><?php echo $no++?>.</td>
                         <td><?php echo $x['nama']?></td>
-                        <td><?php if($x['tanggal_tagihan'] == null) {
-				                echo  date('M',strtotime($x['tanggal_pemasangan']));
-                        }elseif($x['tanggal_tagihan'] != null) {
-                          echo  date('M',strtotime($x['tanggal_tagihan']));
-                        
-				        }?></td>
-                        <td><?php if($x['denda'] == 10000) {
-				                echo "Terlambat Bayar 1 Bulan";
-                        }elseif($x['denda'] == 20000) {
-                        echo "Terlambat Bayar 2 Bulan";
-                        }elseif($x['status'] == 30000) {
-                        echo "Terlambat Bayar 3 Bulan";
-                         }elseif($x['status'] == 40000) {
-                        echo "Terlambat Bayar 4 Bulan";
-				        }?></td>
+                        <td><?php echo $x['num']?> Kali</td>
                         
                     </tr>
                     </tr>

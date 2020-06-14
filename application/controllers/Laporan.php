@@ -44,6 +44,10 @@ class Laporan extends CI_Controller
   {
     $this->template->load('template', 'laporan/penambahan');
   }
+  public function plusminus()
+  {
+    $this->template->load('template', 'laporan/plusminus');
+  }
 
   public function rekap_teknisi()
   {
@@ -53,6 +57,10 @@ class Laporan extends CI_Controller
   public function rekap_kelurahan()
   {
     $this->template->load('template', 'laporan/rekap_kelurahan');
+  }
+  public function tagihan()
+  {
+    $this->template->load('template', 'laporan/tagihan');
   }
 
   public function rekap_updown()
@@ -139,6 +147,14 @@ class Laporan extends CI_Controller
     $data['p'] = $this->pembayaran_m->getByDate($tgl_awal, $tgl_akhir);
     $this->load->view('laporan/pembayaran_detail', $data);
   }
+  public function laporantagihan()
+  {
+    $tgl_awal = $this->input->post('tgl_awal');
+    $tgl_akhir = $this->input->post('tgl_akhir');
+    $data['title'] = "Laporan Data Tagihan";
+    $data['p'] = $this->pembayaran_m->getByDateTagihan($tgl_awal, $tgl_akhir);
+    $this->load->view('laporan/tagihan_detail', $data);
+  }
 
   public function laporanpemutusan()
   {
@@ -195,5 +211,15 @@ class Laporan extends CI_Controller
     $pemasangan = $this->input->post('pemasangan_id');
     $data['p'] = $this->pemasangan_m->getpenambahan($pemasangan);
     $this->load->view('laporan/penambahan_detail', $data);
+  }
+
+  public function laporanplusminus()
+  {
+    $data['title'] = "Laporan Data Penambahan dan Pengurangan per Tahun";
+    $pemasangan = $this->input->post('pemasangan_id');
+    $data['p'] = $this->pemasangan_m->getpenambahan($pemasangan);
+    $pemutusan = $this->input->post('pemutusan_id');
+    $data['z'] = $this->pemasangan_m->getpengurangan($pemutusan);
+    $this->load->view('laporan/plusminus_detail', $data);
   }
 }

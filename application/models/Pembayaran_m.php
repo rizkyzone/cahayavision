@@ -152,6 +152,28 @@ class Pembayaran_m extends CI_Model {
         return $q;
         
     }
+    public function getByDateTagihan($tgl_awal, $tgl_akhir)
+    {
+        $kondisi = "";
+        $this->db->select('');
+        $this->db->from('pembayaran');
+        $this->db->join('pelanggan','pelanggan.pelanggan_id=pembayaran.pelanggan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->join('harga','harga.jumlah_id=pemasangan.jumlah_id','left');
+        $this->db->where('pembayaran.status_bayar',1);
+        if ($tgl_awal != "" && $tgl_akhir==""){
+            $this->db->where('tanggal_pembayaran >=',$tgl_awal);
+        } else if ($tgl_awal == "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pembayaran <=',$tgl_akhir);
+        } else  if ($tgl_awal != "" && $tgl_akhir!=""){
+            $this->db->where('tanggal_pembayaran >=',$tgl_awal);
+            $this->db->where('tanggal_pembayaran <=',$tgl_akhir);
+        }
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+        return $q;
+        
+    }
     public function getByDateDenda($tgl_awal, $tgl_akhir)
     {
         $kondisi = "";
@@ -178,9 +200,13 @@ class Pembayaran_m extends CI_Model {
     {
         $kondisi = "";
         $this->db->select('');
+        $this->db->select('count(pembayaran_id)as num ,pelanggan.nama');
         $this->db->from('pembayaran');
-        $this->db->join('pelanggan','pelanggan.pelanggan_id=pembayaran.pelanggan_id','left');
-        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
+
+        $this->db->group_by('nama');
+        $this->db->order_by('num', 'desc');
         $this->db->where('status_pembayaran',2);
         if ($tgl_awal != "" && $tgl_akhir==""){
             $this->db->where('tanggal_pembayaran >=',$tgl_awal);
@@ -192,7 +218,7 @@ class Pembayaran_m extends CI_Model {
         }
         $q = $this->db->get_where();
         $q = $q->result_array();
-         //echo $this->db->last_query();
+        //echo $this->db->last_query();die();
         //print_r($q);
         return $q;
         

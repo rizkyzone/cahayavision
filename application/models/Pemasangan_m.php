@@ -173,6 +173,25 @@ class Pemasangan_m extends CI_Model {
         return $q;
         
     }
+
+    public function getpengurangan($pengurangan)
+    {
+        $tahun = $this->input->post('tahun');
+        $kondisi = "";
+        $this->db->select('count(pemasangan_id) as sum');
+        $this->db->select('monthname(tanggal_pemutusan) as month');
+        $this->db->from('pemasangan');
+        $this->db->join('pelanggan','pelanggan.pelanggan_id=pemasangan.pelanggan_id','left');
+        $this->db->join('pemutusan','pemutusan.pelanggan_id=pemasangan.pelanggan_id','left');
+        $this->db->where('status','4');
+        $this->db->where('year(tanggal_pemutusan)',$tahun);
+        $this->db->group_by('month(tanggal_pemutusan)');
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+        //echo $this->db->last_query();die();
+        return $q;
+        
+    }
     public function getByDate($tgl_awal, $tgl_akhir)
     {
         $kondisi = "";
@@ -200,6 +219,7 @@ class Pemasangan_m extends CI_Model {
         $kondisi = "";
         $this->db->select('*');
         $this->db->select('count(status) as penambahan');
+        $this->db->select('count(pemutusan_id) as pengurangan');
         $this->db->from('pelanggan');
         $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
         $this->db->join('pemutusan','pemutusan.pelanggan_id=pelanggan.pelanggan_id','left');

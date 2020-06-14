@@ -43,6 +43,7 @@
                             <tr>
                         <td><?php echo $no++?>.</td>
                         <td><?php echo  $key->nama?></td>
+                        <?php echo date('d-m-Y',strtotime('+1 day' ,strtotime($key->tanggal_tagihan))); ?>
                         <td><?php if($key->tanggal_tagihan == null) {
 				                echo  date('F',strtotime($key->tanggal_pemasangan));
                         }elseif($key->tanggal_tagihan != null) {
@@ -61,10 +62,12 @@
                               }else{
                                   $diff = $diff->m ;
                                   $bs = date('F',strtotime('+'.$diff. ' months' ,strtotime($key->tanggal_tagihan)));       
-                                  $bt = date('F',strtotime($key->tanggal_tagihan));
+                                  $bs = date('F',strtotime('+ 1 day' ,strtotime($key->tanggal_tagihan))); 
                           
                                   echo $bt.'-'.$bs;
+                                  
                               }
+                              
                     
 				        }?></td>
 
@@ -94,9 +97,9 @@
 
                                 $diff  = date_diff($waktuawal, $waktuakhir);?>
                                 <?php if ($diff->m == 0){
-                                    $total = $key->jumlah_tv * 50000;
+                                    $total = $key->harga;
                                 }else{
-                                    $total = ($key->jumlah_tv * 50000 * $diff->m)+( $diff->m * $key->denda);
+                                    $total = ($key->harga * $diff->m)+( $diff->m * $key->denda);
                                 }?>
                         <td>
                         

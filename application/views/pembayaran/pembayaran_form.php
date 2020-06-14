@@ -10,9 +10,9 @@
 
                                 $diff  = date_diff($waktuawal, $waktuakhir);?>
                                 <?php if ($diff->m == 0){
-                                    $tagihan = $row->jumlah_tv * 50000;
+                                    $tagihan = $row->harga;
                                 }else{
-                                    $tagihan = $row->jumlah_tv * 50000 * $diff->m ;
+                                    $tagihan = $row->harga * $diff->m ;
                                 }?>
 
 
@@ -20,9 +20,9 @@
                                 
                                 <?php $denda = $diff->m * $row->denda;?>
                                 <?php if ($diff->m == 0){
-                                    $total = $row->jumlah_tv * 50000;
+                                    $total = $row->harga;
                                 }else{
-                                    $total = ($row->jumlah_tv * 50000 * $diff->m)+( $diff->m * $row->denda);
+                                    $total = ($row->harga * $diff->m)+( $diff->m * $row->denda);
                                 }?>
                                 
                                 <?php if ($diff->m == 0){
@@ -73,7 +73,7 @@
                             
                             <div class="form-group">
                                 <label for="disabledTextInput">Total Tagihan</label>
-                                <input type="text" name="total_pembayaran" id="disabledTextInput" value="<?php echo $total?>" placeholder="<?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>" readonly class="form-control block">
+                                <input type="text" name="total_pembayaran" id="disabledTextInput" value="<?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>" placeholder="<?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>" readonly class="form-control block">
                             </div>
                             <div class="form-group">
                             <label>Status</label>
