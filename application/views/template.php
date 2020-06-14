@@ -137,26 +137,55 @@
       <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Laporan</span>
+          <span>Pelanggan</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Laporan :</h6>
             <a class="collapse-item" href="<?= site_url('laporan/pelanggan') ?>">Data Pelanggan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pemasangan') ?>">Data Pemasangan</a>
-            <a class="collapse-item" href="<?= site_url('laporan/pembayaran') ?>">Data Pembayaran</a>
-            <a class="collapse-item" href="<?= site_url('laporan/penambahan') ?>">Data Penambahan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pengaduan') ?>">Data Pengaduan</a>
             <a class="collapse-item" href="<?= site_url('laporan/pemutusan') ?>">Data Pemutusan</a>
+           
+          </div>
+          </div>
+          
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Pembayaran</span>
+        </a>
+        <div id="collapsePage" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Laporan :</h6>
+            <a class="collapse-item" href="<?= site_url('laporan/pembayaran') ?>">Data Pembayaran</a>
+            <a class="collapse-item" href="<?= site_url('laporan/tagihan') ?>">Data Tagihan</a>
             <a class="collapse-item" href="<?= site_url('laporan/denda') ?>">Data Denda</a>
-            <a class="collapse-item" href="<?= site_url('laporan/tagihan') ?>">Data tagihan</a>
             <a class="collapse-item" href="<?= site_url('laporan/bermasalah') ?>">Pelanggan Bermasalah</a>
+           
+          </div>
+          </div>
+          
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePagez" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Rekap</span>
+        </a>
+        <div id="collapsePagez" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Laporan :</h6>
+            <a class="collapse-item" href="<?= site_url('laporan/penambahan') ?>">Data Penambahan</a>
             <a class="collapse-item" href="<?= site_url('laporan/rekap_teknisi') ?>">Data Rekap Teknisi</a>
             <a class="collapse-item" href="<?= site_url('laporan/rekap_kelurahan') ?>">Data Rekap Kelurahan</a>
             <a class="collapse-item" href="<?= site_url('laporan/plusminus') ?>">Data Rekap Kenaikan</a>
             <a class="collapse-item" href="<?= site_url('laporan/rekap_zona_belum_terjangkau') ?>">Zona Belum Terjangkau</a>
           </div>
+          </div>
+          
       </li>
+      
 
 
 

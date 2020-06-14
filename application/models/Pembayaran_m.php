@@ -200,11 +200,9 @@ class Pembayaran_m extends CI_Model {
     {
         $kondisi = "";
         $this->db->select('');
-        $this->db->select('count(pembayaran_id)as num ,pelanggan.nama');
+        $this->db->select('count(pembayaran_id)as num ,pelanggan.nama,pelanggan.no_telp');
         $this->db->from('pembayaran');
-        
         $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pembayaran.pelanggan_id' , 'left');
-
         $this->db->group_by('nama');
         $this->db->order_by('num', 'desc');
         $this->db->where('status_pembayaran',2);

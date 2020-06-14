@@ -46,7 +46,7 @@
                     foreach($p as $x) { ?>
                     <tr>
                         <td><?php echo $no++?>.</td>
-                        <td><?php echo $x['nama']?></td>
+                        <td><?php echo $x['nama']?> - <?php echo $x['no_telp']?></td>
                         <td><?php echo $x['num']?> Kali</td>
                         
                     </tr>

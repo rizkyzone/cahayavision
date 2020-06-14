@@ -209,7 +209,7 @@ class Laporan extends CI_Controller
   {
     $data['title'] = "Laporan Data Jumlah Pemasangan Tahun";
     $pemasangan = $this->input->post('pemasangan_id');
-    $data['p'] = $this->pemasangan_m->getpenambahan($pemasangan);
+    $data['p'] = $this->pemasangan_m->getplus($pemasangan);
     $this->load->view('laporan/penambahan_detail', $data);
   }
 
@@ -219,7 +219,7 @@ class Laporan extends CI_Controller
     $pemasangan = $this->input->post('pemasangan_id');
     $data['p'] = $this->pemasangan_m->getpenambahan($pemasangan);
     $pemutusan = $this->input->post('pemutusan_id');
-    $data['z'] = $this->pemasangan_m->getpengurangan($pemutusan);
+    $data['z'] = $this->pemasangan_m->getminus($pemutusan);
     $this->load->view('laporan/plusminus_detail', $data);
   }
 }

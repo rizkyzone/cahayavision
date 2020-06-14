@@ -174,7 +174,24 @@ class Pemasangan_m extends CI_Model {
         
     }
 
-    public function getpengurangan($pengurangan)
+    public function getplus($pemasangan)
+    {
+        $tahun = $this->input->post('tahun');
+        $kondisi = "";
+        $this->db->select('count(pemasangan_id) as num');
+        $this->db->select('monthname(tanggal_pemasangan) as bulan');
+        $this->db->from('pemasangan');
+        $this->db->where('status','2');
+        $this->db->where('year(tanggal_pemasangan)',$tahun);
+        $this->db->group_by('month(tanggal_pemasangan)');
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+        //echo $this->db->last_query();die();
+        return $q;
+        
+    }
+
+    public function getminus($pengurangan)
     {
         $tahun = $this->input->post('tahun');
         $kondisi = "";
