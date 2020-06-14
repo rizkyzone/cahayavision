@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2020 at 04:31 PM
+-- Generation Time: Jun 14, 2020 at 02:46 PM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `cahayavision`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `harga`
+--
+
+CREATE TABLE `harga` (
+  `jumlah_id` int(11) NOT NULL,
+  `jumlah_tv` varchar(10) NOT NULL,
+  `harga` varchar(10) NOT NULL,
+  `denda` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `harga`
+--
+
+INSERT INTO `harga` (`jumlah_id`, `jumlah_tv`, `harga`, `denda`) VALUES
+(1, '1', '50000', 10000),
+(2, '2', '100000', 10000),
+(3, '3', '150000', 10000);
 
 -- --------------------------------------------------------
 
@@ -155,8 +177,8 @@ INSERT INTO `pelanggan` (`pelanggan_id`, `nik`, `nama`, `address`, `kelurahan_id
 CREATE TABLE `pemasangan` (
   `pemasangan_id` int(11) NOT NULL,
   `pelanggan_id` int(10) NOT NULL,
-  `tanggal_pemasangan` date DEFAULT '0000-00-00',
-  `jumlah_televisi` int(1) DEFAULT NULL,
+  `tanggal_pemasangan` date DEFAULT NULL,
+  `jumlah_id` int(11) DEFAULT NULL,
   `teknisi_id` int(11) NOT NULL,
   `status` varchar(20) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -165,39 +187,39 @@ CREATE TABLE `pemasangan` (
 -- Dumping data for table `pemasangan`
 --
 
-INSERT INTO `pemasangan` (`pemasangan_id`, `pelanggan_id`, `tanggal_pemasangan`, `jumlah_televisi`, `teknisi_id`, `status`) VALUES
+INSERT INTO `pemasangan` (`pemasangan_id`, `pelanggan_id`, `tanggal_pemasangan`, `jumlah_id`, `teknisi_id`, `status`) VALUES
 (14, 15, '2020-05-29', 2, 2, '4'),
 (17, 16, '2020-05-23', 2, 3, '2'),
 (18, 18, '2020-05-29', 2, 4, '2'),
 (19, 19, '2020-06-05', 1, 3, '2'),
 (21, 21, '0000-00-00', NULL, 0, '1'),
 (22, 22, '0000-00-00', NULL, 0, '1'),
-(23, 23, '2020-06-05', 2, 4, '2'),
+(23, 23, '2020-05-05', 2, 4, '2'),
 (24, 24, '0000-00-00', NULL, 0, '1'),
-(25, 25, '2020-05-29', 2, 3, '2'),
+(25, 25, '2020-05-07', 2, 3, '2'),
 (26, 26, '0000-00-00', NULL, 0, '1'),
 (27, 27, '0000-00-00', NULL, 0, '1'),
 (28, 28, '0000-00-00', NULL, 0, '1'),
 (29, 29, '0000-00-00', NULL, 0, '1'),
 (30, 30, '2020-06-05', 1, 4, '2'),
 (31, 31, '0000-00-00', NULL, 0, '1'),
-(32, 32, '0000-00-00', 2, 2, '2'),
-(33, 33, '2020-06-05', 1, 4, '2'),
+(32, 32, '2020-05-02', 2, 2, '2'),
+(33, 33, '2020-05-01', 1, 4, '2'),
 (34, 34, '2020-06-05', 2, 1, '2'),
 (35, 35, '0000-00-00', 0, 0, '3'),
 (36, 36, '0000-00-00', NULL, 0, '1'),
 (37, 37, '0000-00-00', NULL, 0, '1'),
 (38, 38, '0000-00-00', NULL, 0, '1'),
 (39, 39, '0000-00-00', 0, 0, '3'),
-(40, 40, '0000-00-00', NULL, 0, '1'),
+(40, 40, '2020-04-10', 1, 2, '2'),
 (41, 41, '0000-00-00', NULL, 0, '1'),
 (42, 42, '0000-00-00', NULL, 0, '1'),
 (43, 43, '0000-00-00', NULL, 0, '1'),
 (44, 44, '0000-00-00', NULL, 0, '1'),
 (45, 45, '0000-00-00', NULL, 0, '1'),
-(46, 20, '2020-06-01', 2, 4, '4'),
-(49, 46, '2020-05-31', 2, 1, '2'),
-(50, 47, '2020-06-01', 1, 2, '2');
+(46, 20, '2020-04-01', 2, 4, '4'),
+(49, 46, '2020-05-05', 2, 1, '2'),
+(50, 47, '2020-05-12', 1, 2, '2');
 
 -- --------------------------------------------------------
 
@@ -208,12 +230,13 @@ INSERT INTO `pemasangan` (`pemasangan_id`, `pelanggan_id`, `tanggal_pemasangan`,
 CREATE TABLE `pembayaran` (
   `pembayaran_id` int(11) NOT NULL,
   `pelanggan_id` int(11) NOT NULL,
-  `tanggal_pembayaran` date NOT NULL,
-  `metode_pembayaran` varchar(30) DEFAULT NULL,
-  `tujuan_transfer` varchar(11) DEFAULT NULL,
+  `tanggal_pembayaran` date DEFAULT NULL,
+  `tanggal_tagihan` date DEFAULT NULL,
+  `metode_pembayaran` varchar(30) DEFAULT NULL COMMENT '1. Kasir 2. Transfer',
+  `tujuan_transfer` varchar(11) DEFAULT NULL COMMENT '1. BCA 2.Dana 3.OVO',
   `total_pembayaran` varchar(40) DEFAULT NULL,
   `denda` varchar(20) NOT NULL,
-  `status_bayar` varchar(20) NOT NULL DEFAULT '1' COMMENT '1. belum bayar 2. lunas',
+  `status_bayar` varchar(20) NOT NULL DEFAULT '1' COMMENT '1. belum bayar 2. Menunggu Validasi 3. Lunas',
   `status_pembayaran` varchar(11) NOT NULL COMMENT '1.tepat waktu 2. terlambat',
   `image` varchar(100) DEFAULT 'default.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -222,18 +245,27 @@ CREATE TABLE `pembayaran` (
 -- Dumping data for table `pembayaran`
 --
 
-INSERT INTO `pembayaran` (`pembayaran_id`, `pelanggan_id`, `tanggal_pembayaran`, `metode_pembayaran`, `tujuan_transfer`, `total_pembayaran`, `denda`, `status_bayar`, `status_pembayaran`, `image`) VALUES
-(26, 15, '2020-05-14', '', '', '', '', '3', '0', 'default.jpg'),
-(31, 16, '2020-05-13', '', '', '', '', '3', '0', 'pembayaran-2020-05-28_17-01-49.jpg'),
-(33, 46, '0000-00-00', NULL, NULL, NULL, '', '1', '0', 'default.jpg'),
-(37, 34, '0000-00-00', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
-(38, 30, '0000-00-00', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
-(39, 32, '0000-00-00', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
-(40, 25, '0000-00-00', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
-(41, 18, '2020-06-05', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
-(42, 47, '0000-00-00', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
-(43, 33, '0000-00-00', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
-(44, 19, '0000-00-00', NULL, NULL, NULL, '', '1', '', 'default.jpg');
+INSERT INTO `pembayaran` (`pembayaran_id`, `pelanggan_id`, `tanggal_pembayaran`, `tanggal_tagihan`, `metode_pembayaran`, `tujuan_transfer`, `total_pembayaran`, `denda`, `status_bayar`, `status_pembayaran`, `image`) VALUES
+(31, 16, '2020-06-11', NULL, '2', '1', '100000', '0', '3', '1', 'pembayaran-2020-05-28_17-01-49.jpg'),
+(37, 34, NULL, NULL, NULL, NULL, '', '', '1', '', 'default.jpg'),
+(38, 30, NULL, NULL, NULL, NULL, NULL, '', '1', '', 'default.jpg'),
+(39, 32, NULL, NULL, NULL, NULL, NULL, '', '1', '', 'default.jpg'),
+(40, 25, '2020-06-09', NULL, '2', '2', '110000', '10000', '3', '2', 'pembayaran-2020-06-09_06-19-55.jpg'),
+(41, 18, NULL, NULL, NULL, NULL, NULL, '', '1', '', 'default.jpg'),
+(43, 33, '2020-06-11', NULL, '2', '1', '60000', '10000', '3', '2', 'pembayaran-2020-06-11_06-17-41.png'),
+(44, 19, NULL, NULL, NULL, NULL, NULL, '', '1', '', 'default.jpg'),
+(51, 46, '2020-06-13', NULL, '2', '1', '110000', '10000', '3', '2', 'pembayaran-2020-06-13_10-54-56.png'),
+(52, 25, NULL, '2020-06-09', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
+(55, 33, NULL, '2020-06-11', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
+(56, 23, '2020-06-11', NULL, '2', '2', '110000', '10000', '3', '2', 'pembayaran-2020-06-11_06-37-16.jpg'),
+(58, 23, NULL, '2020-06-11', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
+(59, 16, NULL, '2020-06-11', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
+(60, 40, '2020-06-11', NULL, '2', '2', '120000', '20000', '3', '2', 'default.jpg'),
+(61, 40, NULL, '2020-06-11', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
+(62, 47, '2020-06-13', NULL, '2', '2', '60000', '10000', '3', '2', 'pembayaran-2020-06-13_04-23-28.png'),
+(63, 47, NULL, '2020-06-13', NULL, NULL, NULL, '', '1', '', 'default.jpg'),
+(69, 15, '2020-06-30', NULL, '2', '2', '100000', '0', '3', '1', 'default.jpg'),
+(70, 20, '2020-05-20', NULL, '1', '3', '110000', '10000', '3', '2', 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -277,7 +309,7 @@ CREATE TABLE `pengaduan` (
 --
 
 INSERT INTO `pengaduan` (`pengaduan_id`, `pelanggan_id`, `keluhan`, `tanggal_pengaduan`, `teknisi_id`, `status_pengaduan`) VALUES
-(4, 15, 'Suara Delay', '2020-05-23', 3, '2'),
+(4, 15, 'Suara Delay', '2020-05-23', 3, '3'),
 (7, 20, 'Sinyal Hilang', '2020-05-29', 3, '3'),
 (8, 16, 'Sinyal Hilang', '2020-06-01', 2, '3'),
 (9, 22, 'Sinyal Hilang', '2020-05-31', 2, '2'),
@@ -339,6 +371,12 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `name`, `address`, `level
 --
 
 --
+-- Indexes for table `harga`
+--
+ALTER TABLE `harga`
+  ADD PRIMARY KEY (`jumlah_id`);
+
+--
 -- Indexes for table `kelurahan`
 --
 ALTER TABLE `kelurahan`
@@ -393,6 +431,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `harga`
+--
+ALTER TABLE `harga`
+  MODIFY `jumlah_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `kelurahan`
 --
 ALTER TABLE `kelurahan`
@@ -414,7 +458,7 @@ ALTER TABLE `pemasangan`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `pembayaran_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `pembayaran_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `pemutusan`
