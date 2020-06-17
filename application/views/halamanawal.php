@@ -111,7 +111,7 @@
             <div class="row mt-4 py-5">
                 <div class="col-lg-6">
                     <div class="features-img text-center mt-5">
-                        <img src="<?=base_url()?>assets/land/images/features/img-8.png" class="img-fluid" alt="">
+                        <img src="https://1.bp.blogspot.com/-zhC2H8O53sM/XGGV4mAqfgI/AAAAAAAABG8/aZi-_jBBl-0JzNfuW_KHvdRDGktxzahmQCLcBGAs/s1600/1.jpg" class="img-fluid" alt="">
                     </div>
                 </div>
 
@@ -145,7 +145,7 @@
 
                 <div class="col-lg-6">
                     <div class="features-img text-center mt-5">
-                        <img src="<?=base_url()?>assets/land/images/features/img-9.png" class="img-fluid" alt="">
+                        <img src="https://blogteknologigadget.files.wordpress.com/2012/09/tv-kabel-1.jpg" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
@@ -154,60 +154,9 @@
     </section>
     <!-- END FEATURES -->
 
-    <!-- START COUNTER -->
-    <section class="section counter">
-        <div class="container">
-            
+   
 
-        </div>
-    </section>
-    <!-- END COUNTER -->
-
-    <!-- START SREENSHORT -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="title-heading text-center text-white">Quick Software Overview</h1>
-                    <p class="title-desc text-center text-white-50 mt-4">Tentesque habitant morbi tristique senectus et netus malesuada fames turpis egestas quisque congue felis euismod Vestibulum ac vitae fringilla.</p>
-                </div>
-            </div>
-
-            <!-- Swiper -->
-            <div class="row mt-5">
-                <div class="col-lg-12 swiper-container">
-                    <div class="swiper-wrapper mt-4">
-                        <div class="swiper-slide">
-                            <img src="<?=base_url()?>assets/land/images/screen/img-4.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?=base_url()?>assets/land/images/screen/img-2.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?=base_url()?>assets/land/images/screen/img-3.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?=base_url()?>assets/land/images/screen/img-1.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?=base_url()?>assets/land/images/screen/img-5.jpg" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
-                    <!-- Add Arrows  -->
-                    <div class="swiper-button-next">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </div>
-                    <div class="swiper-button-prev ">
-                        <i class="mdi mdi-chevron-left"></i>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- END SREENSHORT -->
+    
 
     <!-- START PRICING -->
     <section class="section bg-dark" id="pricing">
@@ -215,7 +164,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="title-heading text-center text-white">Harga</h1>
-                    <p class="title-desc text-center text-white-50 mt-4">Hanya dengan Rp. 150.000 iuran bulanan ditagih diawal bulan</p>
+                    <p class="title-desc text-center text-white-50 mt-4">Hanya dengan Rp. 150.000 Biasa Pemasangan, Tagihan dibayar bulan berikutnya.</p>
                 </div>
             </div>
 
@@ -226,7 +175,7 @@
                 <div class="col-lg-12">
                     <div class="pricing-box-active text-center bg-light p-5 mt-5">
                         <h3 class="pricing-plan text-uppercase">1 TV</h3>
-                        <h2 class="pricing-price text-white mt-5 mb-0">Rp. 42.000</h2>
+                        <h2 class="pricing-price text-white mt-5 mb-0">Rp. 50.000</h2>
                         <p class="pricing-month mt-1">Per Bulan</p>
                         <div class="plan-features mt-5">
                             <p>Channel: <b>36++</b></p>
@@ -249,246 +198,10 @@
     </section>
     <!-- END PRICING -->
 
-    <!-- START CLIENT -->
-    <section class="section bg-client" id="clients">
-        <div class="container">
+   
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="title-heading text-center text-white">What they've said</h1>
-                    <p class="title-desc text-center text-white-50 mt-4">In an ideal world this website wouldn’t exist, a client would acknowledge the importance of having web copy before the design starts.</p>
-                </div>
-            </div>
-
-            <div class="row mt-5 justify-content-center">
-                <div class="col-lg-8">
-                    <div id="owl-demo">
-
-                        <div class="client-content text-center mt-4">
-                            <div class="clinet-img">
-                                <img src="images/users/img-1.jpg" class="img-fluid rounded-circle" alt="">
-                            </div>
-                            <h5 class="mt-4 text-white">Raymond Sloan</h5>
-                            <p class="f-12 text-white">Web Developer</p>
-                            <p class="f-16 client-desc text-white-50">"Aenean vehicula neque turpis at dictum purus malesuada Aenean risus ex sollicitudin nec pharetra in cursus aliquet."</p>
-                        </div>
-
-                        <div class="client-content text-center mt-4">
-                            <div class="clinet-img">
-                                <img src="images/users/img-2.jpg" class="img-fluid rounded-circle" alt="">
-                            </div>
-                            <h5 class="mt-4 text-white">Mary Shriner</h5>
-                            <p class="f-12 text-white">Web Designer</p>
-                            <p class="f-16 client-desc text-white-50">"Aenean vehicula neque turpis at dictum purus malesuada Aenean risus ex sollicitudin nec pharetra in cursus aliquet."</p>
-                        </div>
-
-                        <div class="client-content text-center mt-4">
-                            <div class="clinet-img">
-                                <img src="images/users/img-3.jpg" class="img-fluid rounded-circle" alt="">
-                            </div>
-                            <h5 class="mt-4 text-white">Robert Garrett</h5>
-                            <p class="f-12 text-white">Web Developer</p>
-                            <p class="f-16 client-desc text-white-50">"Aenean vehicula neque turpis at dictum purus malesuada Aenean risus ex sollicitudin nec pharetra in cursus aliquet."</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END CLIENT -->
-
-    <!-- START CLIENT-LOGO -->
-    <section class="client-logo pt-5 pb-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="client-images">
-                        <img src="<?=base_url()?>assets/land/images/clients/1.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="client-images">
-                        <img src="<?=base_url()?>assets/land/images/clients/2.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                    </div>
-                </div>
-                <div class="col-lg-3 ">
-                    <div class="client-images">
-                        <img src="<?=base_url()?>assets/land/images/clients/3.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="client-images">
-                        <img src="<?=base_url()?>assets/land/images/clients/4.png" alt="logo-img" class="mx-auto img-fluid d-block">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END CLIENT-LOGO -->
-
-    <!-- START VIDEO -->
-    <section class="section bg-light video">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center">
-                        <h5 class="f-15 text-white-50 text-uppercase">Watch video online today</h5>
-                        <h3 class="cta-title line-height_1_6 mt-4">A digital web design studio creating modern &amp; engaging online experiences.</h3>
-                        <div class="mt-5">
-                            <div class="watch-video">
-                                <a href="http://vimeo.com/99025203" class="video-play-icon-trigger text-white">
-                                    <i class="mdi mdi-play play-icon-circle play play-icon f-20"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END VIDEO -->
-
-    <!-- START FAQ -->
-    <section class="section bg-dark" id="faq">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="title-heading text-center text-white">Frequently Asked Questions</h1>
-                    <p class="title-desc text-center text-white-50 mt-4">Tentesque habitant morbi tristique senectus et netus malesuada fames turpis egestas quisque congue felis euismod Vestibulum ac vitae fringilla.</p>
-                </div>
-            </div>
-
-            <div class="row mt-5 vertical-content">
-                <div class="col-lg-6">
-                    <div class="mt-4">
-                        <div class="faq mt-3">
-                            <div class="faq-icon float-left">
-                                <i class="mdi mdi-help-circle"></i>
-                            </div>
-                            <div class="faq-content pl-4">
-                                <h5 class="faq-title mt-2 f-18 text-white">Is safe use Lorem Ipsum?</h5>
-                                <p class="mb-0 text-white-50  mt-3">Voluptatem customer to your store easily publish your coupans manage to catch one of your coupens.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq mt-3">
-                            <div class="faq-icon float-left">
-                                <i class="mdi mdi-help-circle"></i>
-                            </div>
-                            <div class="faq-content pl-4">
-                                <h5 class="faq-title mt-2 f-18 text-white">What is Lorem Ipsum?</h5>
-                                <p class="mb-0 text-white-50 mt-3">Donec vitae consectetur quis pharetra tellus nullam vehicula augue posuere ultrices aliquet venenatis.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq mt-3">
-                            <div class="faq-icon float-left">
-                                <i class="mdi mdi-help-circle"></i>
-                            </div>
-                            <div class="faq-content pl-4">
-                                <h5 class="faq-title mt-2 f-18 text-white">Why use Lorem Ipsum?</h5>
-                                <p class="mb-0 text-white-50 mt-3">Sollicitudin erat a orci posuere maximus nullam elementum egestas vivamus posuere mauris donec.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="mt-4">
-                        <div class="faq mt-3">
-                            <div class="faq-icon float-left">
-                                <i class="mdi mdi-help-circle"></i>
-                            </div>
-                            <div class="faq-content pl-4">
-                                <h5 class="faq-title mt-2 f-18 text-white">What is Lorem Ipsum?</h5>
-                                <p class="mb-0 text-white-50 mt-3">Voluptatem customer to your store easily publish your coupans manage to catch one of your coupens.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq mt-3">
-                            <div class="faq-icon float-left">
-                                <i class="mdi mdi-help-circle"></i>
-                            </div>
-                            <div class="faq-content pl-4">
-                                <h5 class="faq-title mt-2 f-18 text-white">How many variations exist?</h5>
-                                <p class="mb-0 text-white-50 mt-3">Donec vitae consectetur quis pharetra tellus nullam vehicula augue posuere ultrices aliquet venenatis.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq mt-3">
-                            <div class="faq-icon float-left">
-                                <i class="mdi mdi-help-circle"></i>
-                            </div>
-                            <div class="faq-content pl-4">
-                                <h5 class="faq-title mt-2 f-18 text-white">When can be used?</h5>
-                                <p class="mb-0 text-white-50 mt-3">Sollicitudin erat a orci posuere maximus nullam elementum egestas vivamus posuere mauris donec.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- END FAQ -->
-
-    <!-- START CONTACT -->
-    <section class="section bg-light" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="title-heading text-center text-white">Contact Us</h1>
-                    <p class="title-desc text-center text-white-50 mt-4">Tentesque habitant morbi tristique senectus et netus malesuada fames turpis egestas quisque congue felis euismod Vestibulum ac vitae fringilla.</p>
-                </div>
-            </div>
-
-            <div class="row justify-content-center mt-5">
-                <div class="col-lg-10">
-                    <div class="custom-form mt-3">
-                        <div id="message"></div>
-                        <form method="post" action="php/contact.php" name="contact-form" id="contact-form">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group mt-2">
-                                        <input name="name" id="name" class="form-control" placeholder="Name" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group mt-2">
-                                        <input name="email" id="email" class="form-control" placeholder="Email" type="email">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group mt-2">
-                                        <input class="form-control" id="subject" placeholder="Subject" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group mt-2">
-                                        <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Massage"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 mt-3 text-center">
-                                    <input id="submit" name="send" class="submitBnt btn btn-custom btn-round" value="Send Message" type="submit">
-                                    <div id="simple-msg"></div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END CONTACT -->
+    
+   
 
     <!-- START FOOTER -->
     <section class="footer">

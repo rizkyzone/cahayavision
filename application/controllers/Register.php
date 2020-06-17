@@ -46,7 +46,7 @@ class Register extends CI_Controller
 
 			$this->pelanggan_m->add($post);
 			if ($this->db->affected_rows() > 0) {
-				echo "<script> alert('Data berhasil disimpan');</script>";
+				echo "<script> alert('Pendaftaran Berhasil');</script>";
 			}
 			echo "<script>window.location='" . site_url('auth/login_pelanggan') . "';</script>";
 		}

@@ -21,7 +21,7 @@
 
 </head>
 
-<body class="bg-gradient-dark">
+<body class="bg-gradient-warning">
 
   <div class="container">
 
