@@ -150,6 +150,20 @@ class Pembayaran_m extends CI_Model {
         $q = $this->db->get_where();
         $q = $q->result_array();
         return $q;
+    }
+    public function lastpayment()
+    {
+        $kondisi = "";
+        $this->db->select('');
+        $this->db->from('pembayaran');
+        $this->db->join('pelanggan','pelanggan.pelanggan_id=pembayaran.pelanggan_id','left');
+        $this->db->join('pemasangan','pemasangan.pelanggan_id=pelanggan.pelanggan_id','left');
+        $this->db->where('pembayaran.status_bayar',3);
+        $this->db->limit(8);
+        $this->db->order_by('tanggal_pembayaran','DESC');
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+        return $q;
         
     }
     public function getByDateTagihan($tgl_awal, $tgl_akhir)

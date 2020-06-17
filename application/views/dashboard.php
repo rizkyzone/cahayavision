@@ -72,7 +72,62 @@
         </div>
       </div>
     </div>
-
+    
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="card card-warning">
+              <div class="card-header"><h4>Kelurahan Terbanyak</h4> 
+                  
+    </div> 
+    
+      <div class="card-body">
+      <table class="table table-hover table-bordered">
+          <tbody>
+              <tr>
+                <th>No</th>
+                <th>Nama Kelurahan</th>
+                <th>Jumlah Pelanggan</th>
+              </tr> 
+              <?php $no = 1;
+                    foreach($p as $x) { ?>
+                    <tr>
+                        <td><?php echo $no++?>.</td>
+                        <td><?php echo $x['nama_kelurahan']?></td>
+                        <td><?php echo $x['num']?></td>
+                        
+                    </tr>
+                    <?php
+                    } ?>
+          </tbody>
+      </table>
+      </div></div></div> 
+      <div class="col-lg-6 col-md-6 col-12">
+      <div class="card card-warning">
+              <div class="card-header"><h4>Pembayaran Terakhir</h4> 
+                 
+    </div> 
+    
+      <div class="card-body">
+      <table class="table table-hover table-bordered">
+          <tbody>
+              <tr>
+                <th>Nama</th>
+                <th>Tanggal</th>
+                <th>&nbsp &nbsp Nominal &nbsp &nbsp</th>
+              </tr> 
+              <?php $no = 1;
+                    foreach($lastpembayaran as $z) { ?>
+                    <tr>
+                        <td><?php echo $z['nama']?></td>
+                        <td><?php echo $z['tanggal_pembayaran']?></td>
+                        <td><?php echo "Rp. " . number_format($z['total_pembayaran'], 0, ".", ".");  ?></td>
+                        
+                    </tr>
+                    <?php
+                    } ?>
+          </tbody>
+      </table>
+      </div></div></div> 
     <!-- Content Row -->
     </div>
     <!-- /.container-fluid -->

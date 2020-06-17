@@ -8,6 +8,7 @@ class Pelanggandata extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+		check_not_login2();
 		$this->load->model('pelanggan_m');
 		$this->load->model('pemasangan_m');
 		$this->load->model('pembayaran_m');

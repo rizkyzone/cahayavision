@@ -30,16 +30,16 @@
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Pemutusan</label>
-                                <input type="date" name="tgl" value="<?=$this->input->post('tgl') ?? $row->tanggal_pemutusan?>" class="form-control">
+                                <input type="date" name="tgl" value="<?=$this->input->post('tgl') ?? $row->tanggal_pemutusan?>" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Alasan Pemutusan</label>
-                                <textarea name="alasan_pemutusan" class="form-control"><?=$this->input->post('alasan_pemutusan') ?? $row->alasan_pemutusan?></textarea>
+                                <textarea name="alasan_pemutusan" class="form-control" required><?=$this->input->post('alasan_pemutusan') ?? $row->alasan_pemutusan?></textarea>
                                 
                             </div>
                             <div class="form-group">
                             <label class="control-label"><small>Nama Teknisi : </small></label>
-                            <select name="teknisi_id" id="teknisi_id" class="form-control show-tick" >
+                            <select name="teknisi_id" id="teknisi_id" class="form-control show-tick" required>
                             <option value="">- Pilih -</option>
                             <?php foreach ($teknisi as $d){ ?>
                                <?php if($d['teknisi_id'] == ( $this->input->post('teknisi_id') ?? $row->teknisi_id)){ ?>

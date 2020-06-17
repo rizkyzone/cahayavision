@@ -1,11 +1,11 @@
     <!-- Page Heading -->
     <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tambah Data Pelanggan</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tambah Data Teknisi</h6>
             </div>
                  <div class="card-body">
                  <div class="my-2">
-                    <a href="<?php echo site_url('pelanggan/') ?>" class="btn btn-warning btn-icon-split">
+                    <a href="<?php echo site_url('teknisi/') ?>" class="btn btn-warning btn-icon-split">
                     <span class="icon text-white-50">
                     <i class="fas fa-undo"></i>
                     </span>

@@ -17,58 +17,58 @@ class Jumlahtv extends CI_Controller {
 		$this->template->load('template', 'jumlahtv/jumlahtv_data', $data);
 	}
 
-	public function add() #function edit dan add
+	public function add()
 	{
-		$jumlahtv = new stdClass();
-		$jumlahtv->jumlah_id = null;
-		$jumlahtv->jumlah_tv = null;
-		$jumlahtv->harga = null;
-		$jumlahtv->denda = null;
-		$data = array(
-			'page' => 'add',
-			'title' => 'Data Harga',
-			'row' => $jumlahtv
-        );
 		
-       // print_r($data);die();
-		$this->template->load('template', 'jumlahtv/jumlahtv_form', $data);
+		$this->form_validation->set_rules('jumlah_tv', 'Jumlah TV', 'required|max_length[1]');
+		$this->form_validation->set_rules('harga', 'Harga', 'required');
+		$this->form_validation->set_rules('denda', 'Denda', 'required');
+		$this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('max_length', '{field} maksimal 1 karakter');
+		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
+		if ($this->form_validation->run() == FALSE) {
+			
+			$this->template->load('template', 'jumlahtv/jumlahtv_form_add');
+		} else {
+			$post = $this->input->post(null, TRUE);
+			
+			$this->jumlahtv_m->add($post);
+			if($this->db->affected_rows() > 0) {
+				echo "<script> alert('Data berhasil disimpan');</script>";
+			}
+				echo "<script>window.location='".site_url('jumlahtv')."';</script>";
+		}
 		
-    }
+		
+	}
     
 
 	public function edit($id)
 	{
-		$query = $this->jumlahtv_m->get($id);
-		if($query->num_rows() > 0) {
-			$jumlahtv = $query->row();
-			$data = array(
-				'page' => 'edit',
-				'title' => 'Data Harga',
-				'row' => $jumlahtv
-			);
-			
-			$this->template->load('template','jumlahtv/jumlahtv_form',$data);
-		
-		}else{
+	
+		$this->form_validation->set_rules('jumlah_tv', 'Jumlah TV', 'required|max_length[1]');
+		$this->form_validation->set_rules('harga', 'Harga', 'required');
+		$this->form_validation->set_rules('denda', 'Denda', 'required');
+		$this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+        $this->form_validation->set_message('max_length', '{field} maksimal 1 karakter');
+		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
+		if ($this->form_validation->run() == FALSE) {
+			$query = $this->jumlahtv_m->get($id);
+			if($query->num_rows() > 0) {
+				$data['row'] = $query->row();
+				$this->template->load('template', 'jumlahtv/jumlahtv_form_edit', $data);
+			}else {
 				echo "<script> alert('Data tidak ditemukan');";
 				echo "window.location='".site_url('jumlahtv')."';</script>";
-		}
-		
-	}
-
-	public function process()
-	{
-		$post = $this->input->post(null, TRUE);
-		if(isset($_POST['add'])){
-			$this->jumlahtv_m->add($post);
-		}else if(isset($_POST['edit'])){
+			}
+		} else {
+			$post = $this->input->post(null, TRUE);
 			$this->jumlahtv_m->edit($post);
-			
+			if($this->db->affected_rows() > 0) {
+				echo "<script> alert('Data berhasil disimpan');</script>";
+			}
+				echo "<script>window.location='".site_url('jumlahtv')."';</script>";
 		}
-		if($this->db->affected_rows() > 0) {
-			echo "<script> alert('Data berhasil disimpan');</script>";
-		}
-			echo "<script>window.location='".site_url('jumlahtv')."';</script>";
 	}
 
 	public function del($id)

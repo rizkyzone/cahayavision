@@ -116,6 +116,25 @@ class Pelanggan_m extends CI_Model
         return $q;
         
     }
+    public function jumlahKelurahan()
+    {
+        $kondisi = "";
+        $this->db->select('count(pemasangan.pelanggan_id)as num ,kelurahan.nama_kelurahan');
+        $this->db->from('pemasangan');
+        $this->db->join('pelanggan' , 'pelanggan.pelanggan_id=pemasangan.pelanggan_id' , 'left');
+        $this->db->join('kelurahan' , 'kelurahan.kelurahan_id=pelanggan.kelurahan_id' , 'left');
+        $this->db->group_by('kelurahan.nama_kelurahan');
+        $this->db->where('pemasangan.status', 2);
+        $this->db->limit(8);
+        $this->db->order_by('num','DESC');
+        $q = $this->db->get_where();
+        $q = $q->result_array();
+       // echo $this->db->last_query();die();
+        //print_r($q);
+        return $q;
+        
+    }
+
     public function getByDateRekapBelumTerjangkau($tgl_awal, $tgl_akhir)
     {
         $kondisi = "";
