@@ -8,6 +8,7 @@ class Jumlahtv extends CI_Controller {
 		parent::__construct();
 		check_not_login();
 		$this->load->model('jumlahtv_m');
+		$this->load->library('form_validation');
 	}
 	public function index()
 	{

@@ -88,6 +88,7 @@
                             <label>Metode Pembayaran</label>
                             <select name="metode_pembayaran" id="metode_pembayaran" class="form-control">
                             <?php $metode_pembayaran = $this->input->post('metode_pembayaran') ? $this->input->post('metode_pembayaran') : $row->status_bayar ?>
+                            <option value="0">- Pilih -</option>
                             <option value="1"<?=$metode_pembayaran == 1 ? 'selected' : null?>>Kasir</option>
                             <option value="2"<?=$metode_pembayaran == 2 ? 'selected' : null?>>Transfer</option>
                             </select>

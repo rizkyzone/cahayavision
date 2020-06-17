@@ -32,17 +32,17 @@
                             </div>
                             <div class="form-group ">
                                 <label>Keluhan *</label>
-                                <input type="text" name="keluhan" value="<?= set_value('keluhan') ?>" class="form-control ">
+                                <input type="text" name="keluhan" value="<?= set_value('keluhan') ?>" class="form-control " required>
 
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Pengaduan</label>
-                                <input type="date" name="tgl" value="<?= set_value('tgl') ?>" class="form-control">
+                                <input type="date" name="tgl" value="<?= set_value('tgl') ?>" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label"><small>Nama Teknisi : </small></label>
-                                <select name="teknisi_id" id="teknisi_id" class="form-control show-tick">
+                                <select name="teknisi_id" id="teknisi_id" class="form-control show-tick" required>
                                     <option value="">- Pilih -</option>
                                     <?php foreach ($teknisi as $d) { ?>
                                         <?php if ($d['teknisi_id'] == ($this->input->post('teknisi_id') ?? $row->teknisi_id)) { ?>

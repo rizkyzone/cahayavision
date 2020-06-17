@@ -65,7 +65,7 @@
                                 if ($diff->m == 0){
                                  echo date('F',strtotime($x['tanggal_tagihan']));
                               }else{
-                                  $diff = $diffm ;
+                                  $diff = $diff->m ;
                                   $bs = date('F',strtotime('+'.$diff. ' months' ,strtotime($x['tanggal_tagihan'])));       
                                   $bt = date('F',strtotime($x['tanggal_tagihan']));
                           

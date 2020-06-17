@@ -20,15 +20,15 @@
                             <div class="form-group">
                                 <label class="control-label"><small>Jumlah TV</small></label>
                                 <input type="hidden" name="jumlah_id" value="<?php echo $row->jumlah_id ?>">
-                                <input type="text" name="jumlah_tv" value="<?=$this->input->post('jumlah_tv') ?? $row->jumlah_tv?>" class="form-control ">
+                                <input type="text" name="jumlah_tv" value="<?=$this->input->post('jumlah_tv') ?? $row->jumlah_tv?>" class="form-control " required>
                             </div>
                             <div class="form-group ">
                                 <label>Harga</label>
-                                <input type="text" name="harga" value="<?=$this->input->post('harga') ?? $row->harga?>" class="form-control ">
+                                <input type="text" name="harga" value="<?=$this->input->post('harga') ?? $row->harga?>" class="form-control " required>
                             </div>
                             <div class="form-group ">
                                 <label>Denda Jika Terlambat Bayar</label>
-                                <input type="text" name="denda" value="<?=$this->input->post('denda') ?? $row->denda?>" class="form-control ">
+                                <input type="text" name="denda" value="<?=$this->input->post('denda') ?? $row->denda?>" class="form-control " required>
                             </div>
                             <div class="form-group">
                                 <button type="submit" name="<?php echo $page ?>" class="btn btn-success btn-flat">

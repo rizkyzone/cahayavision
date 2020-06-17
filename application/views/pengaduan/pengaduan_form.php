@@ -31,7 +31,7 @@
                             </div>
                             <div class="form-group ">
                                 <label>Keluhan *</label>
-                                <input type="text" name="keluhan" value="<?=$this->input->post('keluhan') ?? $row->keluhan?>"class="form-control ">
+                                <input type="text" name="keluhan" value="<?=$this->input->post('keluhan') ?? $row->keluhan?>"class="form-control " >
                                
                             </div>
                             <div class="form-group">

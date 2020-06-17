@@ -54,7 +54,7 @@
                     <td><?php echo $pm['plus'] ?></td>
                     <td><?php echo $pm['minus'] ?></td>
                     <td><?php
-                        $hasil = $pm['plus'] + $pm['minus'];
+                        $hasil = $pm['plus'] - $pm['minus'];
 
                         if ($hasil > 0) {
                             echo '<font color="blue">' . $hasil . '</font>';

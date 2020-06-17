@@ -162,14 +162,15 @@ class Pembayaran_m extends CI_Model {
         $this->db->join('harga','harga.jumlah_id=pemasangan.jumlah_id','left');
         $this->db->where('pembayaran.status_bayar',1);
         if ($tgl_awal != "" && $tgl_akhir==""){
-            $this->db->where('tanggal_pembayaran >=',$tgl_awal);
+            $this->db->where('tanggal_tagihan >=',$tgl_awal);
         } else if ($tgl_awal == "" && $tgl_akhir!=""){
-            $this->db->where('tanggal_pembayaran <=',$tgl_akhir);
+            $this->db->where('tanggal_tagihan <=',$tgl_akhir);
         } else  if ($tgl_awal != "" && $tgl_akhir!=""){
-            $this->db->where('tanggal_pembayaran >=',$tgl_awal);
-            $this->db->where('tanggal_pembayaran <=',$tgl_akhir);
+            $this->db->where('tanggal_tagihan >=',$tgl_awal);
+            $this->db->where('tanggal_tagihan <=',$tgl_akhir);
         }
         $q = $this->db->get_where();
+        echo $this->db->last_query();
         $q = $q->result_array();
         return $q;
         
