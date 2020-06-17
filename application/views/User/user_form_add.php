@@ -47,7 +47,6 @@
                                     <select name="level" class="form-control <?=form_error('level')? 'is-invalid' : null?>">
                                         <option value="">- Pilih - </option>
                                         <option value="1"<?=set_value('level') == 1 ? "selected" : null?>>Admin</option>
-                                        <option value="2"<?=set_value('level') == 2 ? "selected" : null?>>Teknisi</option>
                                         <option value="3"<?=set_value('level') == 3 ? "selected" : null?>>Pimpinan</option>
                                     </select>
                                     <?=form_error('level')?>
