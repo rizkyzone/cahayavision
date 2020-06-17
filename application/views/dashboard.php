@@ -76,7 +76,7 @@
     <div class="row">
         <div class="col-lg-6 col-md-6 col-12">
             <div class="card card-warning">
-              <div class="card-header"><h4>Kelurahan Terbanyak</h4> 
+              <div class="card-header"><h6 class="m-0 font-weight-bold text-primary">Kelurahan Terbanyak</h6>
                   
     </div> 
     
@@ -103,7 +103,7 @@
       </div></div></div> 
       <div class="col-lg-6 col-md-6 col-12">
       <div class="card card-warning">
-              <div class="card-header"><h4>Pembayaran Terakhir</h4> 
+              <div class="card-header"><h6 class="m-0 font-weight-bold text-primary">Pembayaran Terakhir</h6>
                  
     </div> 
     
