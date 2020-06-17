@@ -181,7 +181,7 @@ class Laporan extends CI_Controller
     $data['p'] = $this->pengaduan_m->getByDate($tgl_awal, $tgl_akhir);
     $this->load->view('laporan/pengaduan_detail', $data);
   }
-  
+
 
   public function laporankelurahan()
   {
@@ -209,17 +209,17 @@ class Laporan extends CI_Controller
   {
     $data['title'] = "Laporan Data Jumlah Pemasangan Tahun";
     $pemasangan = $this->input->post('pemasangan_id');
-    $data['p'] = $this->pemasangan_m->getplus($pemasangan);
+    $data['p'] = $this->pemasangan_m->getpenambahan($pemasangan);
     $this->load->view('laporan/penambahan_detail', $data);
   }
 
   public function laporanplusminus()
   {
     $data['title'] = "Laporan Data Penambahan dan Pengurangan per Tahun";
-    $pemasangan = $this->input->post('pemasangan_id');
-    $data['p'] = $this->pemasangan_m->getpenambahan($pemasangan);
-    $pemutusan = $this->input->post('pemutusan_id');
-    $data['z'] = $this->pemasangan_m->getminus($pemutusan);
+    $tahun = $this->input->post('tahun');
+
+    $data['plusminus'] = $this->pemasangan_m->getplusminus($tahun);
+
     $this->load->view('laporan/plusminus_detail', $data);
   }
 }
