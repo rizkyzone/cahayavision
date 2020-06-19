@@ -52,6 +52,8 @@
                             <label class="control-label"><small>Nama Pelanggan : </small></label>
                             <input type="hidden" name="id" value="<?php echo $row->pembayaran_id?>">
                             <input type="hidden" name="status_pembayaran" value="<?php echo $status_pembayaran?>">
+                            <input type="hidden" name="denda" value="<?php echo $denda?>">
+                                <input type="hidden" name="total_pembayaran" value="<?php echo $total?>">
                             <select name="pelanggan_id" id="pelanggan_id" class="form-control selectpicker show-tick" data-live-search="true">
                             <?php foreach ($pelanggan as $d){ ?>
                                <?php if($d['pelanggan_id'] == ( $this->input->post('pelanggan_id') ?? $row->pelanggan_id)){ ?>
@@ -68,12 +70,12 @@
                             
                             <div class="form-group">
                                 <label for="disabledTextInput">Denda</label>
-                                <input type="text" id="disabledTextInput" value="<?php echo "Rp. " . number_format($denda, 0, ".", ".");  ?>" readonly class="form-control block">
+                                <input type="text" id="disabledTextInput" placeholder="<?php echo "Rp. " . number_format($denda, 0, ".", ".");  ?>"readonly class="form-control block">
                             </div>
                             
                             <div class="form-group">
                                 <label for="disabledTextInput">Total Tagihan</label>
-                                <input type="text" name="total_pembayaran" id="disabledTextInput" value="<?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>" placeholder="<?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>" readonly class="form-control block">
+                                <input type="text" id="disabledTextInput" placeholder="<?php echo "Rp. " . number_format($total, 0, ".", ".");  ?>"  readonly class="form-control block">
                             </div>
                             <div class="form-group">
                             <label>Status</label>
