@@ -6,6 +6,13 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link rel="stylesheet" href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css">
+    <style>
+        .tandatangan {
+            text-align: center;
+            margin-left: 600px;
+            line-height: 5em;
+        }
+    </style>
 </head>
 <body >
 	<center>
@@ -33,7 +40,7 @@
             echo date('d-m-Y',strtotime($tgl_awal)); ?> Sampai <?php echo date('d-m-Y',strtotime($tgl_akhir)); 
         }?></h6></p>
 	</center>
-    <table class="table table-bordered">
+    <table style="width: 70%; margin-left:auto; margin-right:auto;" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -65,5 +72,9 @@
                     } ?>
                 </tbody>
     </table>
-    <div class="float-md-right"><strong><p> Pimpinan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></strong></div></br></br></br></br></br></br>
-    <div class="float-md-right"><p><?php echo $this->fungsi->pimpinan()->name ?> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></div>
+    <div class="tandatangan">
+        Pimpinan
+    </div>
+    <div class="tandatangan">
+        <?php echo $this->fungsi->pimpinan()->name ?>
+    </div>

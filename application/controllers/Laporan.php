@@ -189,6 +189,7 @@ class Laporan extends CI_Controller
     $data['kelurahan'] = $this->pelanggan_m->ambil_data_kelurahan();
     $data['title'] = "Laporan Data Pelanggan Perkelurahan";
     $data['p'] = $this->pembayaran_m->getkelurahan($kelurahan);
+    $data['limit'] = $this->pembayaran_m->getkelurahanlimit($kelurahan);
     $data['belum'] = $this->pelanggan_m->getjumlah1($kelurahan);
     $data['sudah'] = $this->pelanggan_m->getjumlah2($kelurahan);
     $data['tidak'] = $this->pelanggan_m->getjumlah3($kelurahan);

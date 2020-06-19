@@ -6,6 +6,13 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tandatangan {
+            text-align: center;
+            margin-left: 600px;
+            line-height: 5em;
+        }
+    </style>
 </head>
 <body onload="print()">
 	<center>
@@ -25,7 +32,7 @@
         <?php $tahun = $this->input->post('tahun');?>
 		<h4><?php echo strtoupper($title); ?> <?php echo $tahun?></h4>
 	</center>
-    <table class="table table-bordered">
+    <table style="width: 70%; margin-left:auto; margin-right:auto;" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -48,5 +55,9 @@
                     } ?>
                 </tbody>
     </table>
-    <div class="float-md-right"><strong><p> Pimpinan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></strong></div></br></br></br></br></br></br>
-    <div class="float-md-right"><p><?php echo $this->fungsi->pimpinan()->name ?> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p></div>
+    <div class="tandatangan">
+        Pimpinan
+    </div>
+    <div class="tandatangan">
+        <?php echo $this->fungsi->pimpinan()->name ?>
+    </div>
