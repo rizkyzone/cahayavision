@@ -176,7 +176,7 @@ class Pemasangan_m extends CI_Model
 
     public function getplusminus($tahun)
     {
-        $query = $this->db->query('SELECT A.bulan, COALESCE(A.plus,0) as plus, COALESCE(B.minus,0) as minus FROM (SELECT monthname(tanggal_pemasangan) as bulan, count(pemasangan_id) as plus FROM pemasangan WHERE status = "2" AND year(tanggal_pemasangan) = ' . $tahun . ' GROUP BY month(tanggal_pemasangan)) AS A LEFT JOIN (SELECT monthname(tanggal_pemasangan) as bulan, count(pemasangan_id) as minus FROM pemasangan LEFT JOIN pelanggan ON pelanggan.pelanggan_id=pemasangan.pelanggan_id LEFT JOIN pemutusan ON pemutusan.pelanggan_id=pemasangan.pelanggan_id WHERE status = "4" AND year(tanggal_pemutusan) = ' . $tahun . ' GROUP BY month(tanggal_pemutusan)) AS B ON A.bulan = B.bulan');
+        $query = $this->db->query('SELECT A.bulan, COALESCE(A.plus,0) as plus, COALESCE(B.minus,0) as minus FROM (SELECT monthname(tanggal_pemasangan) as bulan, count(pemasangan_id) as plus FROM pemasangan WHERE status = "2" AND year(tanggal_pemasangan) = ' . $tahun . ' GROUP BY month(tanggal_pemasangan)) AS A LEFT JOIN (SELECT monthname(tanggal_pemutusan) as bulan, count(pemasangan_id) as minus FROM pemasangan LEFT JOIN pelanggan ON pelanggan.pelanggan_id=pemasangan.pelanggan_id LEFT JOIN pemutusan ON pemutusan.pelanggan_id=pemasangan.pelanggan_id WHERE status = "4" AND year(tanggal_pemutusan) = ' . $tahun . ' GROUP BY month(tanggal_pemutusan)) AS B ON A.bulan = B.bulan');
         return $query->result_array();
     }
 

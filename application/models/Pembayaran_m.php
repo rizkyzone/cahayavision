@@ -184,7 +184,7 @@ class Pembayaran_m extends CI_Model {
             $this->db->where('tanggal_tagihan <=',$tgl_akhir);
         }
         $q = $this->db->get_where();
-        echo $this->db->last_query();
+        //echo $this->db->last_query();
         $q = $q->result_array();
         return $q;
         

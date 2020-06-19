@@ -159,4 +159,23 @@ class Pembayaran extends CI_Controller
 		}
 		redirect('pembayaran');
 	}
+	public function nota($id)
+	{
+		
+		$query = $this->pembayaran_m->get($id);
+		if($query->num_rows() > 0) {
+			$pembayaran = $query->row();
+			$data = array(
+				'page' => 'nota',
+				'title' => 'Nota Pembayaran',
+				'row' => $pembayaran
+			);
+			$this->load->view('pembayaran/nota_pembayaran',$data);
+		
+		}else{
+				echo "<script> alert('Data tidak ditemukan');";
+				echo "window.location='".site_url('pembayaran')."';</script>";
+		}
+		
+	}
 }

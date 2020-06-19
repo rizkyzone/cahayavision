@@ -75,15 +75,24 @@
 				                echo "btn btn-success btn-sm disabled";  }else{
                                     echo "btn btn-danger btn-sm";  }    ?>
                   ">
+                  
                     <span class="icon text-white-50">
                     </span>
                     <span class="text">
                     <?php if($data->status_bayar == 3) {
-                         echo "Sudah Lunas";  }else{
+                         echo "Lunas";  }else{
                             echo "Konfirmasi Pembayaran";  }    ?>
             
                     </span>
                   </a>
+                  <a href="<?php echo site_url('pembayaran/nota/'.$data->pembayaran_id)?>" class="
+                  <?php if($data->status_bayar != 3) {
+                    echo " btn btn-primary btn-sm disabled";  }else{
+                      echo " btn btn-primary btn-sm";  }    ?>
+                  ">
+                  
+                  <i class="fas fa-print"></i>
+                                </a>
                             </form>
                         </td>
                     </tr>
