@@ -72,7 +72,7 @@
 
 
                         
-                        <td><?php echo $key->tanggal_pembayaran?></td>
+                        <td><?php echo date('d-F-Y',strtotime($key->tanggal_pembayaran));?></td>
                         <td><img src="<?= base_url('uploads/'.$key->image) ?>"width="64"></td>
                         <td>
                         <?php if($key->status_bayar == 1) {
@@ -161,7 +161,7 @@
 
 
                         
-                        <td><?php echo $mey->tanggal_pembayaran?></td>
+                        <td><?php echo date('d-F-Y',strtotime($mey->tanggal_pembayaran));?></td>
                         <td><img src="<?= base_url('uploads/'.$mey->image) ?>"width="64"></td>
                         <td>
                         <?php if($mey->status_bayar == 1) {

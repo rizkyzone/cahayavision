@@ -35,7 +35,7 @@
                         <td><?php echo $data->nama?></td>
                         <td><?php echo $data->alasan_pemutusan?></td>
                         <td><?php echo $data->no_telp?></td>
-                        <td><?php echo $data->tanggal_pemutusan?></td>
+                        <td><?php echo date('d-F-Y',strtotime($data->tanggal_pemutusan));?></td>
                         <td><?php echo $data->nama_teknisi?></td>
                         <td>
                         <?php if($data->status == 1) {

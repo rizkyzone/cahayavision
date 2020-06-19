@@ -45,6 +45,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Pelanggan</th>
+                        <th>Tanggal Pemasangan</th>
                         <th>Alamat</th>
                         <th>No Telepon</th>
                         <th>Status</th>
@@ -56,6 +57,8 @@
                     <tr>
                         <td><?php echo $no++?>.</td>
                         <td><?php echo $x['nama']?> - <?php echo $x['no_telp']?></td>
+                        
+                        <td><?php echo date('d-F-Y',strtotime($x['tanggal_pemasangan']));?></td>
                         <td><?php echo $x['address']?></td>
                         <td><?php echo $x['no_telp']?></td>
                         <td><?php if($x['status'] == 1) {

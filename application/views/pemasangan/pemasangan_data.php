@@ -27,7 +27,7 @@
                         <td><?php echo $data->nama?></td>
                         <td><?php echo $data->address?></td>
                         <td><?php echo $data->nama_kelurahan?></td>
-                        <td><?php echo $data->tanggal_pemasangan?></td>
+                        <td><?php echo date('d-F-Y',strtotime($data->tanggal_pemasangan));?></td>
                         <td><?php if ($data->jumlah_tv != null){
                           echo $data->jumlah_tv;  echo " TV";
                           }else{

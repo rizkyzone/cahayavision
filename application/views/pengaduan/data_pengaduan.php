@@ -39,7 +39,7 @@
                       <td><?php echo  $key->nama ?></td>
                       <td><?php echo  $key->keluhan ?></td>
                       <td><?php echo  $key->no_telp ?></td>
-                      <td><?php echo $key->tanggal_pengaduan ?></td>
+                      <td><?php echo date('d-F-Y',strtotime($key->tanggal_pengaduan));?></td>
                       <td><?php echo $key->nama_teknisi ?></td>
                       <td>
                         <?php if ($key->status_pengaduan == 1) {

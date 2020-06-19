@@ -62,7 +62,7 @@
                           echo  date('M',strtotime($x['tanggal_tagihan']));
                         
 				        }?></td>
-                        <td><?php echo $x['tanggal_pembayaran']?></td>
+                        <td><?php echo date('d-F-Y',strtotime($x['tanggal_pembayaran']));?></td>
                         <td><?php echo "Rp. " . number_format($x['denda'], 0, ".", ".");  ?></td>
                         
                         

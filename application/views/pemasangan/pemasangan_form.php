@@ -68,6 +68,7 @@
                             <option value="1"<?=$status == 1 ? 'selected' : null?>>Belum Terpasang</option>
                             <option value="2"<?=$status == 2 ? 'selected' : null?>>Terpasang</option>
                             <option value="3"<?=$status == 3 ? 'selected' : null?>>Belum Terjangkau</option>
+                            <option value="3"<?=$status == 4 ? 'selected' : null?>>Non Aktif</option>
                             </select>
                             </div>
                             <div class="form-group">

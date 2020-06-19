@@ -60,7 +60,7 @@
                         <td><?php echo $x['nama']?> </td>
                         <td><?php echo $x['keluhan']?></td>
                         <td><?php echo $x['no_telp']?></td>
-                        <td><?php echo $x['tanggal_pengaduan']?></td>
+                        <td><?php echo date('d-F-Y',strtotime($x['tanggal_pengaduan']));?></td>
                         <td><?php echo $x['nama_teknisi']?></td>
                        
                         <td>

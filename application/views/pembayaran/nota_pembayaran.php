@@ -36,7 +36,7 @@
   <tr>
     <td>Tanggal</td>
     <td>:</td>
-    <td> <?php echo $row->tanggal_pembayaran?></td>
+    <td><?php echo date('d-F-Y',strtotime($row->tanggal_pembayaran));?></td>
   </tr>
   <tr>
     <td>Jumlah TV</td>

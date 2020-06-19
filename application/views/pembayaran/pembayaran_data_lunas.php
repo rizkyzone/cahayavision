@@ -27,7 +27,7 @@
                         <td><?php echo $no++?>.</td>
                         <td><?php echo  $data->nama?></td>
                         
-                        <td><?php echo $data->tanggal_pembayaran?></td>
+                        <td><?php echo date('d-F-Y',strtotime($data->tanggal_pembayaran));?></td>
                         <td><img src="<?= base_url('uploads/'.$data->image) ?>"width="64"></td>
                         <td>
                         <?php if($data->status_bayar == 1) {

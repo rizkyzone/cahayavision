@@ -47,7 +47,7 @@
                         <th>Nama Pelanggan</th>
                         <th>Keluhan</th>
                         <th>Telepon</th>
-                        <th>Tanggal Pengaduan</th>
+                        <th>Tanggal Pemutusan</th>
                         <th>Teknisi</th>
                         <th>Status Pelanggan</th>
                     </tr>
@@ -60,7 +60,7 @@
                         <td><?php echo $x['nama']?> - <?php echo $x['no_telp']?></td>
                         <td><?php echo $x['alasan_pemutusan']?></td>
                         <td><?php echo $x['no_telp']?></td>
-                        <td><?php echo $x['tanggal_pemutusan']?></td>
+                        <td><?php echo date('d-F-Y',strtotime($x['tanggal_pemutusan']));?></td>
                         <td><?php echo $x['nama_teknisi']?></td>
                        
                         <td>

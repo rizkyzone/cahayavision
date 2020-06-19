@@ -40,7 +40,7 @@
                         <td><?php echo  $key->nama?></td>
                         <td><?php echo  $key->no_telp?></td>
                         <td><?php echo  $key->alasan_pemutusan?></td>
-                        <td><?php echo  $key->tanggal_pemutusan?></td>
+                        <td><?php echo date('d-F-Y',strtotime($key->tanggal_pemutusan));?></td>
                        
                     </tr>
                   <?php
