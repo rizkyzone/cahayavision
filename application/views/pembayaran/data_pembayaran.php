@@ -43,7 +43,6 @@
                             <tr>
                         <td><?php echo $no++?>.</td>
                         <td><?php echo  $key->nama?></td>
-                        <?php echo date('d-m-Y',strtotime('+1 day' ,strtotime($key->tanggal_tagihan))); ?>
                         <td><?php if($key->tanggal_tagihan == null) {
 				                echo  date('F',strtotime($key->tanggal_pemasangan));
                         }elseif($key->tanggal_tagihan != null) {
@@ -62,7 +61,7 @@
                               }else{
                                   $diff = $diff->m ;
                                   $bs = date('F',strtotime('+'.$diff. ' months' ,strtotime($key->tanggal_tagihan)));       
-                                  $bs = date('F',strtotime('+ 1 day' ,strtotime($key->tanggal_tagihan))); 
+                                  $bt = date('F',strtotime($key->tanggal_tagihan));
                           
                                   echo $bt.'-'.$bs;
                                   
