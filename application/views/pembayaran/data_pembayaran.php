@@ -72,7 +72,13 @@
 
 
                         
-                        <td><?php echo date('d-F-Y',strtotime($key->tanggal_pembayaran));?></td>
+                        <td><?php if($key->tanggal_pembayaran == null) {
+				                echo "";
+                        }elseif($key->tanggal_pembayaran != null) {
+                            echo date('d-F-Y',strtotime($key->tanggal_pembayaran));
+                        }
+				        ?></td>
+
                         <td><img src="<?= base_url('uploads/'.$key->image) ?>"width="64"></td>
                         <td>
                         <?php if($key->status_bayar == 1) {
@@ -161,7 +167,12 @@
 
 
                         
-                        <td><?php echo date('d-F-Y',strtotime($mey->tanggal_pembayaran));?></td>
+<td><?php if($mey->tanggal_pembayaran == null) {
+				                echo "";
+                        }elseif($mey->tanggal_pembayaran != null) {
+                            echo date('d-F-Y',strtotime($mey->tanggal_pembayaran));
+                        }
+				        ?></td>
                         <td><img src="<?= base_url('uploads/'.$mey->image) ?>"width="64"></td>
                         <td>
                         <?php if($mey->status_bayar == 1) {
