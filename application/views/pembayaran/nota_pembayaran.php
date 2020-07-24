@@ -44,9 +44,9 @@
     <td> <?php echo $row->jumlah_tv?></td>
   </tr>
   <tr>
-    <td>Harga</td>
+    <td>Total Bayar</td>
     <td>:</td>
-    <td><?php echo "Rp. " . number_format($row->harga, 0, ".", ".");  ?></td>
+    <td><?php echo "Rp. " . number_format($row->total_pembayaran, 0, ".", ".");  ?></td>
   </tr>
   
   <tr>

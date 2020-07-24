@@ -73,103 +73,85 @@
       </div>
     </div>
     
-              <!-- Content Row -->
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="card card-warning">
+              <div class="card-header"><h6 class="m-0 font-weight-bold text-primary">Kelurahan Terbanyak</h6>
+                  
+    </div> 
+    
+      <div class="card-body">
+      <table class="table table-hover table-bordered">
+          <tbody>
+              <tr>
+                <th>No</th>
+                <th>Nama Kelurahan</th>
+                <th>Jumlah Pelanggan</th>
+              </tr> 
+              <?php $no = 1;
+                    foreach($p as $x) { ?>
+                    <tr>
+                        <td><?php echo $no++?>.</td>
+                        <td><?php echo $x['nama_kelurahan']?></td>
+                        <td><?php echo $x['num']?></td>
+                        
+                    </tr>
+                    <?php
+                    } ?>
+          </tbody>
+      </table>
+      </div></div></div> 
+      <div class="col-lg-6 col-md-6 col-12">
+      <div class="card card-warning">
+              <div class="card-header"><h6 class="m-0 font-weight-bold text-primary">Pembayaran Terakhir</h6>
+                 
+    </div> 
+    
+      <div class="card-body">
+      <table class="table table-hover table-bordered">
+          <tbody>
+              <tr>
+                <th>Nama</th>
+                <th>Tanggal</th>
+                <th>&nbsp &nbsp Nominal &nbsp &nbsp</th>
+              </tr> 
+              <?php $no = 1;
+                    foreach($lastpembayaran as $z) { ?>
+                    <tr>
+                        <td><?php echo $z['nama']?></td>
+                        <td><?php echo $z['tanggal_pembayaran']?></td>
+                        <td><?php echo "Rp. " . number_format($z['total_pembayaran'], 0, ".", ".");  ?></td>
+                        
+                    </tr>
+                    <?php
+                    } ?>
+          </tbody>
+      </table>
+      </div></div></div>
 
-              <div class="row">
-
-<!-- Area Chart -->
-<div class="col-xl-8 col-lg-7">
-  <div class="card shadow mb-4">
-    <!-- Card Header - Dropdown -->
-    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h6 class="m-0 font-weight-bold text-primary">Penambahan Pelanggan</h6>
-      <div class="dropdown no-arrow">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-          <div class="dropdown-header">Dropdown Header:</div>
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-    </div>
-    <!-- Card Body -->
-    <div class="card-body">
-      <div class="chart-area">
-      <canvas id="myChart2"></canvas>
-      </div>
-      <?php
-    //Inisialisasi nilai variabel awal
-    $nama_bulan= "";
-    $jumlah=null;
-    foreach ($hasil2 as $item)
-    {
-        $jur=$item->bulan;
-        $nama_bulan .= "'$jur'". ", ";
-        $jum=$item->num;
-        $jumlah .= "$jum". ", ";
-    }
-    ?>
-<script>
-    var ctx = document.getElementById('myChart2').getContext('2d');
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'bar',
-        // The data for our dataset
-        data: {
-            labels: [<?php echo $nama_bulan; ?>],
-            datasets: [{
-                label:'Data Penambahan',
-                backgroundColor: ['rgb(255, 99, 132)', 'rgba(56, 86, 255, 0.87)', 'rgb(60, 179, 113)','rgb(175, 238, 239)'],
-                borderColor: ['rgb(255, 99, 132)'],
-                
-                data: [<?php echo $jumlah; ?>]
-            }]
-        },
-        // Configuration options go here
-        options: {
-          scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero: true
-            }
-        }]
-    }
-        }
-    });
-</script>
-    </div>
-  </div>
-</div>
-
-<!-- Pie Chart -->
-<div class="col-xl-4 col-lg-5">
-  <div class="card shadow mb-4">
-    <!-- Card Header - Dropdown -->
-    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h6 class="m-0 font-weight-bold text-primary">Kelurahan Terbanyak</h6>
-      <div class="dropdown no-arrow">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-          <div class="dropdown-header">Dropdown Header:</div>
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-    </div>
-    <!-- Card Body -->
-    <div class="card-body">
-      <div class="chart-pie pt-6 pb-2">
-      <canvas id="myChart"></canvas>
-      </div>
-      
+       <!-- Area Chart -->
+       <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Data Kelurahan Terbanyak</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area">
+                  <canvas id="myChart"></canvas>
     <?php
     //Inisialisasi nilai variabel awal
     $nama_kelurahan= "";
@@ -186,7 +168,7 @@
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
         // The type of chart we want to create
-        type: 'doughnut',
+        type: 'bar',
         // The data for our dataset
         data: {
             labels: [<?php echo $nama_kelurahan; ?>],
@@ -199,15 +181,21 @@
         },
         // Configuration options go here
         options: {
-           
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
         }
     });
 </script>
-    </div>
-  </div>
-</div>
-</div>
-      
+                  </div>
+                </div>
+              </div>
+            </div> 
+            
 
     <!-- Content Row -->
     </div>

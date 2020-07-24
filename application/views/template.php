@@ -14,7 +14,7 @@
   <!-- Custom fonts for this template-->
   <link href="<?= base_url() ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <script src="<?= base_url() ?>assets/chartjs/Chart.js"></script>
   <!-- Bootstrap Core CSS -->
   <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
@@ -350,6 +350,7 @@
     <script src="<?= base_url() ?>assets/vendor/datatables/datatables.min.js"></script>
     <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap-select.min.js"></script>
+    
     <!-- Core plugin JavaScript-->
     <script src="<?= base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->

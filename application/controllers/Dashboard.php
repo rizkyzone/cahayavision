@@ -11,6 +11,8 @@ class Dashboard extends CI_Controller {
 		check_not_login();
 		check_admin();
 		$data['p'] = $this->pelanggan_m->jumlahKelurahan();
+		$data['hasil'] = $this->pelanggan_m->chartkelurahan();
+		$data['hasil2'] = $this->pelanggan_m->chartpenambahan();
 		$data['lastpembayaran'] = $this->pembayaran_m->lastpayment();
 		$this->template->load('template', 'dashboard', $data);
 	}

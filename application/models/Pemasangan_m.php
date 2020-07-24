@@ -149,7 +149,6 @@ class Pemasangan_m extends CI_Model
     }
     function pembayaran_add($pelanggan_id)
     {
-
         $params['pelanggan_id'] = $pelanggan_id;
         $this->db->insert('pembayaran', $params);
     }
