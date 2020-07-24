@@ -42,7 +42,7 @@
                         
                         <td class="text-center" width="160px">
                             <form action="<?php echo site_url('pemasangan/del')?>"method="post">
-                                <a href="<?php echo site_url('pemasangan/edit/'.$data->pemasangan_id) ?>" class="btn btn-primary btn-circle btn-sm">
+                                <a href="<?php echo site_url('pemasangan/proses/'.$data->pemasangan_id) ?>" class="btn btn-primary btn-circle btn-sm">
                                 <i class="fas fa-edit"></i> 
                                 </a>
                             

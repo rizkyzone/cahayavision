@@ -8,6 +8,8 @@ class Pemasangan extends CI_Controller {
 		parent::__construct();
 		check_not_login();
 		$this->load->model('pemasangan_m');
+		
+		$this->load->library('form_validation');
 	}
 	public function index()
 	{
@@ -91,6 +93,39 @@ class Pemasangan extends CI_Controller {
 		}else{
 				echo "<script> alert('Data tidak ditemukan');";
 				echo "window.location='".site_url('pemasangan')."';</script>";
+		}
+		
+	}
+
+	public function proses($id)
+	{
+		$this->form_validation->set_rules('tgl', 'Tanggal', 'required');
+		$this->form_validation->set_rules('jumlah_id', 'Jumlah TV', 'required');
+		$this->form_validation->set_rules('teknisi_id', 'Teknisi', 'required');
+		$this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+		$this->form_validation->set_message('min_length', '{field} minimal 5 karakter');
+		$this->form_validation->set_message('is_unique', '{field} sudah dipakai');
+		$this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
+
+		if ($this->form_validation->run() == FALSE) {
+			$query = $this->pemasangan_m->get($id);
+			if ($query->num_rows() > 0) {
+				$data['row'] = $query->row();
+				$data['pelanggan'] = $this->pemasangan_m->ambil_data('pelanggan');
+				$data['teknisi'] = $this->pemasangan_m->ambil_data('teknisi');
+				$data['harga'] = $this->pemasangan_m->ambil_data('harga');
+				$this->template->load('template', 'pemasangan/pemasangan_form_proses', $data);
+			} else {
+				echo "<script> alert('Data tidak ditemukan');";
+				echo "window.location='" . site_url('pemasangan') . "';</script>";
+			}
+		} else {
+			$post = $this->input->post(null, TRUE);
+			$this->pemasangan_m->proses($post);
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('success', 'Data Berhasil Disimpan');
+			}
+			redirect('pemasangan');
 		}
 		
 	}

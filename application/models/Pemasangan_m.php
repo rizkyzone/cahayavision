@@ -144,6 +144,18 @@ class Pemasangan_m extends CI_Model
 
         $this->db->where('pemasangan_id', $post['pemasangan_id']);
         $this->db->update('pemasangan', $params);
+       
+    }
+    public function proses($post)
+    {
+        $params['pelanggan_id'] = $post['pelanggan_id'];
+        $params['jumlah_id'] = $post['jumlah_id'];
+        $params['tanggal_pemasangan'] = $post['tgl'];
+        $params['teknisi_id'] = $post['teknisi_id'];
+        $params['status'] = $post['status'];
+
+        $this->db->where('pemasangan_id', $post['pemasangan_id']);
+        $this->db->update('pemasangan', $params);
         if ($params['status'] == 2)
             $this->pembayaran_add($params['pelanggan_id']);
     }
