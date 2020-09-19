@@ -7,6 +7,7 @@ class Dashboard_pelanggan extends CI_Controller {
 	public function index()
 	{
 		check_not_login2();
+		check_verif();
 		$this->template->load('template4', 'dashboard_pelanggan');
 	}
 }

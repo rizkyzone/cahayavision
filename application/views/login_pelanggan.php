@@ -47,6 +47,18 @@
                     <div class="form-group">
                       <input type="password" name="password" class="form-control form-control-user" placeholder="Password">
                     </div>
+                    <?php 
+                    echo "<div class='form-group row'>
+                    <div class='col-sm-3 mb-3 mb-sm-0'>
+                    <input class='form-control form-control-user' type='number' value='".rand(1,10)."' name='angka1' autocomplete=off readonly=on></div>
+                     +
+                     <div class='col-sm-3'> 
+                    <input class='form-control form-control-user' type='number' value='".rand(1,10)."' name='angka2' autocomplete=off  readonly=on></div>
+                     = 
+                     <div class='col-sm-5'> 
+                    <input  class='form-control form-control-user' type='number' name='c' placeholder='Jawaban' autocomplete=off required></div></div>";
+                    
+                    ?>
                     <button type="submit" name=login class="btn btn-dark btn-user btn-block">Sign In</button>
                     <hr>
                   </form>

@@ -37,4 +37,13 @@ function check_admin() {
     }elseif($ci->fungsi->user_login()->level == 3){
         redirect('dashboard_pimpinan');
     }
+    
+}
+
+function check_verif() {
+    $ci =& get_instance();
+    $ci->load->library('fungsi');
+    if($ci->fungsi->user_login2()->active != 1) {
+        redirect('auth/verif_email');
+    }
 }

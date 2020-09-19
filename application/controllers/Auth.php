@@ -8,6 +8,14 @@ class Auth extends CI_Controller {
 		check_already_login();
 		$this->load->view('login');
 	}
+	public function verif_email()
+	{
+		$this->load->view('verif_email');
+	}
+	public function email_aktif()
+	{
+		$this->load->view('email_aktif');
+	}
 	public function login_pelanggan()
 	{
 		check_already_login2();
@@ -15,6 +23,14 @@ class Auth extends CI_Controller {
 	}
 	public function process()
 	{
+		$angka=($this->input->post('angka1'))+($this->input->post('angka2'));
+		$hasil=($this->input->post('c'));
+		if ($angka!=$hasil){
+			echo "<script>
+			alert('MAAF CAPTHA SALAH');
+			window.location='".site_url('auth/logout')."';	
+			</script>";
+		}
 		$post = $this->input->post(null, TRUE);
 		if(isset($post['login'])){
 			$this->load->model('user_m');
@@ -53,6 +69,14 @@ class Auth extends CI_Controller {
 	}
 	public function process_login()
 	{
+		$angka=($this->input->post('angka1'))+($this->input->post('angka2'));
+		$hasil=($this->input->post('c'));
+		if ($angka!=$hasil){
+			echo "<script>
+			alert('MAAF CAPTHA SALAH');
+			window.location='".site_url('auth/logout2')."';	
+			</script>";
+		}
 		$post = $this->input->post(null, TRUE);
 		if(isset($post['login'])){
 			$this->load->model('pelanggan_m');

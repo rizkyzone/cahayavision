@@ -88,7 +88,7 @@
                                       }      
                                 } ?>
                                
-                                <input type="file" name="image" class="form-control">
+                                <input type="file" name="image" class="form-control" required>
                                 <small>(biarkan kosong jika tidak <?=$page == 'edit' ? 'diganti' : 'ada'?>)</small>
                             </div>
                             <div class="form-group">

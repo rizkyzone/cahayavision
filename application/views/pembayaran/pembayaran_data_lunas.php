@@ -81,7 +81,7 @@
                     <span class="text">
                     <?php if($data->status_bayar == 3) {
                          echo "Lunas";  }else{
-                            echo "Konfirmasi Pembayaran";  }    ?>
+                            echo "Konfirmasi";  }    ?>
             
                     </span>
                   </a>
